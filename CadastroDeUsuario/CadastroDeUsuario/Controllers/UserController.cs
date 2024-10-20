@@ -40,6 +40,7 @@ namespace CadastroDeUsuario.Controllers
         [HttpGet("GetUserByName")]
         public List<string> GetUserByName(string name)
         {
+             return  new List<string>();
         }
     }
 }
