@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+//CREAT, READ, UPDATE E DELETE.
 namespace CadastroDeUsuario.Controllers
 {
     public class UserController : Controller
@@ -8,5 +8,7 @@ namespace CadastroDeUsuario.Controllers
         {
             return View();
         }
+        
+        
     }
 }
