@@ -3,12 +3,17 @@
 
 namespace CadastroDeUsuario.Controllers
 {
+    [ApiController]
     public class AuthController : Controller
     {
-        public IActionResult Index()
+        [HttpPost("Login")]
+        public bool login(string user, string password)
         {
-            return View();
+            if (user == "Paulo" && password == "123")
+            {
+                return true;
+            }
+            return false;   
         }
-        
     }
 }
