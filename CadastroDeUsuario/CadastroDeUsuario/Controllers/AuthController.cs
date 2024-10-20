@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+// Responsavel por fazer o login, lougout, esqueci a senha. 
 
 namespace CadastroDeUsuario.Controllers
 {
@@ -8,5 +9,6 @@ namespace CadastroDeUsuario.Controllers
         {
             return View();
         }
+        
     }
 }
