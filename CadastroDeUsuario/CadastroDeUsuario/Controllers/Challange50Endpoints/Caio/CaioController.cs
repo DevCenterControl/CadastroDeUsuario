@@ -47,7 +47,14 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-            
+
+        }
+
+        [HttpGet("GetFirstUser")]
+        public string GetFirstUser()
+        {
+            var firstUser = "Paulo Medeiros";
+                return firstUser;
         }
     }
 }
