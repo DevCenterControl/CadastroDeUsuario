@@ -21,18 +21,5 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             var age = 29;
             return age;
         }
-
-        [HttpPost("AddAddress")]
-        public string AddAddress(string address)
-        {
-            if (string.IsNullOrEmpty(address))
-            {
-                return "Addrees is mandatory";
-            }
-            else
-            {
-                return "Address successfully added";
-            }
-        }
     }
 }
