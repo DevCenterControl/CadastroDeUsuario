@@ -102,7 +102,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpPost("Ps5SalePrice")]
         public IActionResult Ps5SalePrice(double value)
         {
-            
+
             if (value < 3500.0)
             {
                 return BadRequest("Wrong price");
@@ -111,7 +111,13 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return Ok("Correct price");
             }
+        }
 
+        [HttpGet("GetMyDogsName")]
+        public string GetMyDogsName()
+        {
+            var dogsName = "Mel";
+            return dogsName;
         }
     }
 }
