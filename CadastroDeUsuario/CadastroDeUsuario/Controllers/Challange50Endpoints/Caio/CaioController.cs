@@ -85,5 +85,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
 
         }
+
+        [HttpPost("AddNewAccount")]
+        public string AddNewAccount(string user, string password)
+        {
+            if (user == "DevMochilinha" && password == "2MochilinhaDev!@*") 
+            {
+                return "New Account Successfuly added";
+            }
+            else
+            {
+                return "Invalid account";
+            }
+        }
     }
 }
