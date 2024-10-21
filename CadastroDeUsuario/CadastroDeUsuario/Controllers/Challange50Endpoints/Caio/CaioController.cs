@@ -9,15 +9,15 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
     [Route("Controller")]
     public class CaioController : Controller
     {
-        [HttpGet("GetName")]
-        public string GetName()
+        [HttpGet("GetDevName")]
+        public string GetDevName()
         {
             var name = "Caio";
             return name;
         }
 
-        [HttpGet("GetAge")]
-        public int GetAge()
+        [HttpGet("GetDevAge")]
+        public int GetDevAge()
         {
             var age = 29;
             return age;
@@ -89,7 +89,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpPost("AddNewAccount")]
         public string AddNewAccount(string user, string password)
         {
-            if (user == "DevMochilinha" && password == "2MochilinhaDev!@*") 
+            if (user == "DevMochilinha" && password == "2MochilinhaDev!@*")
             {
                 return "New Account Successfuly added";
             }
@@ -97,6 +97,21 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return "Invalid account";
             }
+        }
+
+        [HttpPost("Ps5SalePrice")]
+        public IActionResult Ps5SalePrice(double value)
+        {
+            
+            if (value < 3500.0)
+            {
+                return BadRequest("Wrong price");
+            }
+            else
+            {
+                return Ok("Correct price");
+            }
+
         }
     }
 }
