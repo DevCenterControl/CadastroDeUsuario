@@ -71,5 +71,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
             return AllStudentsList;
         }
+
+        [HttpPost("FavoriteFood")]
+        public bool FavoriteFood(string food)
+        {
+            if (food == "Churrasco")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
