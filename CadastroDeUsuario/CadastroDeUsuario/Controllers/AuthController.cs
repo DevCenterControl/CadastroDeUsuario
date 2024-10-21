@@ -7,7 +7,7 @@ namespace CadastroDeUsuario.Controllers
     public class AuthController : Controller
     {
         [HttpPost("Login")]
-        public bool login(string user, string password)
+        public bool Login(string user, string password)
         {
             if (user == "Paulo" && password == "123")
             {

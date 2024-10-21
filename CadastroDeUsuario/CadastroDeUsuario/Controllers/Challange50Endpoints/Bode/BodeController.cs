@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace CadastroDeUsuario.Controllers.Challange.Caio
+namespace CadastroDeUsuario.Controllers.Challange.Bode
 {
     public class BodeController : Controller
     {
