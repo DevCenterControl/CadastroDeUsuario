@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Eventing.Reader;
 using System.Xml.Linq;
 
 namespace CadastroDeUsuario.Controllers.Challange.Caio
@@ -33,6 +34,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return "Address successfully added";
             }
+        }
+
+        [HttpPost("Email")]
+        public bool Email(string email)
+        {
+            if (email == "caiorodrigo_dev@outlook.com")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }
