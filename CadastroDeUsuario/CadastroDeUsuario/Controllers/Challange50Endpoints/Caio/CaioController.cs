@@ -54,7 +54,22 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         public string GetFirstUser()
         {
             var firstUser = "Paulo Medeiros";
-                return firstUser;
+            return firstUser;
+        }
+
+        [HttpGet("GetAllStudentsList")]
+        public List<string> GetAllStudentsList()
+        {
+            var AllStudentsList = new List<string>();
+            var student1 = "Caio";
+            var student2 = "Bode";
+            var student3 = "Primo97";
+
+            AllStudentsList.Add(student1);
+            AllStudentsList.Add(student2);
+            AllStudentsList.Add(student3);
+
+            return AllStudentsList;
         }
     }
 }
