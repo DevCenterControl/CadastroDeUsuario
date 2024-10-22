@@ -150,5 +150,21 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
             return NotebookRequirement;
         }
+
+        public class YourFavoriteMovie
+        {
+            [Required(ErrorMessage = "Movie name is required.")]
+            [StringLength(20, ErrorMessage = "Movie name must contain a maximum of 20 characters")]
+            public string Title { get; set; }
+        }
+        [HttpPost("FavoriteMovie")]
+        public IActionResult FavoriteMovie([FromBody] YourFavoriteMovie movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok($"Your favorite movie is: {movie.Title}");
+        }
     }
 }
