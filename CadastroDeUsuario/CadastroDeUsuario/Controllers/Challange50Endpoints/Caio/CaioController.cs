@@ -166,5 +166,12 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
             return Ok($"Your favorite movie is: {movie.Title}");
         }
+
+        [HttpGet("GetMySistersName")]
+        public string GetMySistersName()
+        {
+            var SisterName = "Mary";
+            return SisterName;
+        }
     }
 }
