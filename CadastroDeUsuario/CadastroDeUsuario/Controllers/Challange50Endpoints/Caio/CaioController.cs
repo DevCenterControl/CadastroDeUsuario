@@ -173,5 +173,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             var SisterName = "Mary";
             return SisterName;
         }
+
+        [HttpPost("ModelOfYourCar")]
+        public string ModelOfYourCar(string model)
+        {
+            if (string.IsNullOrEmpty(model))
+            {
+                return "The Model of your car is required";
+            }
+            else
+            {
+                return model;
+            }
+        }
     }
 }
