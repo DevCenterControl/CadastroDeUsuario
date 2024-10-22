@@ -199,5 +199,12 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return false;
             }
         }
+
+        [HttpGet("GetFavoriteSport")]
+        public string GetFavoriteSport()
+        {
+            var sport = "Soccer";
+            return sport;
+        }
     }
 }
