@@ -186,5 +186,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return model;
             }
         }
+
+        [HttpPost("BestSoccerTeam")]
+        public bool BestSoccerTeam(string Team)
+        {
+            if (Team == "São Paulo Fc")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
