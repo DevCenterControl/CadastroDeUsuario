@@ -206,5 +206,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             var sport = "Soccer";
             return sport;
         }
+
+        [HttpPost("YourFavoriteGame")]
+        public IActionResult YourFavoriteGame(string game)
+        {
+            if (string.IsNullOrEmpty(game))
+            {
+                return BadRequest("Empty space");
+            }
+            else
+            {
+                return Ok(game);
+            }
+        }
     }
 }
