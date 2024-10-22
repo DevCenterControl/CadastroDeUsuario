@@ -13,6 +13,17 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             return user;
         }
 
+        [HttpGet("GetProjectName")]
+        public string GetProjectName()
+        {
+            var name = "CenterControl";
+            return name;
+        }
+        
+
+
+        
+
 
     }
 }
