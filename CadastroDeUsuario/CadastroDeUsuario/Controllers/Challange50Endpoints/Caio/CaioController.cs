@@ -119,5 +119,36 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             var dogsName = "Mel";
             return dogsName;
         }
+
+        public class NotebookRequirements
+        {
+            public string Component { get; set; }
+            public string Quantity { get; set; }
+        }
+
+        [HttpGet("GetNotebookRequirements")]
+        public List<NotebookRequirements> GetNotebookRequirements()
+        {
+            var NotebookRequirement = new List<NotebookRequirements>();
+            var item1 = "Ram memory";
+            var item2 = "SSD";
+            var item3 = "HDMI Input";
+            var item4 = "HDMI Output";
+            var item5 = "USB input";
+
+            var Value1 = "32Gb";
+            var Value2 = "512Gb";
+            var Value3 = "3";
+            var Value4 = "2";
+            var Value5 = "3";
+
+            NotebookRequirement.Add(new NotebookRequirements { Component = item1, Quantity = Value1 });
+            NotebookRequirement.Add(new NotebookRequirements { Component = item2, Quantity = Value2 });
+            NotebookRequirement.Add(new NotebookRequirements { Component = item3, Quantity = Value3 });
+            NotebookRequirement.Add(new NotebookRequirements { Component = item4, Quantity = Value4 });
+            NotebookRequirement.Add(new NotebookRequirements { Component = item5, Quantity = Value5 });
+
+            return NotebookRequirement;
+        }
     }
 }
