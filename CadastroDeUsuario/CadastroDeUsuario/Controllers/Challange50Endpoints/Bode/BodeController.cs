@@ -2,11 +2,17 @@
 
 namespace CadastroDeUsuario.Controllers.Challange.Bode
 {
+    [ApiController]
+    [Route("Controller")]
     public class BodeController : Controller
     {
-        public IActionResult Index()
+        [HttpGet("GetUser")]
+        public string GetUser()
         {
-            return View();
+            var user = "Desenvolvedor 1";
+            return user;
         }
+
+
     }
 }
