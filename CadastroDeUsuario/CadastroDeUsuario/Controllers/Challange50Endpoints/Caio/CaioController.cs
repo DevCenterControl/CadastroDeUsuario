@@ -122,8 +122,8 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
         public class NotebookRequirements
         {
-            public string Component { get; set; }
-            public string Quantity { get; set; }
+            public required string Component { get; set; }
+            public required string Quantity { get; set; }
         }
 
         [HttpGet("GetNotebookRequirements")]
@@ -155,7 +155,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         {
             [Required(ErrorMessage = "Movie name is required.")]
             [StringLength(20, ErrorMessage = "Movie name must contain a maximum of 20 characters")]
-            public string Title { get; set; }
+            public required string Title { get; set; }
         }
         [HttpPost("FavoriteMovie")]
         public IActionResult FavoriteMovie([FromBody] YourFavoriteMovie movie)
