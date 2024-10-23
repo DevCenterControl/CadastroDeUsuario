@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroDeUsuario.Controllers.Challange.Bode
 {
@@ -19,10 +20,32 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             var name = "CenterControl";
             return name;
         }
-        
+
+        [HttpGet("GetAllMembersFamilyList")]
+        public List<string> GetAllMembersFamilyList()
+        {
+            var AllMembersFamilyList = new List<string>();
+
+            var Family1 = "Antonio";
+            var Family2 = "Gloria";
+            var Family3 = "Luisa";
+
+            AllMembersFamilyList.Add(Family1);
+            AllMembersFamilyList.Add(Family2);
+            AllMembersFamilyList.Add(Family3);
+
+            return AllMembersFamilyList;
 
 
-        
+        }
+
+
+
+
+
+
+
+
 
 
     }
