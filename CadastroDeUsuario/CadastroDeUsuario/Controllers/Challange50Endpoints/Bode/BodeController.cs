@@ -43,7 +43,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             var name = "Corinthians";
             return name;
         }
+        [HttpPost("FavoriteGirl")]
+        public bool FavoriteGirl(string girl)
+        {
+            if (girl == "morena")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
+        }
 
 
 
