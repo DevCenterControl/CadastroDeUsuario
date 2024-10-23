@@ -35,9 +35,16 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             AllMembersFamilyList.Add(Family3);
 
             return AllMembersFamilyList;
-
-
         }
+
+        [HttpGet("GetTeamFavorite")]
+        public string GetTeamFavorite()
+        {
+            var name = "Corinthians";
+            return name;
+        }
+
+
 
 
 
