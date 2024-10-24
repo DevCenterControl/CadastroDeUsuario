@@ -105,10 +105,17 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             return amountAnnualBallads;
         }
 
-
-
-
-
-
+        [HttpPost("YourFavoriteMusic")]
+        public bool YourFavoriteMusic(string music)
+        {
+            if(music == "Funk")
+            {
+                return true;
+            }
+            else
+            {
+                return false;   
+            }
+        }
     }
 }
