@@ -238,5 +238,24 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return false;
             }
         }
+
+        [HttpGet("GetTop5Drinks")]
+        public List<string> GetTop5Drinks()
+        {
+            var Top5Drink = new List<string>();
+            var drink1 = "Heineken";
+            var drink2 = "Black Label";
+            var drink3 = "Jack Danniels";
+            var drink4 = "Gin";
+            var drink5 = "Caipirinha";
+
+            Top5Drink.Add(drink1);
+            Top5Drink.Add(drink2);
+            Top5Drink.Add(drink3);
+            Top5Drink.Add(drink4);
+            Top5Drink.Add(drink5);
+
+            return Top5Drink;
+        }
     }
 }
