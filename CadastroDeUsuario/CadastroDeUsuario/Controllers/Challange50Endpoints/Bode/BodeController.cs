@@ -90,15 +90,15 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
             return BestCartoonsList;
         }
-        [HttpGet("GetMonthlyBalladsList")]
-        public string GetMonthlyBalladsList()
+        [HttpGet("GetMonthlyBallad")]
+        public string GetMonthlyBallad()
         {
             var amountMonthlyBallads = 4;
 
             return $"{amountMonthlyBallads} Monthly ballads";
         }
-        [HttpGet("GetAnnualBalladsList")]
-        public int GetAnnualBalladsList()
+        [HttpGet("GetAnnualBallads")]
+        public int GetAnnualBallads()
         {
             var amountAnnualBallads = 48;
 
