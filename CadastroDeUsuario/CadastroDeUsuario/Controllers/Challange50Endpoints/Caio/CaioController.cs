@@ -225,5 +225,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         {
             return (A + B);
         }
+
+        [HttpPost("TheBestGameOfPs5")]
+        public bool TheBestGameOfPs5(string game)
+        {
+            if(game == "The Last Of Us I")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
