@@ -60,7 +60,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         [HttpPost("YourFavoriteMark")]
         public IActionResult FavoriteMark(string lascote)
         {
-            // Verifica se lascote está nulo ou vazio
+
             if (string.IsNullOrEmpty(lascote))
             {
                 return BadRequest("The lascote parameter cannot be null.");
@@ -70,6 +70,44 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return Ok(lascote);
             }
         }
+        [HttpGet("GetBestCartoonsList")]
+        public List<string> GetBestCartoonsList()
+        {
+            var BestCartoonsList = new List<string>();
+
+            var cartoons1 = "Dragon Ball Z";
+
+            var cartoons2 = "Yu-Gi-Oh";
+
+            var cartoons3 = "Cavaleiros do Zodiaco";
+
+            var cartoons4 = "Bod Esponja";
+
+            BestCartoonsList.Add(cartoons1);
+            BestCartoonsList.Add(cartoons2);
+            BestCartoonsList.Add(cartoons3);
+            BestCartoonsList.Add(cartoons4);
+
+            return BestCartoonsList;
+        }
+        [HttpGet("GetMonthlyBalladsList")]
+        public string GetMonthlyBalladsList()
+        {
+            var amountMonthlyBallads = 4;
+
+            return $"{amountMonthlyBallads} Monthly ballads";
+        }
+        [HttpGet("GetAnnualBalladsList")]
+        public int GetAnnualBalladsList()
+        {
+            var amountAnnualBallads = 48;
+
+            return amountAnnualBallads;
+        }
+
+
+
+
 
 
     }
