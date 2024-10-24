@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.Eventing.Reader;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CadastroDeUsuario.Controllers.Challange.Bode
 {
@@ -54,17 +56,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             {
                 return false;
             }
-
         }
-
-
-
-
-
-
-
-
-
+        [HttpPost("YourFavoriteMark")]
+        public IActionResult FavoriteMark(string lascote)
+        {
+            // Verifica se lascote está nulo ou vazio
+            if (string.IsNullOrEmpty(lascote))
+            {
+                return BadRequest("The lascote parameter cannot be null.");
+            }
+            else
+            {
+                return Ok(lascote);
+            }
+        }
 
 
     }
