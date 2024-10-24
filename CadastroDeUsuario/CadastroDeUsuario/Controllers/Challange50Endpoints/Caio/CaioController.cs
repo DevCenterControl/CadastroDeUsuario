@@ -219,5 +219,11 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return Ok(game);
             }
         }
+
+        [HttpPost("SumAB")]
+        public int SumAB(int A, int B)
+        {
+            return (A + B);
+        }
     }
 }
