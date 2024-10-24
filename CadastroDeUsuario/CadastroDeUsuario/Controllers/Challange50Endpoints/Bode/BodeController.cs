@@ -108,13 +108,25 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         [HttpPost("YourFavoriteMusic")]
         public bool YourFavoriteMusic(string music)
         {
-            if(music == "Funk")
+            if (music == "Funk")
             {
                 return true;
             }
             else
             {
-                return false;   
+                return false;
+            }
+        }
+        [HttpPost("BestFootballChampionship")]
+        public string BestFootballChampionship(string favorite)
+        {
+            if (string.IsNullOrEmpty(favorite))
+            {
+                return "Your Favorite and mandatory championship";
+            }
+            else
+            {
+                return favorite;
             }
         }
     }
