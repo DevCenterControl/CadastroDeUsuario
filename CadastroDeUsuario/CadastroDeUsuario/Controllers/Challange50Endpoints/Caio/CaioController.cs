@@ -286,5 +286,34 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return false;
             }
         }
+
+        public class GymEquipment
+        {
+            public required string Equipment { get; set; }
+            public required int Quantity { get; set; }
+        }
+
+        [HttpGet("GetGymEquipment")]
+        public List<GymEquipment> GetGymEquipment()
+        {
+            var GymEquipments = new List<GymEquipment>();
+            var item1 = "Supino";
+            var item2 = "Cross Over";
+            var item3 = "Leg Press";
+            var item4 = "Pack Deck";
+
+            var Value1 = 3;
+            var Value2 = 2;
+            var Value3 = 2;
+            var Value4 = 5;
+           
+            GymEquipments.Add(new GymEquipment { Equipment = item1, Quantity = Value1 });
+            GymEquipments.Add(new GymEquipment { Equipment = item2, Quantity = Value2 });
+            GymEquipments.Add(new GymEquipment { Equipment = item3, Quantity = Value3 });
+            GymEquipments.Add(new GymEquipment { Equipment = item4, Quantity = Value4 });
+
+
+            return GymEquipments;
+        }
     }
 }
