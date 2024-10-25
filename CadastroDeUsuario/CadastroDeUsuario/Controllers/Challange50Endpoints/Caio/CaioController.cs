@@ -329,5 +329,21 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
 
         }
+
+        public class TheMostFamousPodcast
+        {
+            [Required(ErrorMessage = "PodCast name is required.")]
+            [StringLength(15, ErrorMessage = "PodCast name must contain a maximum of 15 characters")]
+            public required string PodCast { get; set; }
+        }
+        [HttpPost("theMostFamousPodCast")]
+        public IActionResult FavoriteSinger(TheMostFamousPodcast name)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok($"Your favorite singer is: {name.PodCast}");
+        }
     }
 }
