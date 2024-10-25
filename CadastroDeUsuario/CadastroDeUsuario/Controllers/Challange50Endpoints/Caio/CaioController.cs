@@ -503,5 +503,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return Ok($"The base salary is: {value}");
             }
         }
+
+        [HttpGet("GetYourFavoriteSoccerPlayer")]
+        public string GetYourFavoriteSoccerPlayer(string player)
+        {
+            if (player == "CR7")
+            {
+                return $"Your favorite Soccer Player is: {player}";
+            }
+            else
+            {
+                return ("Wrong player");
+            }
+        }
     }
 }
