@@ -418,5 +418,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return ("Wrong color");
             }
         }
+
+        [HttpGet("GetYourFavoriteTrip")]
+        public string GetYourFavoriteTrip(string trip)
+        {
+            if (trip == "Ceara")
+            {
+                return $"Your favorite Trip was: {trip}";
+            }
+            else
+            {
+                return ("Wrong place");
+            }
+        }
     }
 }
