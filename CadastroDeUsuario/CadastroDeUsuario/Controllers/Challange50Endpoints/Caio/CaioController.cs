@@ -431,5 +431,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return ("Wrong place");
             }
         }
+
+        [HttpPost("PlaceYouWantToTravel")]
+        public bool PlaceYouWantToTravel(string place)
+        {
+            if (place == "USA")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
