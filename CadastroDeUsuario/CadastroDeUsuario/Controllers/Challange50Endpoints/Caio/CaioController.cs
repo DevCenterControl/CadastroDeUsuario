@@ -273,5 +273,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
             return Ok($"Your favorite singer is: {name.Singer}");
         }
+
+        [HttpPost("AppToListenToMusic")]
+        public bool AppToListenToMusic (string app)
+        {
+            if (app == "Apple Music")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
