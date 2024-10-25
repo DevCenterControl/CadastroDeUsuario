@@ -315,5 +315,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
             return GymEquipments;
         }
+
+        [HttpPost("MyUniversity")]
+        public bool MyUniversity(string university)
+        {
+            if (university == "Anhembi Morumbi")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
