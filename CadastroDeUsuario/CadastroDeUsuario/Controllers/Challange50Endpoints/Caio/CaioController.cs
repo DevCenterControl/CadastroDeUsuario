@@ -390,5 +390,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
 
         }
+
+        public class InstrumentThatYouPlay
+        {
+            [Required(ErrorMessage = "Instrument name is required.")]
+            public required string Instrument { get; set; }
+        }
+        [HttpPost("TheInstrumentThatYouPlay")]
+        public IActionResult TheInstrumentThatYouPlay(InstrumentThatYouPlay name)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok($"The Instrument that you play is : {name.Instrument}");
+        }
     }
 }
