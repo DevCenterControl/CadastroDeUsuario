@@ -376,5 +376,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return Ok($"The First letter of my name is: {letter.first}");
             }
         }
+
+        [HttpPost("FavoriteAnimal")]
+        public bool FavoriteAnimal(string animal)
+        {
+            if (animal == "Dog")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
