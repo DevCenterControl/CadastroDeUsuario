@@ -474,5 +474,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
 
         }
+
+        public class WhatIsYourGym
+        {
+            [Required(ErrorMessage = "Name of the gym is required.")]
+            public required string gym { get; set; }
+        }
+        [HttpPost("TheNameOfYourGym")]
+        public IActionResult TheNameOfYourGym(WhatIsYourGym name)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok($"The name of your gym is  : {name.gym}");
+        }
     }
 }
