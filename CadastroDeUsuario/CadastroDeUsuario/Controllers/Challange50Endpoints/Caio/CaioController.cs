@@ -529,5 +529,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return ("This is not your car");
             }
         }
+
+        public class HowManyVideoGamesDoYouHave
+        {
+            [Required(ErrorMessage = "The quantity of the video games is required.")]
+            public required int games { get; set; }
+        }
+        [HttpPost("QntOfVideoGames")]
+        public IActionResult QntOfVideoGames(HowManyVideoGamesDoYouHave number)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok($"Do you have {number.games} video games");
+        }
     }
 }
