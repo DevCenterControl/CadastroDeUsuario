@@ -229,7 +229,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpPost("TheBestGameOfPs5")]
         public bool TheBestGameOfPs5(string game)
         {
-            if(game == "The Last Of Us I")
+            if (game == "The Last Of Us I")
             {
                 return true;
             }
@@ -275,7 +275,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         }
 
         [HttpPost("AppToListenToMusic")]
-        public bool AppToListenToMusic (string app)
+        public bool AppToListenToMusic(string app)
         {
             if (app == "Apple Music")
             {
@@ -306,7 +306,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             var Value2 = 2;
             var Value3 = 2;
             var Value4 = 5;
-           
+
             GymEquipments.Add(new GymEquipment { Equipment = item1, Quantity = Value1 });
             GymEquipments.Add(new GymEquipment { Equipment = item2, Quantity = Value2 });
             GymEquipments.Add(new GymEquipment { Equipment = item3, Quantity = Value3 });
@@ -337,7 +337,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             public required string PodCast { get; set; }
         }
         [HttpPost("theMostFamousPodCast")]
-        public IActionResult theMostFamousPodcast (TheMostFamousPodcast name)
+        public IActionResult theMostFamousPodcast(TheMostFamousPodcast name)
         {
             if (!ModelState.IsValid)
             {
@@ -347,7 +347,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         }
 
         [HttpPost("FavoriteFruit")]
-        public bool FavoriteFruit (string fruit)
+        public bool FavoriteFruit(string fruit)
         {
             if (fruit == "Apple")
             {
@@ -356,6 +356,24 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             else
             {
                 return false;
+            }
+        }
+        public class FirstLetter
+        {
+            [Required(ErrorMessage = "First letter is mandatory")]
+            public required char? first { get; set; }
+        }
+
+        [HttpPost("FirstLetterOfMyName")]
+        public IActionResult FirstLetterOfMyName(FirstLetter letter)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Use only a single character.");
+            }
+            else
+            {
+                return Ok($"The First letter of my name is: {letter.first}");
             }
         }
     }
