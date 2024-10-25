@@ -460,5 +460,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
             return Ok($"You are {number.Age} years old");
         }
+
+        [HttpPost("WhereDoYouLive")]
+        public bool WhereDoYouLive(string state)
+        {
+            if (state == "São Paulo")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
