@@ -337,13 +337,26 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             public required string PodCast { get; set; }
         }
         [HttpPost("theMostFamousPodCast")]
-        public IActionResult FavoriteSinger(TheMostFamousPodcast name)
+        public IActionResult theMostFamousPodcast (TheMostFamousPodcast name)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            return Ok($"Your favorite singer is: {name.PodCast}");
+            return Ok($"Your favorite podcast is: {name.PodCast}");
+        }
+
+        [HttpPost("FavoriteFruit")]
+        public bool FavoriteFruit (string fruit)
+        {
+            if (fruit == "Apple")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
