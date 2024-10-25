@@ -405,5 +405,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
             return Ok($"The Instrument that you play is : {name.Instrument}");
         }
+
+        [HttpGet("GetYourFavoriteColor")]
+        public string GetYourFavoriteColor(string color)
+        {
+            if (color == "Blue") 
+            {
+                return $"Your favorite color is: { color}";
+            }
+            else
+            {
+                return ("Wrong color");
+            }
+        }
     }
 }
