@@ -516,5 +516,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return ("Wrong player");
             }
         }
+
+        [HttpGet("GetMyCar")]
+        public string GetMyCar(string car)
+        {
+            if (car == "Polo")
+            {
+                return $"Your car is: {car}";
+            }
+            else
+            {
+                return ("This is not your car");
+            }
+        }
     }
 }
