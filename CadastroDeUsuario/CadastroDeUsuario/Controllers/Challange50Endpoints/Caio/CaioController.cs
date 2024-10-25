@@ -489,5 +489,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
             return Ok($"The name of your gym is  : {name.gym}");
         }
+
+        [HttpPost("BaseSalary")]
+        public IActionResult BaseSalary (double value)
+        {
+
+            if (value != 6500.0)
+            {
+                return BadRequest("Incorrect value");
+            }
+            else
+            {
+                return Ok($"The base salary is: {value}");
+            }
+        }
     }
 }
