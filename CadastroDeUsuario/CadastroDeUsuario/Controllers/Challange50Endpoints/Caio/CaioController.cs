@@ -257,5 +257,21 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
             return Top5Drink;
         }
+
+        public class YourFavoriteSinger
+        {
+            [Required(ErrorMessage = "Singer name is required.")]
+            [StringLength(30, ErrorMessage = "Singer name must contain a maximum of 30 characters")]
+            public required string Singer { get; set; }
+        }
+        [HttpPost("FavoriteSinger")]
+        public IActionResult FavoriteSinger(YourFavoriteSinger name)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok($"Your favorite singer is: {name.Singer}");
+        }
     }
 }
