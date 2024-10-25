@@ -161,6 +161,28 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return favorite;
             }
         }
+        [HttpPost("CarCost")]
+        public double CarCost(double value)
+        {
+            if (value <18000.0)
+
+            {
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+        [HttpPost("SumXY")]
+        public int SumXY(int x2, int y3)
+        {
+            return x2 * y3;
+            
+               
+            
+        }
     }
         
 }   
