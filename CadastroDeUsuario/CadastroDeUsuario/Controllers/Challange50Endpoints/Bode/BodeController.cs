@@ -58,16 +58,16 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
         }
         [HttpPost("YourFavoriteMark")]
-        public IActionResult FavoriteMark(string lascote)
+        public IActionResult FavoriteMark(string lacoste)
         {
 
-            if (string.IsNullOrEmpty(lascote))
+            if (string.IsNullOrEmpty(lacoste))
             {
                 return BadRequest("The lascote parameter cannot be null.");
             }
             else
             {
-                return Ok(lascote);
+                return Ok(lacoste);
             }
         }
         [HttpGet("GetBestCartoonsList")]
@@ -129,5 +129,14 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return favorite;
             }
         }
+        [HttpGet("MyProfession")]
+        public string MyProfession()
+        {
+            var name = "Fisioterapia";
+
+            return name;
+        }
+            
     }
+    
 }
