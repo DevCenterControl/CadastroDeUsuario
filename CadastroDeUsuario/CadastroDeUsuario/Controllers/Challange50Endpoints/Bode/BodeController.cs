@@ -136,7 +136,31 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
             return name;
         }
-            
+
+        [HttpPost("MyName")]
+        public bool MyName (string name)
+        {
+            if (name == "Lucas")
+            {
+                return true ;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        [HttpPost("BestPhysicalExercise")]
+        public string BestPhysicalExercise(string favorite)
+        {
+            if (!string.IsNullOrEmpty(favorite))
+            {
+                return "My Favorite exercise and mandatory";
+            }
+            else
+            {
+                return favorite;
+            }
+        }
     }
-    
-}
+        
+}   
