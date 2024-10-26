@@ -247,7 +247,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             return Top5Drink;
         }
 
-
         [HttpPost("FavoriteSinger")]
         public IActionResult FavoriteSinger(YourFavoriteSinger name)
         {
@@ -308,7 +307,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
         }
 
-
         [HttpPost("theMostFamousPodCast")]
         public IActionResult theMostFamousPodcast(TheMostFamousPodcast name)
         {
@@ -331,7 +329,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return false;
             }
         }
-
 
         [HttpPost("FirstLetterOfMyName")]
         public IActionResult FirstLetterOfMyName(FirstLetter letter)
@@ -359,7 +356,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
 
         }
-
 
         [HttpPost("TheInstrumentThatYouPlay")]
         public IActionResult TheInstrumentThatYouPlay(InstrumentThatYouPlay name)
