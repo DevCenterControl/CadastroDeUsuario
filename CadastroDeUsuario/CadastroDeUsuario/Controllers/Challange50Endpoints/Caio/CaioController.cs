@@ -544,5 +544,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
             return Ok($"Do you have {number.games} video games");
         }
+
+        [HttpPost("NotebookPrice")]
+        public IActionResult NotebookPrice(double value)
+        {
+
+            if (value != 3700.50)
+            {
+                return BadRequest("Incorrect value");
+            }
+            else
+            {
+                return Ok($"The Notebook price is: {value}");
+            }
+        }
     }
 }
