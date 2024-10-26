@@ -31,10 +31,14 @@ namespace CadastroDeUsuario.Controllers
                 return "Email invalido";
             }
 
-           var isPermitted = provedoresPermitidos.Any(provedor => email.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
+            var isPermitted = provedoresPermitidos.Any(provedor => email.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
 
+            if (isPermitted == false)
+            {
+                return "Email com provedor invalido";
+            }
 
-
+            return "Autenticado com sucesso.";
         }
     }
 }
