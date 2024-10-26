@@ -247,12 +247,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             return Top5Drink;
         }
 
-        public class YourFavoriteSinger
-        {
-            [Required(ErrorMessage = "Singer name is required.")]
-            [StringLength(30, ErrorMessage = "Singer name must contain a maximum of 30 characters")]
-            public required string Singer { get; set; }
-        }
+
         [HttpPost("FavoriteSinger")]
         public IActionResult FavoriteSinger(YourFavoriteSinger name)
         {
@@ -276,11 +271,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
         }
 
-        public class GymEquipment
-        {
-            public required string Equipment { get; set; }
-            public required int Quantity { get; set; }
-        }
+
 
         [HttpGet("GetGymEquipment")]
         public List<GymEquipment> GetGymEquipment()
@@ -319,12 +310,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
         }
 
-        public class TheMostFamousPodcast
-        {
-            [Required(ErrorMessage = "PodCast name is required.")]
-            [StringLength(15, ErrorMessage = "PodCast name must contain a maximum of 15 characters")]
-            public required string PodCast { get; set; }
-        }
+
         [HttpPost("theMostFamousPodCast")]
         public IActionResult theMostFamousPodcast(TheMostFamousPodcast name)
         {
@@ -347,11 +333,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return false;
             }
         }
-        public class FirstLetter
-        {
-            [Required(ErrorMessage = "First letter is mandatory")]
-            public required char? first { get; set; }
-        }
+
 
         [HttpPost("FirstLetterOfMyName")]
         public IActionResult FirstLetterOfMyName(FirstLetter letter)
@@ -380,11 +362,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
         }
 
-        public class InstrumentThatYouPlay
-        {
-            [Required(ErrorMessage = "Instrument name is required.")]
-            public required string Instrument { get; set; }
-        }
+
         [HttpPost("TheInstrumentThatYouPlay")]
         public IActionResult TheInstrumentThatYouPlay(InstrumentThatYouPlay name)
         {
@@ -398,9 +376,9 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpGet("GetYourFavoriteColor")]
         public string GetYourFavoriteColor(string color)
         {
-            if (color == "Blue") 
+            if (color == "Blue")
             {
-                return $"Your favorite color is: { color}";
+                return $"Your favorite color is: {color}";
             }
             else
             {
@@ -434,12 +412,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
         }
 
-        public class HowOldAreYou
-        {
-            [Required(ErrorMessage = "Your age is required.")]
-            [Range(1, 100, ErrorMessage = "Your age must be between 1 and 100 years old.")]
-            public required int Age { get; set; }
-        }
+
         [HttpPost("YourAge")]
         public IActionResult YourAge(HowOldAreYou number)
         {
@@ -464,11 +437,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
 
         }
 
-        public class WhatIsYourGym
-        {
-            [Required(ErrorMessage = "Name of the gym is required.")]
-            public required string gym { get; set; }
-        }
+
         [HttpPost("TheNameOfYourGym")]
         public IActionResult TheNameOfYourGym(WhatIsYourGym name)
         {
@@ -480,7 +449,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         }
 
         [HttpPost("BaseSalary")]
-        public IActionResult BaseSalary (double value)
+        public IActionResult BaseSalary(double value)
         {
 
             if (value != 6500.0)
@@ -519,11 +488,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
         }
 
-        public class HowManyVideoGamesDoYouHave
-        {
-            [Required(ErrorMessage = "The quantity of the video games is required.")]
-            public required int games { get; set; }
-        }
         [HttpPost("QntOfVideoGames")]
         public IActionResult QntOfVideoGames(HowManyVideoGamesDoYouHave number)
         {
