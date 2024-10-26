@@ -598,5 +598,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return BadRequest($"The Motorcycle price is: {value}");
             }
         }
+
+        [HttpGet("GetNameOfYourMom")]
+        public bool GetNameOfYourMom(string name)
+        {
+            if (name == "Sheila")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
