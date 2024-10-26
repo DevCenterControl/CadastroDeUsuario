@@ -584,5 +584,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return ("This is not your motorcycle model");
             }
         }
+
+        [HttpPost("MotorcyclePrice")]
+        public IActionResult MotorcyclePrice(double value)
+        {
+
+            if (value == 12000.0)
+            {
+                return Ok("Correct price");
+            }
+            else
+            {
+                return BadRequest($"The Motorcycle price is: {value}");
+            }
+        }
     }
 }
