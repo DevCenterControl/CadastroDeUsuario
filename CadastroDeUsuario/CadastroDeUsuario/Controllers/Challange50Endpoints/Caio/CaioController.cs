@@ -271,8 +271,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
         }
 
-
-
         [HttpGet("GetGymEquipment")]
         public List<GymEquipment> GetGymEquipment()
         {
@@ -412,7 +410,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
         }
 
-
         [HttpPost("YourAge")]
         public IActionResult YourAge(HowOldAreYou number)
         {
@@ -436,7 +433,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
 
         }
-
 
         [HttpPost("TheNameOfYourGym")]
         public IActionResult TheNameOfYourGym(WhatIsYourGym name)
