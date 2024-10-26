@@ -571,5 +571,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return ("This is not your cell phone model");
             }
         }
+
+        [HttpGet("GetMotorcycleModel")]
+        public string GetMotorcycleModel(string Model)
+        {
+            if (Model == "Fan 160")
+            {
+                return $"Your Motorcycle is: {Model}";
+            }
+            else
+            {
+                return ("This is not your motorcycle model");
+            }
+        }
     }
 }
