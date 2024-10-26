@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CadastroDeUsuario.Controllers.Challange50Endpoints.Caio.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Eventing.Reader;
 using System.Xml.Linq;
@@ -120,12 +121,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             return dogsName;
         }
 
-        public class NotebookRequirements
-        {
-            public required string Component { get; set; }
-            public required string Quantity { get; set; }
-        }
-
         [HttpGet("GetNotebookRequirements")]
         public List<NotebookRequirements> GetNotebookRequirements()
         {
@@ -151,12 +146,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             return NotebookRequirement;
         }
 
-        public class YourFavoriteMovie
-        {
-            [Required(ErrorMessage = "Movie name is required.")]
-            [StringLength(20, ErrorMessage = "Movie name must contain a maximum of 20 characters")]
-            public required string Title { get; set; }
-        }
         [HttpPost("FavoriteMovie")]
         public IActionResult FavoriteMovie([FromBody] YourFavoriteMovie movie)
         {

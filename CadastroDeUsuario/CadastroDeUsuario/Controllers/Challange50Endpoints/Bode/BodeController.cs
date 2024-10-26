@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Eventing.Reader;
 using System.Security.Cryptography.X509Certificates;
-
 namespace CadastroDeUsuario.Controllers.Challange.Bode
 {
     [ApiController]
@@ -45,6 +44,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             var name = "Corinthians";
             return name;
         }
+
         [HttpPost("FavoriteGirl")]
         public bool FavoriteGirl(string girl)
         {
@@ -57,6 +57,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return false;
             }
         }
+
         [HttpPost("YourFavoriteMark")]
         public IActionResult FavoriteMark(string lacoste)
         {
@@ -70,6 +71,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return Ok(lacoste);
             }
         }
+
         [HttpGet("GetBestCartoonsList")]
         public List<string> GetBestCartoonsList()
         {
@@ -90,6 +92,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
             return BestCartoonsList;
         }
+
         [HttpGet("GetMonthlyBallad")]
         public string GetMonthlyBallad()
         {
@@ -97,6 +100,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
             return $"{amountMonthlyBallads} Monthly ballads";
         }
+
         [HttpGet("GetAnnualBallads")]
         public int GetAnnualBallads()
         {
@@ -117,6 +121,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return false;
             }
         }
+
         [HttpPost("BestFootballChampionship")]
         public string BestFootballChampionship(string favorite)
         {
@@ -129,6 +134,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return favorite;
             }
         }
+
         [HttpGet("MyProfession")]
         public string MyProfession()
         {
@@ -138,17 +144,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         }
 
         [HttpPost("MyName")]
-        public bool MyName (string name)
+        public bool MyName(string name)
         {
             if (name == "Lucas")
             {
-                return true ;
+                return true;
             }
             else
             {
                 return false;
             }
         }
+
         [HttpPost("BestPhysicalExercise")]
         public string BestPhysicalExercise(string favorite)
         {
@@ -161,10 +168,11 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return favorite;
             }
         }
+
         [HttpPost("CarCost")]
         public double CarCost(double value)
         {
-            if (value <18000.0)
+            if (value < 18000.0)
 
             {
                 return value;
@@ -175,14 +183,13 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
 
         }
+
         [HttpPost("SumXY")]
         public int SumXY(int x2, int y3)
         {
-            return x2 * y3;
-            
-               
-            
+            var resultado = x2 + y3;
+
+            return resultado;
         }
     }
-        
-}   
+}
