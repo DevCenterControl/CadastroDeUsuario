@@ -48,7 +48,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-
         }
 
         [HttpGet("GetFirstUser")]
@@ -84,7 +83,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-
         }
 
         [HttpPost("AddNewAccount")]
@@ -103,7 +101,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpPost("Ps5SalePrice")]
         public IActionResult Ps5SalePrice(double value)
         {
-
             if (value < 3500.0)
             {
                 return BadRequest("Wrong price");
@@ -289,7 +286,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             GymEquipments.Add(new GymEquipment { Equipment = item3, Quantity = Value3 });
             GymEquipments.Add(new GymEquipment { Equipment = item4, Quantity = Value4 });
 
-
             return GymEquipments;
         }
 
@@ -304,7 +300,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-
         }
 
         [HttpPost("theMostFamousPodCast")]
@@ -354,7 +349,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-
         }
 
         [HttpPost("TheInstrumentThatYouPlay")]
@@ -427,7 +421,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-
         }
 
         [HttpPost("TheNameOfYourGym")]
@@ -443,7 +436,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpPost("BaseSalary")]
         public IActionResult BaseSalary(double value)
         {
-
             if (value != 6500.0)
             {
                 return BadRequest("Incorrect value");
@@ -493,7 +485,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpPost("NotebookPrice")]
         public IActionResult NotebookPrice(double value)
         {
-
             if (value != 3700.50)
             {
                 return BadRequest("Incorrect value");
@@ -533,7 +524,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         [HttpPost("MotorcyclePrice")]
         public IActionResult MotorcyclePrice(double value)
         {
-
             if (value == 12000.0)
             {
                 return Ok("Correct price");
@@ -555,7 +545,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-
         }
 
         [HttpPost("FavoriteBeer")]
@@ -569,7 +558,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             {
                 return false;
             }
-
         }
     }
 }
