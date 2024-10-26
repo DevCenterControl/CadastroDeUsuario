@@ -559,5 +559,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return false;
             }
         }
+
+        [HttpGet("GetNotebookModel")]
+        public string GetNotebookModel(string model)
+        {
+            if (model == "Dell")
+            {
+                return $"Your Notebook is: {model}";
+            }
+            else
+            {
+                return ("This is not your Notebook model");
+            }
+        }
     }
 }
