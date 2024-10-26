@@ -611,5 +611,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return Ok($"The number of endpoints is: {value}");
             }
         }
+
+        [HttpGet("GetMyLastJob")]
+        public string GetMyLastJob(string job)
+        {
+            if (job == "WEST")
+            {
+                return $"Your last job is: {job}";
+            }
+            else
+            {
+                return ("This is not your last job");
+            }
+        }
     }
 }
