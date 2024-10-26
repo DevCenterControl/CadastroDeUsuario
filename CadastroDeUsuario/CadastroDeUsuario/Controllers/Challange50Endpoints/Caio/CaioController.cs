@@ -585,5 +585,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return false;
             }
         }
+
+        [HttpPost("FirstSalary")]
+        public IActionResult FirstSalary(double value)
+        {
+            if (value != 1200.0)
+            {
+                return BadRequest("Incorrect value");
+            }
+            else
+            {
+                return Ok($"Your first salary is: {value}");
+            }
+        }
     }
 }
