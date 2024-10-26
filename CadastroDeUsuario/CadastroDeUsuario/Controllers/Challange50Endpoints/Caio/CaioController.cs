@@ -558,5 +558,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return Ok($"The Notebook price is: {value}");
             }
         }
+
+        [HttpGet("GetCellPhoneModel")]
+        public string GetCellPhoneModel(string phone)
+        {
+            if (phone == "Iphone 13")
+            {
+                return $"Your cell phone is: {phone}";
+            }
+            else
+            {
+                return ("This is not your cell phone model");
+            }
+        }
     }
 }
