@@ -191,5 +191,28 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
             return resultado;
         }
-    }
+
+        [HttpGet("GetMyFavoritePerfume")]
+        public string GetMyFavoritePerfume()
+        {
+            var name = "Pacco Rabanne";
+
+            return name;
+        }
+
+        [HttpPost("MyFavoriteSeason")]
+        public bool MyFavotiteSeason(string favorite)
+        {
+            if (favorite == "Frio")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+    }   
 }
