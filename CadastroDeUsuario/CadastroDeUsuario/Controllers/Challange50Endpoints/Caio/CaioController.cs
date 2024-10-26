@@ -598,5 +598,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return Ok($"Your first salary is: {value}");
             }
         }
+
+        [HttpPost("QntOfEndpoints")]
+        public IActionResult QntOfEndpoints(int value)
+        {
+            if (value != 50)
+            {
+                return BadRequest("Incorrect number");
+            }
+            else
+            {
+                return Ok($"The number of endpoints is: {value}");
+            }
+        }
     }
 }
