@@ -595,7 +595,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
             }
             else
             {
-                return BadRequest($"The Motorcycle price is: {value}");
+                return BadRequest($"The price of the Motorcycle is not : {value}");
             }
         }
 
@@ -603,6 +603,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
         public bool GetNameOfYourMom(string name)
         {
             if (name == "Sheila")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        [HttpPost("FavoriteBeer")]
+        public bool FavoriteBeer(string beer)
+        {
+            if (beer == "Ipa")
             {
                 return true;
             }
