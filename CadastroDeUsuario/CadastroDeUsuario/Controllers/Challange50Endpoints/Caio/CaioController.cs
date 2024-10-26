@@ -572,5 +572,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Caio
                 return ("This is not your Notebook model");
             }
         }
+
+        [HttpPost("FirstJob")]
+        public bool FirstJob(string job)
+        {
+            if (job == "Nakata")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
