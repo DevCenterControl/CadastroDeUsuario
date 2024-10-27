@@ -296,7 +296,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         }
 
         [HttpPost("SumAc")]
-        public int SumAc(int a,int c)
+        public int SumAc(int a, int c)
         {
             return (a + c);
         }
@@ -357,7 +357,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             else
             {
                 return false;
-            }         
+            }
         }
 
         [HttpGet("GetMyBirthdayDate")]
@@ -382,7 +382,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         [HttpPost("TheBestFootballPlayers")]
         public List<string> TheBestFootballPlayers()
         {
-            var TheBestFootballPlayers = new List<string>();
+            var Players = new List<string>();
 
             var Players1 = "Ronaldinho Gaucho";
             var Players2 = "Ronaldo";
@@ -390,10 +390,15 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             var Players4 = "Cristiano Ronaldo";
             var Players5 = "Messi";
             var Players6 = "Neymar";
+
+            Players.Add (Players1);
+            Players.Add (Players2);
+            Players.Add (Players3);
+            Players.Add (Players4);
             {
-                return TheBestFootballPlayers;
+                return Players;
             }
-                
+
         }
 
         [HttpPost("WorsVideoGame")]
@@ -406,7 +411,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             else
             {
                 return Ok(game);
-            }           
+            }
         }
 
         [HttpGet("GetMyNephewName")]
@@ -416,7 +421,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             {
                 return name;
 
-            } 
+            }
         }
 
         [HttpGet("GetFavoriteChief")]
@@ -429,7 +434,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         }
 
         [HttpGet("GetMyFamilyMembersQuantity")]
-        public string  GetMyFamilyMembersQuantity()
+        public string GetMyFamilyMembersQuantity()
         {
             var quantity = "5 members";
             {
@@ -442,15 +447,38 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         {
             if (!string.IsNullOrEmpty(genre))
             {
-                return BadRequest("Terror");    
+                return BadRequest("Terror");
             }
             else
             {
                 return Ok(genre);
             }
-                    
-                    
+
+
         }
+
+        [HttpGet("GetMyFavoriteTeamsFromThFloodplain")]
+
+        public List<string> GetMyFavoriteTeamsFromThFloodplain()
+        {
+            var teams = new List<string>();
+
+            var teams1 = "Arsenalcool";
+            var teams2 = "Revelação";
+            var teams3 = "Comercial";
+            var teams4 = "Vida loka";
+
+            teams.Add(teams1);
+            teams.Add(teams2);
+            teams.Add(teams3);
+            teams.Add(teams4);
+
+            {
+                return teams;
+            }
+
+        }
+
 
 
 
