@@ -38,7 +38,28 @@ namespace CadastroDeUsuario.Controllers
                 return "Email com provedor invalido";
             }
 
+            if (email.Contains("!"))
+            {
+                return "Caracteres Invalidos";
+            }
+
+            if(email.Contains("#"))
+            {
+                return "Caracteres Invalidos";
+            }
+
+            if (email.Contains("$"))
+            {
+                return "Caracteres Invalidos";
+            }
+
+            if (email.Length >= 14)
+            {
+                return "Limite de caracteres atingido, seu limite é de 14 caracteres";
+            }
+
             return "Autenticado com sucesso.";
+
         }
     }
 }
