@@ -211,8 +211,16 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             {
                 return false;
             }
-
         }
+
+        [HttpGet("GetTheBestFootballGame")]
+        public string GetTheBestFootballGame()
+        {
+            var name = "Fifa";
+
+            return name;
+        }
+        
 
     }   
 }
