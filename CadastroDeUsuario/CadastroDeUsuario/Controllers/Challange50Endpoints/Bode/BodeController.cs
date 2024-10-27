@@ -623,6 +623,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return resultado;
             }
         }
+        [HttpPost("ValueOfTelevision")]
+        public double ValueOfTelevision(double value)
+        {
+            if (value <= 3000.0)
+            {
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
 
     }
