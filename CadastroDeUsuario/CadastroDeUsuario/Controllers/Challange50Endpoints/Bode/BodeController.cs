@@ -297,5 +297,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             return (A + B);
             
         }
+
+        [HttpPost("TeamWithoutAWorldCup")]
+        public IActionResult TeamWithoutAWorldCup(string team)
+        {
+            if (string.IsNullOrEmpty(team))
+            {
+                return BadRequest("Null team");
+            }
+            else
+            {
+                return Ok(team);
+            }
+        }
     }   
 }
