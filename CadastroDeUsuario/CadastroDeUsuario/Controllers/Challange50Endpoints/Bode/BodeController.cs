@@ -533,5 +533,15 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return rivals;
             }
         }
+
+        [HttpGet("GetMyFavoriteSnack")]
+        public string GetMyFavoriteSnack()
+        {
+            var name = "McDonad's";
+            {
+                return name;
+            }
+
+        }
     }
 }
