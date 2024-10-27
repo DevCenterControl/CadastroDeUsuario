@@ -391,7 +391,23 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
                 
         }
-        
+        [HttpPost("WorsVideoGame")]
+        public IActionResult WorsVideoGame(string game)
+        {
+            if (!string.IsNullOrEmpty(game))
+            {
+                return BadRequest("Racing Game");
+            }
+            else
+            {
+                return Ok(game);
+            }
+            
+               
+            
+        }
+
+
 
 
 
