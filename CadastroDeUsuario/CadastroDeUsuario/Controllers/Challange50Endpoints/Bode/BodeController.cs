@@ -560,6 +560,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
 
         }
+
         [HttpGet("GetMyFirstJob")]
         public string GetMyFirstJob()
         {
@@ -568,6 +569,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return name;
             }
         }
+
         [HttpPost("MyFirstLove")]
         public bool MyFirstLove(string name)
         {
@@ -580,6 +582,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return false;
             }
         }
+
         [HttpGet("GetBestCommemorativeDate")]
         public string GetBestCommemorativeDate()
         {
@@ -588,6 +591,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return name;
             }
         }
+        [HttpPost("MyFirstSchool")]
+        public bool MyFirstSchool(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 
 
