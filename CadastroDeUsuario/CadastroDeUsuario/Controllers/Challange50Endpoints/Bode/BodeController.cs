@@ -395,6 +395,8 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             Players.Add(Players2);
             Players.Add(Players3);
             Players.Add(Players4);
+            Players.Add(Players5);
+            Players.Add(Players6);
             {
                 return Players;
             }
