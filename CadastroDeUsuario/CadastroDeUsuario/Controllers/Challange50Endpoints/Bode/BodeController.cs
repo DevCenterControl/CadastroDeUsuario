@@ -375,6 +375,23 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return name;
             }
         }
+        [HttpPost("TheBestFootballPlayers")]
+        public List<string> TheBestFootballPlayers()
+        {
+            var TheBestFootballPlayers = new List<string>();
+
+            var Players1 = "Ronaldinho Gaucho";
+            var Players2 = "Ronaldo";
+            var Players3 = "Zidane";
+            var Players4 = "Cristiano Ronaldo";
+            var Players5 = "Messi";
+            var Players6 = "Neymar";
+            {
+                return TheBestFootballPlayers;
+            }
+                
+        }
+        
 
 
 
