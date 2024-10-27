@@ -232,10 +232,29 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
            {
                 return 0;
 
-           }
-
-           
+           }           
         }
+
+        [HttpGet("GetMySneakersList")]
+        public List<string> GetMySneakersList()
+        {
+            var MySneakersList = new List<string>();
+
+            var Sneakers1 = "Nike";
+            var Sneakers2 = "Lacoste";
+            var Sneakers3 = "Adidas";
+            var Sneakers4 = "Osklen";
+
+            MySneakersList.Add(Sneakers1);
+            MySneakersList.Add(Sneakers2);
+            MySneakersList.Add(Sneakers3);
+            MySneakersList.Add(Sneakers4);
+
+            return MySneakersList;
+
+        }
+
+
         
 
     }   
