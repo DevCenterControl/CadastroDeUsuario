@@ -458,7 +458,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         }
 
         [HttpGet("GetMyFavoriteTeamsFromThFloodplain")]
-
         public List<string> GetMyFavoriteTeamsFromThFloodplain()
         {
             var teams = new List<string>();
