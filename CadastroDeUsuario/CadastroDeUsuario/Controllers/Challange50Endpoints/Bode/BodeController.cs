@@ -220,6 +220,22 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
             return name;
         }
+
+        [HttpPost("HomeValue")]
+        public int HomeValue(int value)
+        {
+           if (value == 20000.0)
+           {
+                return value;
+           }
+           else
+           {
+                return 0;
+
+           }
+
+           
+        }
         
 
     }   
