@@ -310,5 +310,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return Ok(team);
             }
         }
+        [HttpPost("BiggestStatechampion")]
+        public bool BiggesStateChampion(string team)
+        {
+            if (team == "Corinthians")
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;   
+            }
+        }
+        
+
     }   
 }
