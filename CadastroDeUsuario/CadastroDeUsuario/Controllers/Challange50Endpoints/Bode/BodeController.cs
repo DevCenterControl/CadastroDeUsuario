@@ -594,13 +594,14 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         [HttpPost("MyFirstSchool")]
         public bool MyFirstSchool(string name)
         {
-            if (string.IsNullOrEmpty(name))
+            if (name == "Emeb Edson Danilo Dotto")
             {
                 return true;
             }
-            else
+            else            
             {
                 return false;
+                
             }
         }
 
