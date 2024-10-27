@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Security.Cryptography.X509Certificates;
@@ -355,14 +356,20 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             else
             {
                 return false;
-            }
-                
-           
-
-                
+            }         
         }
-        
-        
-        
+        [HttpGet("GetMyBirthdayDate")]
+        public string GetMyBirthdayDate()
+        {
+            var Date = "12 april";
+            {
+                return Date;
+            }
+
+        }
+
+
+
+
     }
 }
