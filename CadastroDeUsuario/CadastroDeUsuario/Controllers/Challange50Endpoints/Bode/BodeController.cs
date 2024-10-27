@@ -344,6 +344,5 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             return CorinthiansTitlesList;
 
         }
-
     }
 }
