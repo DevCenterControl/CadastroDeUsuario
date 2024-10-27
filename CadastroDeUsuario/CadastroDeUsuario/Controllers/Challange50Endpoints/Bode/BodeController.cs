@@ -613,11 +613,19 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             {
                 return name;
             }
-
             
         }
-    
-    }
+        [HttpPost("SumWZ")]
+        public int SumWZ(int W5,int Z10)
+        {
+            var resultado = W5 + Z10;
+            {
+                return resultado;
+            }
+        }
 
+
+    }
+    
 
 }
