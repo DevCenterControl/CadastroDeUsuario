@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Security.Cryptography.X509Certificates;
 namespace CadastroDeUsuario.Controllers.Challange.Bode
@@ -224,15 +225,15 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         [HttpPost("HomeValue")]
         public int HomeValue(int value)
         {
-           if (value == 20000.0)
-           {
+            if (value == 20000.0)
+            {
                 return value;
-           }
-           else
-           {
+            }
+            else
+            {
                 return 0;
 
-           }           
+            }
         }
 
         [HttpGet("GetMySneakersList")]
@@ -278,6 +279,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return false;
             }
         }
+
         [HttpPost("MyPositionOnTheFootballField")]
         public string MyPositionOnTheFootballField(string favorite)
         {
@@ -291,39 +293,38 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
         }
 
-        [HttpPost("SumAB")]
-        public int SumAB(int A, int B)
+        [HttpPost("SumAc")]
+        public int SumAc(int a,int c)
         {
-            return (A + B);
-            
+            return (a + c);
         }
 
-        //[HttpPost("TeamWithoutAWorldCup")]
-        //public IActionResult TeamWithoutAWorldCup(string team)
-        //{
-        //    if (string.IsNullOrEmpty(team))
-        //    {
-        //        return BadRequest("Empty team");
-        //    }
-        //    else
-        //    {
-        //        return Ok(team);
-        //    }
-        //}
+        [HttpPost("TeamWithoutAWorldCup")]
+        public IActionResult TeamWithoutAWorldCup(string team)
+        {
+            if (string.IsNullOrEmpty(team))
+            {
+                return BadRequest("Empty team");
+            }
+            else
+            {
+                return Ok(team);
+            }
+        }
 
-        //[HttpPost("BiggestStatechampion")]
-        //public bool BiggesStateChampion(string team)
-        //{
-        //    if (team == "Corinthians")
-        //    {
-        //        return true;
+        [HttpPost("BiggestStatechampion")]
+        public bool BiggesStateChampion(string team)
+        {
+            if (team == "Corinthians")
+            {
+                return true;
 
-        //    }
-        //    else
-        //    {
-        //        return false;   
-        //    }
-        //}
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         [HttpGet("GetCorinthiansTitlesList")]
         public List<string> GetCorinthiansTitlesList()
@@ -344,7 +345,5 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
         }
 
-
-
-    }   
+    }
 }
