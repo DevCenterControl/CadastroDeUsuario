@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
+using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 namespace CadastroDeUsuario.Controllers.Challange.Bode
 {
@@ -358,6 +359,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return false;
             }         
         }
+
         [HttpGet("GetMyBirthdayDate")]
         public string GetMyBirthdayDate()
         {
@@ -367,6 +369,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
 
         }
+
         [HttpGet("MybeerFavorite")]
         public string MybeerFavorite()
         {
@@ -375,6 +378,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return name;
             }
         }
+
         [HttpPost("TheBestFootballPlayers")]
         public List<string> TheBestFootballPlayers()
         {
@@ -391,6 +395,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
                 
         }
+
         [HttpPost("WorsVideoGame")]
         public IActionResult WorsVideoGame(string game)
         {
@@ -401,13 +406,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             else
             {
                 return Ok(game);
-            }
-            
-               
-            
+            }           
         }
+        [HttpGet("GetMyNephewName")]
+        public string GetMyNephewName()
+        {
+            var name = "Ravi";
+            {
+                return name;
 
-
+            } 
+        }
+        
 
 
 
