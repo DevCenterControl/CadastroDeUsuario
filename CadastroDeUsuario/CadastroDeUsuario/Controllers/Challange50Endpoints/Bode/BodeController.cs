@@ -437,6 +437,21 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
         }
 
+        [HttpPost("WorstMovieGenre")]
+        public IActionResult WorstMovieGenre(string genre)
+        {
+            if (!string.IsNullOrEmpty(genre))
+            {
+                return BadRequest("Terror");    
+            }
+            else
+            {
+                return Ok(genre);
+            }
+                    
+                    
+        }
+
 
 
 
