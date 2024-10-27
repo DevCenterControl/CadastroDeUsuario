@@ -408,6 +408,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return Ok(game);
             }           
         }
+
         [HttpGet("GetMyNephewName")]
         public string GetMyNephewName()
         {
@@ -417,7 +418,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
             } 
         }
-        
+
+        [HttpGet("GetFavoriteChief")]
+        public string GetFavoriteChief()
+        {
+            var name = "Paulo Medeiros";
+            {
+                return name;
+            }
+        }
+
+
+
 
 
 
