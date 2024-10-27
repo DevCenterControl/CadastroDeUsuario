@@ -344,5 +344,25 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             return CorinthiansTitlesList;
 
         }
+
+        [HttpPost("TheGreatestChampionOfTheChampionsLeague")]
+        public bool TheGreatestChampionOfTheChampionsLeague(string team)
+        {
+            if (team == "Real Madrid")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+                
+           
+
+                
+        }
+        
+        
+        
     }
 }
