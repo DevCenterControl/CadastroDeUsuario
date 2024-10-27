@@ -251,11 +251,22 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             MySneakersList.Add(Sneakers4);
 
             return MySneakersList;
-
         }
 
+        [HttpPost("MyGrossSalary")]
+        public double MyGrossSalary(double amount)
+        {
+            if (amount <= 10500.0)
+            {
+                return amount;
+            }
+            else
+            {
+                return 0;
+            }
 
-        
 
+
+        }
     }   
 }
