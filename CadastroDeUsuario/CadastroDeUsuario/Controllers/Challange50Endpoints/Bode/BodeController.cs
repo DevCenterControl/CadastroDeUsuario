@@ -543,5 +543,28 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
 
         }
+
+        [HttpPost("MonthlyAccounts")]
+        public IActionResult MonthlyAccounts(double value) 
+        {
+            if (value != 2800.0)
+            {
+                return BadRequest("Incorrect value");
+            }
+            else
+            {
+                return Ok($"My bills for the month and : {value}");
+            } 
+            
+
+        }
+        [HttpGet("GetMyFirstJob")]
+        public string GetMyFirstJob()
+        {
+            var name = "Lava rapido";
+            {
+                return name;
+            }
+        }
     }
 }
