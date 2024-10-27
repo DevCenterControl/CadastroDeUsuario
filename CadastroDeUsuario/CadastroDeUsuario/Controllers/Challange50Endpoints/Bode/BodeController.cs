@@ -428,6 +428,15 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
         }
 
+        [HttpGet("GetMyFamilyMembersQuantity")]
+        public string  GetMyFamilyMembersQuantity()
+        {
+            var quantity = "5 members";
+            {
+                return quantity;
+            }
+        }
+
 
 
 
