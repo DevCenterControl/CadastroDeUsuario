@@ -566,5 +566,17 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return name;
             }
         }
+        [HttpPost("MyFirstLove")]
+        public bool MyFirstLove(string name)
+        {
+            if (name == "Luciana")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
