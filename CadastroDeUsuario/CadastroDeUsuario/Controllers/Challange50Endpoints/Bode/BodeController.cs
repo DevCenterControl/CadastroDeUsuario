@@ -367,6 +367,14 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             }
 
         }
+        [HttpGet("MybeerFavorite")]
+        public string MybeerFavorite()
+        {
+            var name = "Heineken";
+            {
+                return name;
+            }
+        }
 
 
 
