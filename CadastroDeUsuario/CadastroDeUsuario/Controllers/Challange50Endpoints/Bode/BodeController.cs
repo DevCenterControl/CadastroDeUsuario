@@ -290,5 +290,12 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return favorite;
             }
         }
+
+        [HttpPost("SumAB")]
+        public int SumAB(int A, int B)
+        {
+            return (A + B);
+            
+        }
     }   
 }
