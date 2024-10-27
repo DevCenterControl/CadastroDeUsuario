@@ -298,31 +298,33 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             
         }
 
-        [HttpPost("TeamWithoutAWorldCup")]
-        public IActionResult TeamWithoutAWorldCup(string team)
-        {
-            if (string.IsNullOrEmpty(team))
-            {
-                return BadRequest("Empty team");
-            }
-            else
-            {
-                return Ok(team);
-            }
-        }
-        [HttpPost("BiggestStatechampion")]
-        public bool BiggesStateChampion(string team)
-        {
-            if (team == "Corinthians")
-            {
-                return true;
+        //[HttpPost("TeamWithoutAWorldCup")]
+        //public IActionResult TeamWithoutAWorldCup(string team)
+        //{
+        //    if (string.IsNullOrEmpty(team))
+        //    {
+        //        return BadRequest("Empty team");
+        //    }
+        //    else
+        //    {
+        //        return Ok(team);
+        //    }
+        //}
 
-            }
-            else
-            {
-                return false;   
-            }
-        }
+        //[HttpPost("BiggestStatechampion")]
+        //public bool BiggesStateChampion(string team)
+        //{
+        //    if (team == "Corinthians")
+        //    {
+        //        return true;
+
+        //    }
+        //    else
+        //    {
+        //        return false;   
+        //    }
+        //}
+
         [HttpGet("GetCorinthiansTitlesList")]
         public List<string> GetCorinthiansTitlesList()
         {
