@@ -591,6 +591,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return name;
             }
         }
+
         [HttpPost("MyFirstSchool")]
         public bool MyFirstSchool(string name)
         {
@@ -604,6 +605,17 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 
             }
         }
+
+        [HttpGet("GetBestThingAboutSunday")]
+        public string GetBestThingAboutSunday()
+        {
+            var name = " Have coffee at the bakery";
+
+            return name;
+        }
+        
+
+
 
 
 
