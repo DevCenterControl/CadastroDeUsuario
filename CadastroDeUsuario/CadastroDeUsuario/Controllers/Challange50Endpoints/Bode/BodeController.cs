@@ -496,16 +496,16 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             Watches.Add(Watches4);
 
             {
-                return Watches; 
+                return Watches;
             }
 
-         
+
         }
 
         [HttpPost("WorstTeamInTheWorld")]
         public bool WorstTeamInTheWorld(string team)
         {
-            if (team == "Ibis FC") 
+            if (team == "Ibis FC")
             {
                 return true;
             }
@@ -547,7 +547,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         }
 
         [HttpPost("MonthlyAccounts")]
-        public IActionResult MonthlyAccounts(double value) 
+        public IActionResult MonthlyAccounts(double value)
         {
             if (value != 2800.0)
             {
@@ -556,8 +556,8 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             else
             {
                 return Ok($"My bills for the month and : {value}");
-            } 
-            
+            }
+
 
         }
         [HttpGet("GetMyFirstJob")]
@@ -580,5 +580,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return false;
             }
         }
+        [HttpGet("GetBestCommemorativeDate")]
+        public string GetBestCommemorativeDate()
+        {
+            var name = "New Year's Eve";
+            {
+                return name;
+            }
+        }
+
+
+
     }
+
+
 }
