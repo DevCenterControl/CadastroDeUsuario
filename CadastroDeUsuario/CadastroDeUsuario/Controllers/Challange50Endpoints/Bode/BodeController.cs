@@ -609,7 +609,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         [HttpGet("GetBestThingAboutSunday")]
         public string GetBestThingAboutSunday()
         {
-            var name = " Have coffee at the bakery";
+            var name = "Have coffee at the bakery";
 
             return name;
         }
