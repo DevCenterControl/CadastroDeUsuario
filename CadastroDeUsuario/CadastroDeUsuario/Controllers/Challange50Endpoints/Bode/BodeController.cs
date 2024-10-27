@@ -264,9 +264,31 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             {
                 return 0;
             }
+        }
 
-
-
+        [HttpPost("MyFavoriteAnimal")]
+        public bool MyfavoriteAnimal(string name)
+        {
+            if (name == "Lion")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        [HttpPost("MyPositionOnTheFootballField")]
+        public string MyPositionOnTheFootballField(string favorite)
+        {
+            if (string.IsNullOrEmpty(favorite))
+            {
+                return "The favorite position on the field is a must";
+            }
+            else
+            {
+                return favorite;
+            }
         }
     }   
 }
