@@ -610,16 +610,13 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         public string GetBestThingAboutSunday()
         {
             var name = "Have coffee at the bakery";
+            {
+                return name;
+            }
 
-            return name;
+            
         }
-        
-
-
-
-
-
-
+    
     }
 
 
