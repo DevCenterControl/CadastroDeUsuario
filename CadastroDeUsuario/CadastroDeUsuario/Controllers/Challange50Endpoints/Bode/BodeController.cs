@@ -303,7 +303,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
         {
             if (string.IsNullOrEmpty(team))
             {
-                return BadRequest("Null team");
+                return BadRequest("Empty team");
             }
             else
             {
@@ -323,7 +323,26 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
                 return false;   
             }
         }
-        
+        [HttpGet("GetCorinthiansTitlesList")]
+        public List<string> GetCorinthiansTitlesList()
+        {
+            var CorinthiansTitlesList = new List<string>();
+
+            var Titles1 = "6 Brasilian";
+            var Titles2 = "1 worldwide";
+            var Titles3 = "1 Libertadores";
+            var Titles4 = "3 Copa do Brasil";
+
+            CorinthiansTitlesList.Add(Titles1);
+            CorinthiansTitlesList.Add(Titles2);
+            CorinthiansTitlesList.Add(Titles3);
+            CorinthiansTitlesList.Add(Titles4);
+
+            return CorinthiansTitlesList;
+
+        }
+
+
 
     }   
 }
