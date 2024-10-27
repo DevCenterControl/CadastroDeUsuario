@@ -391,10 +391,10 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             var Players5 = "Messi";
             var Players6 = "Neymar";
 
-            Players.Add (Players1);
-            Players.Add (Players2);
-            Players.Add (Players3);
-            Players.Add (Players4);
+            Players.Add(Players1);
+            Players.Add(Players2);
+            Players.Add(Players3);
+            Players.Add(Players4);
             {
                 return Players;
             }
@@ -478,12 +478,93 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
         }
 
+        [HttpGet("GetMyWatchesList")]
+        public List<string> GetMyWatchesList()
+        {
+            var Watches = new List<string>();
 
+            var Watches1 = "Lacoste blue";
+            var Watches2 = "Lacoste Black";
+            var Watches3 = "Lacoste red";
+            var Watches4 = "Quiksiver grey";
 
+            Watches.Add(Watches1);
+            Watches.Add(Watches2);
+            Watches.Add(Watches3);
+            Watches.Add(Watches4);
 
+            {
+                return Watches; 
+            }
 
+         
+        }
 
+        [HttpPost("WorstTeamInTheWorld")]
+        public bool WorstTeamInTheWorld(string team)
+        {
+            if (team == "Ibis FC") 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
+        }
 
+        [HttpGet("GetMyTeamsBiggestRivals")]
+        public List<string> GetMyTeamsBiggestRivals()
+        {
+            var rivals = new List<string>();
+
+            var rivals1 = "Porcada";
+            var rivals2 = "Bambis";
+            var rivals3 = "Peixada";
+            var rivals4 = "Urubu";
+
+            rivals.Add(rivals1);
+            rivals.Add(rivals2);
+            rivals.Add(rivals3);
+            rivals.Add(rivals4);
+
+            {
+                return rivals;
+            }
+        }
+
+        [HttpGet("GetMyFavoriteSnack")]
+        public string GetMyFavoriteSnack()
+        {
+            var name = "McDonad's";
+            {
+                return name;
+            }
+
+        }
+
+        [HttpPost("MonthlyAccounts")]
+        public IActionResult MonthlyAccounts(double value) 
+        {
+            if (value != 2800.0)
+            {
+                return BadRequest("Incorrect value");
+            }
+            else
+            {
+                return Ok($"My bills for the month and : {value}");
+            } 
+            
+
+        }
+        [HttpGet("GetMyFirstJob")]
+        public string GetMyFirstJob()
+        {
+            var name = "Lava rapido";
+            {
+                return name;
+            }
+        }
     }
 }
