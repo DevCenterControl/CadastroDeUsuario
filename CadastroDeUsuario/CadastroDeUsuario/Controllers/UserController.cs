@@ -54,9 +54,25 @@ namespace CadastroDeUsuario.Controllers
             return Byname;     
 
         }
+        [HttpPost("UserName")]
+        public ActionResult<string> UserName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return BadRequest("Nome não pode estar em branco");
+            }
 
-     
-        
+            if (name.Length < 10)
+            {
+                return BadRequest("Nome deve ter pelo menos 10 caracteres");
+            }
+
+            return Ok("Nome válido");
+        }
+
+
+
+
 
 
 
