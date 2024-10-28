@@ -79,6 +79,11 @@ namespace CadastroDeUsuario.Controllers
                 return "Password deve conter no minimo 8 caracteres.";
             }
 
+            if (password.Contains(email))
+            {
+                return "O password nao pode ser igual ao email.";
+            }
+
             return "Autenticado com sucesso.";
 
         }
