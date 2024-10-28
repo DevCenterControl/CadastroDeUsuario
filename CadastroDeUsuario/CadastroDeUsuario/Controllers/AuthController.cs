@@ -95,7 +95,7 @@ namespace CadastroDeUsuario.Controllers
                 return "Passoword deve conter pelo menos um numero.";
             }
 
-            if(!password.Any(ch => specialCharacters.Contains(ch)))
+            if (!password.Any(ch => specialCharacters.Contains(ch)))
             {
                 return "Passowrd deve conter pelo menos um caractere especial.";
             }
