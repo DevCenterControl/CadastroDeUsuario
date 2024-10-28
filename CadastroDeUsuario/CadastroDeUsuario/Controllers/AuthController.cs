@@ -84,6 +84,12 @@ namespace CadastroDeUsuario.Controllers
                 return "O password nao pode ser igual ao email.";
             }
 
+            if (!password.Any(char.IsUpper))
+            {
+                return "Password deve conter pelo menos uma letra maiuscula.";
+            }
+
+
             return "Autenticado com sucesso.";
 
         }
