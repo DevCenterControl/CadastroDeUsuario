@@ -89,6 +89,10 @@ namespace CadastroDeUsuario.Controllers
                 return "Password deve conter pelo menos uma letra maiuscula.";
             }
 
+            if (!password.Any(char.IsNumber))
+            {
+                return "Passoword deve conter pelo menos um numero.";
+            }
 
             return "Autenticado com sucesso.";
 
