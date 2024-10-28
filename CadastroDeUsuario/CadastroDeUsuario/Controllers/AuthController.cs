@@ -43,7 +43,7 @@ namespace CadastroDeUsuario.Controllers
                 return "Caracteres Invalidos";
             }
 
-            if(email.Contains("#"))
+            if (email.Contains("#"))
             {
                 return "Caracteres Invalidos";
             }
@@ -53,10 +53,17 @@ namespace CadastroDeUsuario.Controllers
                 return "Caracteres Invalidos";
             }
 
-            if (email.Length >= 14)
+            if (email.Length >= 50)
             {
-                return "Limite de caracteres atingido, seu limite é de 14 caracteres";
+                return "Limite de caracteres atingido, seu limite é de 50 caracteres";
             }
+
+            if (email.Contains(".."))
+            {
+                return "Email invalido, não é possivel utilizar dois pontos consecutivos (..)";
+            }
+
+
 
             return "Autenticado com sucesso.";
 
