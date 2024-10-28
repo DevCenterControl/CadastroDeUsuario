@@ -50,20 +50,23 @@ namespace CadastroDeUsuario.Controllers
 
             if (email.Contains("$"))
             {
-                return "Caracteres Invalidos";
+                return "Caracteres Inválidos.";
             }
 
             if (email.Length >= 50)
             {
-                return "Limite de caracteres atingido, seu limite é de 50 caracteres";
+                return "Limite de caracteres atingido, seu limite é de 50 caracteres.";
             }
 
             if (email.Contains(".."))
             {
-                return "Email invalido, não é possivel utilizar dois pontos consecutivos (..)";
+                return "Email invalido, não é possivel utilizar dois pontos finais consecutivos (..).";
             }
 
-
+            if (email.StartsWith("."))
+            {
+                return "Email inválido, nao é possivel iniciar com ponto final. ";
+            }
 
             return "Autenticado com sucesso.";
 
