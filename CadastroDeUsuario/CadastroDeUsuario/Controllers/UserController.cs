@@ -51,7 +51,7 @@ namespace CadastroDeUsuario.Controllers
             Byname.Add(name3);
             Byname.Add(name4);
 
-            return Byname;     
+            return Byname;
 
         }
         [HttpPost("UserName")]
@@ -66,8 +66,11 @@ namespace CadastroDeUsuario.Controllers
             {
                 return BadRequest("Nome deve ter pelo menos 10 caracteres");
             }
+            {
+                return Ok("Nome válido");
+            }
 
-            return Ok("Nome válido");
+            
         }
 
 
