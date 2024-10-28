@@ -599,10 +599,10 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             {
                 return true;
             }
-            else            
+            else
             {
                 return false;
-                
+
             }
         }
 
@@ -613,16 +613,18 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
             {
                 return name;
             }
-            
+
         }
+
         [HttpPost("SumWZ")]
-        public int SumWZ(int W5,int Z10)
+        public int SumWZ(int W5, int Z10)
         {
             var resultado = W5 + Z10;
             {
                 return resultado;
             }
         }
+
         [HttpPost("ValueOfTelevision")]
         public double ValueOfTelevision(double value)
         {
@@ -638,6 +640,6 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
 
 
     }
-    
+
 
 }

@@ -40,7 +40,29 @@ namespace CadastroDeUsuario.Controllers
         [HttpGet("GetUserByName")]
         public List<string> GetUserByName(string name)
         {
-             return  new List<string>();
+            var Byname = new List<string>();
+            var name1 = "Caio";
+            var name2 = "Bode";
+            var name3 = "Paulo";
+            var name4 = "Akamaru";
+
+            Byname.Add(name1);
+            Byname.Add(name2);
+            Byname.Add(name3);
+            Byname.Add(name4);
+
+            return Byname;     
+
         }
+
+     
+        
+
+
+
+
     }
+
+
 }
+
