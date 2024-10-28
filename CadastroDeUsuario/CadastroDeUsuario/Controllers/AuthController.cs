@@ -68,6 +68,11 @@ namespace CadastroDeUsuario.Controllers
                 return "Email inválido, nao é possivel iniciar com ponto final. ";
             }
 
+            if (string.IsNullOrEmpty(password))
+            {
+                return "Password não pode estar em branco";
+            }
+
             return "Autenticado com sucesso.";
 
         }
