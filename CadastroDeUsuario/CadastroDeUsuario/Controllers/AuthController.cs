@@ -73,6 +73,12 @@ namespace CadastroDeUsuario.Controllers
                 return "Password não pode estar em branco";
             }
 
+
+            if (password.Length <= 8)
+            {
+                return "Password deve conter no minimo 8 caracteres.";
+            }
+
             return "Autenticado com sucesso.";
 
         }
