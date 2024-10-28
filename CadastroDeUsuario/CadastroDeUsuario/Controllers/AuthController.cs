@@ -100,6 +100,11 @@ namespace CadastroDeUsuario.Controllers
                 return "Passowrd deve conter pelo menos um caractere especial.";
             }
 
+            if (!password.Any(char.IsLower))
+            {
+                return "Passowrd deve conter pelo menos uma letra minuscula.";
+            }
+
             return "Autenticado com sucesso.";
 
         }
