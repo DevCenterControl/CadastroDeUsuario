@@ -7,6 +7,7 @@ namespace CadastroDeUsuario.Controllers
     public class AuthController : Controller
     {
         string[] provedoresPermitidos = { "@gmail.com", "@outlook.com", "@hotmail.com", "@yahoo.com" };
+        string specialCharacters = "!@#$%&*(){}[];:.,<>?/-=+¢¬£~^`_¨|";
 
         [HttpPost("Login")]
         public string Login(string email, string password)
@@ -92,6 +93,11 @@ namespace CadastroDeUsuario.Controllers
             if (!password.Any(char.IsNumber))
             {
                 return "Passoword deve conter pelo menos um numero.";
+            }
+
+            if(!password.Any(ch => specialCharacters.Contains(ch)))
+            {
+                return "Passowrd deve conter pelo menos um caractere especial.";
             }
 
             return "Autenticado com sucesso.";
