@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using CadastroDeUsuario.Controllers.ModelsAuthController;
 // Responsavel por fazer o login, lougout, esqueci a senha. 
 
 namespace CadastroDeUsuario.Controllers
