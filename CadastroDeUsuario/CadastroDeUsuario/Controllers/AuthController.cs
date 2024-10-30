@@ -16,7 +16,7 @@ namespace CadastroDeUsuario.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest (ModelState);
+                return BadRequest(ModelState);
             }
 
             string email = request.email;
@@ -68,7 +68,7 @@ namespace CadastroDeUsuario.Controllers
 
             if (email.Contains(".."))
             {
-                return BadRequest("Email invalido, não é possivel utilizar dois pontos finais consecutivos (..).")  ;
+                return BadRequest("Email invalido, não é possivel utilizar dois pontos finais consecutivos (..).");
             }
 
             if (email.StartsWith("."))
@@ -95,7 +95,7 @@ namespace CadastroDeUsuario.Controllers
 
             if (!password.Any(char.IsUpper))
             {
-                return BadRequest ("Password deve conter pelo menos uma letra maiuscula.");
+                return BadRequest("Password deve conter pelo menos uma letra maiuscula.");
             }
 
             if (!password.Any(char.IsNumber))
