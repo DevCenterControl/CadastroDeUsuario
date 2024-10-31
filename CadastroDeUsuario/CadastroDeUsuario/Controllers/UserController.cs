@@ -18,13 +18,21 @@ namespace CadastroDeUsuario.Controllers
                 }
 
                 return Ok(user);
-            
+
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+
+
+        //Create user (meio caminho andado).
+        //Get user by name.
+        //update user.
+        //getalluser.
+        //delete all user.
+        //delete by name.
     }
 }
 
