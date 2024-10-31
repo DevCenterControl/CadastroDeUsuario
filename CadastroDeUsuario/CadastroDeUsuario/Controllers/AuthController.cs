@@ -9,7 +9,6 @@ namespace CadastroDeUsuario.Controllers
     public class AuthController : Controller
     {
         string[] provedoresPermitidos = { "@gmail.com", "@outlook.com", "@hotmail.com", "@yahoo.com" };
-        string specialCharacters = "!@#$%&*(){}[];:.,<>?/-=+¢¬£~^`_¨|";
 
         [HttpPost("Login")]
         public IActionResult Login([FromBody] LoginRequest request)
@@ -25,52 +24,6 @@ namespace CadastroDeUsuario.Controllers
                 string password = request.password;
 
 
-                if (email.Contains("@@"))
-                {
-                    return BadRequest("Email invalido");
-                }
-
-                var isPermitted = provedoresPermitidos.Any(provedor => email.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
-
-                if (!isPermitted)
-                {
-                    return BadRequest("Email com provedor invalido");
-                }
-
-                if (email.Contains("!") || email.Contains("#") || email.Contains("$") || email.Contains(".."))
-                {
-                    return BadRequest("Caracteres Invalidos");
-                }
-
-                if (email.StartsWith("."))
-                {
-                    return BadRequest("Email inválido, nao é possivel iniciar com ponto final. ");
-                }
-
-                if (password.Contains(email))
-                {
-                    return BadRequest("O password nao pode ser igual ao email.");
-                }
-
-                if (!password.Any(char.IsUpper))
-                {
-                    return BadRequest("Password deve conter pelo menos uma letra maiuscula.");
-                }
-
-                if (!password.Any(char.IsNumber))
-                {
-                    return BadRequest("Passoword deve conter pelo menos um numero.");
-                }
-
-                if (!password.Any(ch => specialCharacters.Contains(ch)))
-                {
-                    return BadRequest("Passowrd deve conter pelo menos um caractere especial.");
-                }
-
-                if (!password.Any(char.IsLower))
-                {
-                    return BadRequest("Passowrd deve conter pelo menos uma letra minuscula.");
-                }
             }
 
             catch (Exception ex)
