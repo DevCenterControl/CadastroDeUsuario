@@ -20,19 +20,8 @@ namespace CadastroDeUsuario.Controllers
             }
 
             string email = request.email;
-            string password = request.password;
-
-            if (email.Length <= 10)
-            {
-                return BadRequest("Email inválido.");
-            }
-
-            //if (!email.Contains("@"))
-            //{
-            //    return "Email invalido";
-            //}
-            //Obs: Validação do @ agora é feita pelo model utilizando EmailAdress,
-            //que verifica os requisitos minimos para um email ser valido.
+            string password = request.password;      
+        
 
             if (email.Contains("@@"))
             {
@@ -46,48 +35,16 @@ namespace CadastroDeUsuario.Controllers
                 return BadRequest("Email com provedor invalido");
             }
 
-            if (email.Contains("!"))
+            if (email.Contains("!") || email.Contains("#") || email.Contains("$") || email.Contains(".."))
             {
                 return BadRequest("Caracteres Invalidos");
-            }
-
-            if (email.Contains("#"))
-            {
-                return BadRequest("Caracteres Invalidos");
-            }
-
-            if (email.Contains("$"))
-            {
-                return BadRequest("Caracteres Inválidos.");
-            }
-
-            if (email.Length >= 50)
-            {
-                return BadRequest("Limite de caracteres atingido, seu limite é de 50 caracteres.");
-            }
-
-            if (email.Contains(".."))
-            {
-                return BadRequest("Email invalido, não é possivel utilizar dois pontos finais consecutivos (..).");
             }
 
             if (email.StartsWith("."))
             {
                 return BadRequest("Email inválido, nao é possivel iniciar com ponto final. ");
             }
-
-            //////if (string.IsNullOrEmpty(password))
-            //////{
-            //////    return "Password não pode estar em branco";
-            //////} 
-
-
-            ////if (password.Length <= 8)
-            ////{
-            ////    return "Password deve conter no minimo 8 caracteres.";
-            //} Obs: Com a utilização das models esta validação nao é mais necessaria nesta parte do codigo,
-            //ele esta importando da classe LoginRequest os mesmos requisitos utilizando Required e MinLenght.
-
+     
             if (password.Contains(email))
             {
                 return BadRequest("O password nao pode ser igual ao email.");
@@ -113,7 +70,7 @@ namespace CadastroDeUsuario.Controllers
                 return BadRequest("Passowrd deve conter pelo menos uma letra minuscula.");
             }
 
-            return Ok("Autenticado com sucesso.");
+            return Ok("Login efetuado com sucesso.");
 
         }
 
