@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace CadastroDeUsuario.Controllers.ModelsAuthController
+namespace CadastroDeUsuario.Models
 {
     public class LoginRequest
     {
@@ -11,7 +11,7 @@ namespace CadastroDeUsuario.Controllers.ModelsAuthController
         public string email { get; set; }
 
         [Required(ErrorMessage = "Password é obrigatorio.")]
-        [MinLength(8, ErrorMessage ="Password deve conter no minimo 8 caracteres.")]
+        [MinLength(8, ErrorMessage = "Password deve conter no minimo 8 caracteres.")]
         public string password { get; set; }
     }
 }

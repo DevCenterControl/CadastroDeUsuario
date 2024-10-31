@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using CadastroDeUsuario.Controllers.ModelsAuthController;
+﻿using Microsoft.AspNetCore.Mvc;
+using CadastroDeUsuario.Models;
 // Responsavel por fazer o login, lougout, esqueci a senha. 
 
 namespace CadastroDeUsuario.Controllers
 {
     [ApiController]
+    [Route("Controller")]
     public class AuthController : Controller
     {
         string[] provedoresPermitidos = { "@gmail.com", "@outlook.com", "@hotmail.com", "@yahoo.com" };

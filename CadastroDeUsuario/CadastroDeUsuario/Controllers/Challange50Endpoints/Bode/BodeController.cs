@@ -11,6 +11,7 @@ namespace CadastroDeUsuario.Controllers.Challange.Bode
     [Route("Controller")]
     public class BodeController : Controller
     {
+       
         [HttpGet("GetUser")]
         public string GetUser()
         {
