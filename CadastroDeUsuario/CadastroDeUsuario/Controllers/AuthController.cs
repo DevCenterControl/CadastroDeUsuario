@@ -14,63 +14,71 @@ namespace CadastroDeUsuario.Controllers
         [HttpPost("Login")]
         public IActionResult Login([FromBody] LoginRequest request)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                string email = request.email;
+                string password = request.password;
+
+
+                if (email.Contains("@@"))
+                {
+                    return BadRequest("Email invalido");
+                }
+
+                var isPermitted = provedoresPermitidos.Any(provedor => email.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
+
+                if (!isPermitted)
+                {
+                    return BadRequest("Email com provedor invalido");
+                }
+
+                if (email.Contains("!") || email.Contains("#") || email.Contains("$") || email.Contains(".."))
+                {
+                    return BadRequest("Caracteres Invalidos");
+                }
+
+                if (email.StartsWith("."))
+                {
+                    return BadRequest("Email inválido, nao é possivel iniciar com ponto final. ");
+                }
+
+                if (password.Contains(email))
+                {
+                    return BadRequest("O password nao pode ser igual ao email.");
+                }
+
+                if (!password.Any(char.IsUpper))
+                {
+                    return BadRequest("Password deve conter pelo menos uma letra maiuscula.");
+                }
+
+                if (!password.Any(char.IsNumber))
+                {
+                    return BadRequest("Passoword deve conter pelo menos um numero.");
+                }
+
+                if (!password.Any(ch => specialCharacters.Contains(ch)))
+                {
+                    return BadRequest("Passowrd deve conter pelo menos um caractere especial.");
+                }
+
+                if (!password.Any(char.IsLower))
+                {
+                    return BadRequest("Passowrd deve conter pelo menos uma letra minuscula.");
+                }
             }
 
-            string email = request.email;
-            string password = request.password;      
-        
-
-            if (email.Contains("@@"))
+            catch (Exception ex)
             {
-                return BadRequest("Email invalido");
+                throw new Exception(ex.Message);
             }
 
-            var isPermitted = provedoresPermitidos.Any(provedor => email.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
-
-            if (!isPermitted)
-            {
-                return BadRequest("Email com provedor invalido");
-            }
-
-            if (email.Contains("!") || email.Contains("#") || email.Contains("$") || email.Contains(".."))
-            {
-                return BadRequest("Caracteres Invalidos");
-            }
-
-            if (email.StartsWith("."))
-            {
-                return BadRequest("Email inválido, nao é possivel iniciar com ponto final. ");
-            }
-     
-            if (password.Contains(email))
-            {
-                return BadRequest("O password nao pode ser igual ao email.");
-            }
-
-            if (!password.Any(char.IsUpper))
-            {
-                return BadRequest("Password deve conter pelo menos uma letra maiuscula.");
-            }
-
-            if (!password.Any(char.IsNumber))
-            {
-                return BadRequest("Passoword deve conter pelo menos um numero.");
-            }
-
-            if (!password.Any(ch => specialCharacters.Contains(ch)))
-            {
-                return BadRequest("Passowrd deve conter pelo menos um caractere especial.");
-            }
-
-            if (!password.Any(char.IsLower))
-            {
-                return BadRequest("Passowrd deve conter pelo menos uma letra minuscula.");
-            }
-
-            return Ok("Login efetuado com sucesso.");
+            return Ok("Usuario autenticado com sucesso.");
 
         }
 
