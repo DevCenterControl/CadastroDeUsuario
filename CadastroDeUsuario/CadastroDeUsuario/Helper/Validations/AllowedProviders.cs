@@ -4,23 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace CadastroDeUsuario.Helper.Validations
 {
-    //public class AllowedProviders : ValidationAttribute
-    //{
-    //    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-    //    {
-    //        string[] provedoresPermitidos = { "@gmail.com", "@outlook.com", "@hotmail.com", "@yahoo.com" };
-
-    //        var isPermitted = provedoresPermitidos.Any(provedor => value.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
-
-    //        if (!isPermitted)
-    //        {
-    //            return BadRequest("Email com provedor invalido");
-    //        }
-    //            return ValidationResult.Success;
-    //    }
-    //}
-
-    public class AllowedProvidersAttribute : ValidationAttribute
+   public class AllowedProvidersAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
