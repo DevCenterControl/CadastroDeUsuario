@@ -15,6 +15,11 @@ namespace CadastroDeUsuario.Helper.Validations
             {
                 return new ValidationResult("A senha é obrigatória.");
             }
+            
+            if(password.Contains(" "))
+            {
+                return new ValidationResult("A senha nao pode conter um espaço em branco.");
+            }
 
             if (password.Length < MinimumLength)
             {
