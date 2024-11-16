@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CadastroDeUsuario.Models;
 using CadastroDeUsuario.Helper.FakeDataBase;
-using CadastroDeUsuario.Controllers.Challange.Caio;
 
 namespace CadastroDeUsuario.Controllers
 {
