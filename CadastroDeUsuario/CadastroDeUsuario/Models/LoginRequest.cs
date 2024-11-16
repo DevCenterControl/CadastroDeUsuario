@@ -1,9 +1,10 @@
-﻿using CadastroDeUsuario.Helper.Validations;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using CadastroDeUsuariousing CadastroDeUsuario-API.Helper.Validations;
+-API.Helper.Validations;
 
-namespace CadastroDeUsuario.Models
+namespace CadastroDeUsuario
 {
     public class LoginRequest
     {

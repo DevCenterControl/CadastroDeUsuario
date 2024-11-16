@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using CadastroDeUsuario.Models;
-using CadastroDeUsuario.Helper.FakeDataBase;
+using CadastroDeUsuariousing CadastroDeUsuario-API.Models;
+-API.Helper.FakeDataBase;
 
-namespace CadastroDeUsuario.Controllers
+namespace CadastroDeUsuario
 {
     [ApiController]
     [Route("Controller")]

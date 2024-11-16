@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CadastroDeUsuario.Models
+namespace CadastroDeUsuario
 {
     public class UserModel
     {

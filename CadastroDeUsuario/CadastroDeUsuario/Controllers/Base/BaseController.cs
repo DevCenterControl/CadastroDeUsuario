@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace CadastroDeUsuario.Controllers.Base
+namespace CadastroDeUsuario
 {
     public class BaseController : Controller
     {

@@ -1,6 +1,5 @@
-﻿using CadastroDeUsuario.Models;
-
-namespace CadastroDeUsuario.Helper.FakeDataBase
+﻿
+namespace CadastroDeUsuario
 {
     public class FakeDataBaseUser
     {

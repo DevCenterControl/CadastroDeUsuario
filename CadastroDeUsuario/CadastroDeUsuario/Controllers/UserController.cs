@@ -1,7 +1,7 @@
-﻿using CadastroDeUsuario.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using CadastroDeUsuario-API.Models;
 
-namespace CadastroDeUsuario.Controllers
+namespace CadastroDeUsuario
 {
     [ApiController]
     [Route("Controller")]
