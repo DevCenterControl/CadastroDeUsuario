@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroDeUsuario-API", "Ca
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Application", "01-Application", "{275D8E7E-471B-4CD2-A743-0FE3D5B692DE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Services", "02-Services", "{833492F5-D38F-4FAC-8B3D-DD4DF3DDDFD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroDeUsuario-Services", "CadastroDeUsuario-Services\CadastroDeUsuario-Services.csproj", "{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{0C588C05-EE59-4469-9EFD-68A5CE9C6173}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C588C05-EE59-4469-9EFD-68A5CE9C6173}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C588C05-EE59-4469-9EFD-68A5CE9C6173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0C588C05-EE59-4469-9EFD-68A5CE9C6173} = {275D8E7E-471B-4CD2-A743-0FE3D5B692DE}
+		{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD} = {833492F5-D38F-4FAC-8B3D-DD4DF3DDDFD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E3EB59E-656F-4CA8-9E1F-A88C8576DF61}
