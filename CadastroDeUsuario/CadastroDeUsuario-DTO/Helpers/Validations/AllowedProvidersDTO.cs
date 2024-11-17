@@ -1,8 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CadastroDeUsuario
+namespace CadastroDeUsuario_DTO.Helpers.Validations
 {
-   public class AllowedProvidersAttribute : ValidationAttribute
+    public class AllowedProvidersDTO
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -22,4 +27,3 @@ namespace CadastroDeUsuario
         }
     }
 }
-

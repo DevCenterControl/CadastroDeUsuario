@@ -1,9 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-namespace CadastroDeUsuario
+namespace CadastroDeUsuario_DTO.Helpers.Validations
 {
-    public class PasswordAttribute : ValidationAttribute
+    public class PasswordAttributeDTO
     {
         public int MinimumLength { get; set; } = 8;
 
@@ -15,8 +20,8 @@ namespace CadastroDeUsuario
             {
                 return new ValidationResult("A senha é obrigatória.");
             }
-            
-            if(password.Contains(" "))
+
+            if (password.Contains(" "))
             {
                 return new ValidationResult("A senha nao pode conter um espaço em branco.");
             }
@@ -50,3 +55,4 @@ namespace CadastroDeUsuario
         }
     }
 }
+

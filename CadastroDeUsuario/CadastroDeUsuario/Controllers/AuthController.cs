@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CadastroDeUsuario_DTO.Request.Auth;
+using Microsoft.AspNetCore.Mvc;
 namespace CadastroDeUsuario
 {
     [ApiController]
@@ -6,7 +7,7 @@ namespace CadastroDeUsuario
     public class AuthController : Controller
     {
         [HttpPost("Login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        public IActionResult Login([FromBody] AuthLoginRequestDTO request)
         {
             try
             {
@@ -38,17 +39,6 @@ namespace CadastroDeUsuario
         public IActionResult Logout()
         {   
             return Ok(new { message = "Sessão encerrada." });
-        }
-
-        #region privateMethods
-        private List<FakeDataBaseUser> GetUsers()
-        {
-            var usuariosNoBancoDeDados = new List<FakeDataBaseUser>();
-            var usuario1 = new FakeDataBaseUser { email = "caio@hotmail.com", password = "Caio12345!" };
-            usuariosNoBancoDeDados.Add(usuario1);
-
-            return usuariosNoBancoDeDados;
-        }
-        #endregion
+        }    
     }
 }
