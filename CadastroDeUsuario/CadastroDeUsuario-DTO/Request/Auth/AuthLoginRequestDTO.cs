@@ -9,6 +9,7 @@ namespace CadastroDeUsuario_DTO.Request.Auth
 {
     public class AuthLoginRequestDTO
     {
+        #region Properties
 
         [Required(ErrorMessage = "Email é obrigatório.")]
         [EmailAddress(ErrorMessage = "Email inválido.")]
@@ -18,5 +19,7 @@ namespace CadastroDeUsuario_DTO.Request.Auth
 
         [Required(ErrorMessage = "Password é obrigatorio.")]
         public string password { get; set; }
+
+        #endregion     
     }
 }
