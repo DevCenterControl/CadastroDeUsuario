@@ -1,18 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CadastroDeUsuario
+namespace CadastroDeUsuario_DTO.Request.Auth
 {
-    public class LoginRequest
+    public class AuthLoginRequestDTO
     {
+
         [Required(ErrorMessage = "Email é obrigatório.")]
         [EmailAddress(ErrorMessage = "Email inválido.")]
         [MaxLength(50, ErrorMessage = "Limite de caracteres atingido, seu limite é de 50 caracteres.")]
         [MinLength(10, ErrorMessage = "Email deve conter no minimo 10 caracteres.")]
-        [AllowedProviders]
         public string email { get; set; }
 
         [Required(ErrorMessage = "Password é obrigatorio.")]
-        [PasswordAttribute]
         public string password { get; set; }
     }
 }

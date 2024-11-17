@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Request\Auth\" />
     <Folder Include="Request\Base\" />
     <Folder Include="Response\Base\" />
     <Folder Include="Response\Auth\" />
