@@ -18,6 +18,8 @@ namespace CadastroDeUsuario_Services.Auth
             throw new NotImplementedException();
         }
 
+
+        #region private methods
         private void ValidateRequestDTO(AuthLoginRequestDTO request)
         {
 
@@ -30,8 +32,9 @@ namespace CadastroDeUsuario_Services.Auth
             {
                 throw new Exception ("O email deve ter um provedor permitido: @gmail.com, @outlook.com, @hotmail.com ou @yahoo.com.");
             }
-
         }
+
+        #endregion
     }
 }
 
