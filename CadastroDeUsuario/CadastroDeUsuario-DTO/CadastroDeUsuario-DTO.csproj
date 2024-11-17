@@ -4,14 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>CadastroDeUsuario_DTO</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Request\Base\" />
     <Folder Include="Response\Base\" />
-    <Folder Include="Response\Auth\" />
-    <Folder Include="Response\User\" />
   </ItemGroup>
 
 </Project>
