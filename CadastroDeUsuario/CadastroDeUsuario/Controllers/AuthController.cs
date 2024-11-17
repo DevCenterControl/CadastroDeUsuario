@@ -11,14 +11,12 @@ namespace CadastroDeUsuario
         {
             try
             {
-
                 return Ok("Usuário autenticado com sucesso.");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
         [HttpPost("Logout")]
