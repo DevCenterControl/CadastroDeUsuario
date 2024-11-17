@@ -1,6 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using CadastroDeUsuariousing CadastroDeUsuario-API.Helper.Validations;
+-API.Helper.Validations;
+using CadastroDeUsuariousing CadastroDeUsuario-API.Helper.Validations;
+-API.Helper.Validations;
 
 namespace CadastroDeUsuario
 {

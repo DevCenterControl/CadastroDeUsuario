@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+-API.Models;
+-API.Models;
 
 namespace CadastroDeUsuario
 {
