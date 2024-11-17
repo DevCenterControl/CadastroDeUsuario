@@ -9,7 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Application", "01-Applic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Services", "02-Services", "{833492F5-D38F-4FAC-8B3D-DD4DF3DDDFD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroDeUsuario-Services", "CadastroDeUsuario-Services\CadastroDeUsuario-Services.csproj", "{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroDeUsuario-Services", "CadastroDeUsuario-Services\CadastroDeUsuario-Services.csproj", "{162D7EFE-46A5-48F9-B56A-0A01DDD1ACCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Domain", "03-Domain", "{6A8FDE29-6297-4361-A288-2FABBE588BEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Infra", "04-Infra", "{D9398578-2708-4012-A06C-37DDFC54BC50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Dto", "05-Dto", "{0C45DE13-A91D-463D-B7B4-0FBEDE66334B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-Tests", "06-Tests", "{BC544558-29C0-443D-AC39-A73253331320}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
