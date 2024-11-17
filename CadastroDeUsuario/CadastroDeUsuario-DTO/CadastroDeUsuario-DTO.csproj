@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Request\Auth\" />
+    <Folder Include="Request\Base\" />
+    <Folder Include="Request\User\" />
+    <Folder Include="Response\Base\" />
+    <Folder Include="Response\Auth\" />
+    <Folder Include="Response\User\" />
+  </ItemGroup>
+
 </Project>
