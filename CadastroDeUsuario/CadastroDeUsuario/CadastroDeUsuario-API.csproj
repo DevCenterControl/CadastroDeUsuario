@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CadastroDeUsuario-DTO\CadastroDeUsuario-DTO.csproj" />
+    <ProjectReference Include="..\CadastroDeUsuario-Services\CadastroDeUsuario-Services.csproj" />
   </ItemGroup>
 
 </Project>
