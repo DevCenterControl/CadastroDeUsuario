@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CadastroDeUsuario_Services.User
 {
-    public class UserService : UserServiceInterface
+    public class UserService : IUserService
     {
         public CreatUserResponserDTO CreateUser(CreateUserRequestDTO user)
         {

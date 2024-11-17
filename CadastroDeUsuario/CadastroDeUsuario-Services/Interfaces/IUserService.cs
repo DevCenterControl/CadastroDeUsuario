@@ -3,7 +3,7 @@ using CadastroDeUsuario_DTO.Response.User;
 
 namespace CadastroDeUsuario_Services.Interfaces
 {
-    public interface UserServiceInterface
+    public interface IUserService
     {
         CreatUserResponserDTO CreateUser(CreateUserRequestDTO user);
     }

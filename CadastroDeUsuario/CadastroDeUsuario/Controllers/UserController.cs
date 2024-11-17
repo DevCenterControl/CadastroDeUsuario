@@ -1,4 +1,5 @@
 ﻿using CadastroDeUsuario_DTO.Request.User;
+using CadastroDeUsuario_Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 namespace CadastroDeUsuario
 {
@@ -6,11 +7,25 @@ namespace CadastroDeUsuario
     [Route("Controller")]
     public class UserController : Controller
     {
+        #region Fields
+
+        private readonly IUserService _userService;
+        #endregion
+
+        #region Constructor
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+        #endregion
+
+        #region EndPoints
         [HttpPost("CreateUser")]
         public IActionResult CreateUser([FromBody] CreateUserRequestDTO request)
         {
             try
             {
+                var resut=_userService.CreateUser(request);
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
@@ -55,6 +70,7 @@ namespace CadastroDeUsuario
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
     }
 }
 
