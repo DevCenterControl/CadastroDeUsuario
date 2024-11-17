@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using CadastroDeUsuariousing CadastroDeUsuario-API.Models;
--API.Helper.FakeDataBase;
-using CadastroDeUsuariousing CadastroDeUsuario-API.Models;
--API.Helper.FakeDataBase;
-
 namespace CadastroDeUsuario
 {
     [ApiController]
