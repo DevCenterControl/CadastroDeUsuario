@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CadastroDeUsuario_DTO.Request.User;
+using Microsoft.AspNetCore.Mvc;
 namespace CadastroDeUsuario
 {
     [ApiController]
@@ -6,7 +7,7 @@ namespace CadastroDeUsuario
     public class UserController : Controller
     {
         [HttpPost("CreateUser")]
-        public IActionResult CreateUser([FromBody] UserModel user)
+        public IActionResult CreateUser([FromBody] CreateUserRequestDTO request)
         {
             try
             {
@@ -15,7 +16,7 @@ namespace CadastroDeUsuario
                     return BadRequest(ModelState);
                 }
 
-                return Ok(user);
+                return Ok();
 
             }
             catch (Exception ex)
