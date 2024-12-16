@@ -18,6 +18,7 @@ namespace CadastroDeUsuario_DTO.Request.Auth
         public string email { get; set; }
 
         [Required(ErrorMessage = "Password é obrigatorio.")]
+        [MinLength(8, ErrorMessage = "Password deve conter no minimo 8 caracteres.")]
         public string password { get; set; }
 
         #endregion     
