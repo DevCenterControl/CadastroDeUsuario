@@ -16,9 +16,11 @@ namespace CadastroDeUsuario_Services.Auth
     {
         public AuthLoginResponseDTO Authenticate(AuthLoginRequestDTO request)
         {
+            //Validções
             ValidateProviderRequestDTO(request.email);
             ValidatePasswordRequestDTO(request.password);
-            throw new NotImplementedException();
+            //Verificar no banco 
+            return new AuthLoginResponseDTO();
         }
 
         #region private methods

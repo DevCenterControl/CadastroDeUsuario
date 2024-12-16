@@ -32,7 +32,7 @@ namespace CadastroDeUsuario
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+               return BadRequest(ex.Message);
             }
         }
 
