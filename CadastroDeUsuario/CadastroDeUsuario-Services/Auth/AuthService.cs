@@ -18,7 +18,6 @@ namespace CadastroDeUsuario_Services.Auth
             throw new NotImplementedException();
         }
 
-
         #region private methods
         private void ValidateRequestDTO(AuthLoginRequestDTO request)
         {

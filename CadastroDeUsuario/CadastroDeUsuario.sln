@@ -19,13 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Dto", "05-Dto", "{0C45DE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-Tests", "06-Tests", "{BC544558-29C0-443D-AC39-A73253331320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroDeUsuario-Domain", "CadastroDeUsuario-Domain\CadastroDeUsuario-Domain.csproj", "{0B758B51-68F0-4A0A-933A-D6ED64A8D5D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroDeUsuario-Domain", "CadastroDeUsuario-Domain\CadastroDeUsuario-Domain.csproj", "{0B758B51-68F0-4A0A-933A-D6ED64A8D5D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroDeUsuario-Infra", "CadastroDeUsuario-Infra\CadastroDeUsuario-Infra.csproj", "{9F847E59-420C-40F6-A7CE-CEA77770796F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroDeUsuario-Infra", "CadastroDeUsuario-Infra\CadastroDeUsuario-Infra.csproj", "{9F847E59-420C-40F6-A7CE-CEA77770796F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroDeUsuario-DTO", "CadastroDeUsuario-DTO\CadastroDeUsuario-DTO.csproj", "{FB3CBFAE-3504-4D36-9503-23F86DBCE93D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroDeUsuario-DTO", "CadastroDeUsuario-DTO\CadastroDeUsuario-DTO.csproj", "{FB3CBFAE-3504-4D36-9503-23F86DBCE93D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroDeUsuario-Tests", "CadastroDeUsuario-Tests\CadastroDeUsuario-Tests.csproj", "{D7311819-0BE5-4E54-BCDF-1A05EDEDE8C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroDeUsuario-Tests", "CadastroDeUsuario-Tests\CadastroDeUsuario-Tests.csproj", "{D7311819-0BE5-4E54-BCDF-1A05EDEDE8C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
