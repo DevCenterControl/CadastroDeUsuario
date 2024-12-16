@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 
 namespace CadastroDeUsuario_DTO.Response.Auth
 {
     public class AuthLoginResponseDTO
     {
-        public string Response { get; set; }
+        public HttpStatusCode Code { get; set; }
+        public bool IsSuccess { get; set; }
         public int UserId { get; set; }
-        //public string Token { get; set; }
+        public string Email { get; set; }
+        public string Photo { get; set; }
     }
 }
