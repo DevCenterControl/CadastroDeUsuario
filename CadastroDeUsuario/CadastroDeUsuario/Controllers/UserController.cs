@@ -1,8 +1,10 @@
 ﻿using CadastroDeUsuario_DTO.Request.User;
 using CadastroDeUsuario_Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace CadastroDeUsuario
 {
+    [Authorize]
     [ApiController]
     [Route("Controller")]
     public class UserController : Controller

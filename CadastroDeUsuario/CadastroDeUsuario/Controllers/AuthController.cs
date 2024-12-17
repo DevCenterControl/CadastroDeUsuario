@@ -1,5 +1,6 @@
 ﻿using CadastroDeUsuario_DTO.Request.Auth;
 using CadastroDeUsuario_Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace CadastroDeUsuario
 {
@@ -36,6 +37,7 @@ namespace CadastroDeUsuario
             }
         }
 
+        [Authorize]
         [HttpPost("Logout")]
         public IActionResult Logout()
         {

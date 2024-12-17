@@ -1,4 +1,5 @@
-﻿using CadastroDeUsuario_DTO.Request.User;
+﻿using Azure.Core;
+using CadastroDeUsuario_DTO.Request.User;
 using CadastroDeUsuario_DTO.Response.User;
 using CadastroDeUsuario_Services.Interfaces;
 using System;
@@ -13,7 +14,10 @@ namespace CadastroDeUsuario_Services.User
     {
         public CreatUserResponserDTO CreateUser(CreateUserRequestDTO user)
         {
-            throw new NotImplementedException();
+       
+            {
+                throw new Exception("Campo e-mail ou CPF deve ser preenchido.");
+            }
         }
     }
 }
