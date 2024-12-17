@@ -14,18 +14,24 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+
 namespace CadastroDeUsuario_Services.Auth
 {
+
     public class AuthService : IAuthService
     {
         #region Fields
         private readonly IBaseRepository<UserDomain> _baseRepository;
+        private readonly JwtService _jwtService;
         #endregion
 
         #region Constructor
-        public AuthService(IBaseRepository<UserDomain> baseRepository)
+        public AuthService(
+                IBaseRepository<UserDomain> baseRepository,
+                JwtService jwtService)
         {
             _baseRepository = baseRepository;
+            _jwtService = jwtService;
         }
         #endregion
 
@@ -48,29 +54,30 @@ namespace CadastroDeUsuario_Services.Auth
 
             ValidatePasswordRequestDTO(request.password);
 
-            var UsuarioNoBanco = await _baseRepository.Find(x => x.Email == request.email && x.Password == request.password);
+            var user = await _baseRepository.Find(x => (x.Email == request.email || x.Cpf == request.CPF) && x.Password == request.password);
 
-            if(UsuarioNoBanco != null)
+            if (user != null)
             {
                 return new AuthLoginResponseDTO
                 {
-                    UserId = UsuarioNoBanco.Id,
+                    UserId = user.Id,
                     Code = HttpStatusCode.OK,
-                    Email = UsuarioNoBanco.Email,
+                    Login = user.Email != null ? user.Email : user.Cpf,
                     Photo = "perfil.png",
-                    IsSuccess = true
+                    IsSuccess = true,
+                    Token = _jwtService.GenerateToken(user.Id.ToString(), user.Email != null ? user.Email : user.Cpf)               
                 };
             }
             else
             {
                 throw new Exception("Usuario não localizado.");
-            }           
+            }
         }
 
         #region private methods
         private void ValidateEmailRequestDTO(string email)
         {
-         
+
             string[] provedoresPermitidos = { "@gmail.com", "@outlook.com", "@hotmail.com", "@yahoo.com" };
 
             var isPermitted = provedoresPermitidos.Any(provedor => email.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
@@ -80,7 +87,7 @@ namespace CadastroDeUsuario_Services.Auth
                 throw new Exception("O email deve ter um provedor permitido: @gmail.com, @outlook.com, @hotmail.com ou @yahoo.com.");
             }
 
-            if(email.Length < 12 )
+            if (email.Length < 12)
             {
                 throw new Exception("E-mail deve conter no minimo 12 caracteres.");
             }
@@ -124,7 +131,7 @@ namespace CadastroDeUsuario_Services.Auth
         private void ValidateCPFRequestDTO(string CPF)
         {
 
-           if (Regex.IsMatch(CPF, @"[\W_]"))
+            if (Regex.IsMatch(CPF, @"[\W_]"))
             {
                 throw new Exception("CPF nao deve conter pontos ou espaços.");
             }
