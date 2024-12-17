@@ -86,9 +86,9 @@ namespace CadastroDeUsuario_Services.Auth
                 throw new Exception("O email deve ter um provedor permitido: @gmail.com, @outlook.com, @hotmail.com ou @yahoo.com.");
             }
 
-            if(email.Length < 8 )
+            if(email.Length < 12 )
             {
-                throw new Exception("E-mail deve conter no minimo 8 caracteres.");
+                throw new Exception("E-mail deve conter no minimo 12 caracteres.");
             }
 
         }
