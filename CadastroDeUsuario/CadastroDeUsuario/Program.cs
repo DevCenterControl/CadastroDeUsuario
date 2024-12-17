@@ -1,4 +1,7 @@
+using CadastroDeUsuario_Domain.Entities.User;
 using CadastroDeUsuario_Infra.DBContext;
+using CadastroDeUsuario_Infra.Repository;
+using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
 using CadastroDeUsuario_Services.User;
@@ -12,13 +15,19 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+#region Repository DI
+builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+#endregion
 
 #region Services DI
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IUserService,UserService>();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 #endregion
+
+
 
 
 var app = builder.Build();

@@ -23,16 +23,16 @@ namespace CadastroDeUsuario
         #region EndPoints
 
         [HttpPost("Login")]
-        public IActionResult Login([FromBody] AuthLoginRequestDTO request)
+        public async Task<IActionResult> Login([FromBody] AuthLoginRequestDTO request)
         {
             try
             {
-                var result = _authService.Authenticate(request);
-                return Ok("Usuário autenticado com sucesso.");
+                var result = await _authService.Authenticate(request);
+                return new JsonResult(result);
             }
             catch (Exception ex)
             {
-               return BadRequest(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
 

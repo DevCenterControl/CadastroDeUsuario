@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CadastroDeUsuario-DTO\CadastroDeUsuario-DTO.csproj" />
+    <ProjectReference Include="..\CadastroDeUsuario-Infra\CadastroDeUsuario-Infra.csproj" />
   </ItemGroup>
 
 </Project>

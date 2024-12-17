@@ -10,7 +10,7 @@ namespace CadastroDeUsuario_Services.Interfaces
 {
     public interface IAuthService
     {
-        AuthLoginResponseDTO Authenticate(AuthLoginRequestDTO request);
+        Task<AuthLoginResponseDTO> Authenticate(AuthLoginRequestDTO request);
 
     }
 }

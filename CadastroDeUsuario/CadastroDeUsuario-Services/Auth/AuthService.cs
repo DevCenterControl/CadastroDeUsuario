@@ -1,5 +1,7 @@
-﻿using CadastroDeUsuario_DTO.Request.Auth;
+﻿using CadastroDeUsuario_Domain.Entities.User;
+using CadastroDeUsuario_DTO.Request.Auth;
 using CadastroDeUsuario_DTO.Response.Auth;
+using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,20 @@ namespace CadastroDeUsuario_Services.Auth
 {
     public class AuthService : IAuthService
     {
-        public AuthLoginResponseDTO Authenticate(AuthLoginRequestDTO request)
+        #region Fields
+        private readonly IBaseRepository<UserDomain> _baseRepository;
+        #endregion
+
+        #region Constructor
+        public AuthService(IBaseRepository<UserDomain> baseRepository)
+        {
+            _baseRepository = baseRepository;
+        }
+        #endregion
+
+        #region Methods
+
+        public async Task<AuthLoginResponseDTO> Authenticate(AuthLoginRequestDTO request)
         {
             if (!string.IsNullOrEmpty(request.email))
             {
@@ -33,44 +48,23 @@ namespace CadastroDeUsuario_Services.Auth
 
             ValidatePasswordRequestDTO(request.password);
 
+            var UsuarioNoBanco = await _baseRepository.Find(x => x.Email == request.email && x.Password == request.password);
 
-
-
-            /*--------------------FLUXO PARA BUSCAR INFORMAÇOES NO BANCO DE DADOS -------------------------------
-            
-            var resultadoDoBando = _buscaBanco.Encontrarusuario(request.email, request.senha);
-
-             */
-
-
-
-
-
-            /* ------------------ FLUXO PARA BUSCAR INFORMAÇOES NO BANCO DE DADOS -------------------------------
-            
-            if (result != null)
+            if(UsuarioNoBanco != null)
             {
-
-             return new AuthLoginResponseDTO
-            {
-                UserId = resultadoDoBando.Id,
-                Code = HttpStatusCode.OK,
-                Email = resultadoDoBando.email,
-                Photo = "perfil.png",
-                IsSuccess = true
-            };
-
+                return new AuthLoginResponseDTO
+                {
+                    UserId = UsuarioNoBanco.Id,
+                    Code = HttpStatusCode.OK,
+                    Email = UsuarioNoBanco.Email,
+                    Photo = "perfil.png",
+                    IsSuccess = true
+                };
             }
-            */
-
-            return new AuthLoginResponseDTO
+            else
             {
-                UserId = 001,
-                Code = HttpStatusCode.OK,
-                Email = request.email,
-                Photo = "perfil.png",
-                IsSuccess = true
-            };
+                throw new Exception("Usuario não localizado.");
+            }           
         }
 
         #region private methods
@@ -144,6 +138,7 @@ namespace CadastroDeUsuario_Services.Auth
 
         #endregion
 
+        #endregion
     }
 }
 

@@ -10,6 +10,6 @@ namespace CadastroDeUsuario_Infra.DBContext
         {
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<UserDomain> Users { get; set; }
     }
 }

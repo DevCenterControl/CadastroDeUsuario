@@ -19,6 +19,10 @@ namespace CadastroDeUsuario_DTO.Request.User
         [MaxLength(120)]
         [MinLength(4)]
         public string Endereco { get; set; } /*ISSO É UMA PROPRIEDADE*/
+
+        public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }
 
