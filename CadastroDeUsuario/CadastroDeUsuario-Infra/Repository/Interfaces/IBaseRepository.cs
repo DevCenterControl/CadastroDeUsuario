@@ -7,5 +7,6 @@ namespace CadastroDeUsuario_Infra.Repository.Interfaces
     {
         Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression);
         Task<List<TDomain>> FindList(Expression<Func<TDomain, bool>> whereByExpression);
+        Task Insert(TDomain entity);
     }
 }
