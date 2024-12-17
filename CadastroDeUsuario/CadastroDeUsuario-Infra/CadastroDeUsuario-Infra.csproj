@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DBContext\" />
+    <ProjectReference Include="..\CadastroDeUsuario-Domain\CadastroDeUsuario-Domain.csproj" />
   </ItemGroup>
 
 </Project>

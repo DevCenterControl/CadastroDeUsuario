@@ -1,6 +1,8 @@
+using CadastroDeUsuario_Infra.DBContext;
 using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
 using CadastroDeUsuario_Services.User;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +16,13 @@ builder.Services.AddSwaggerGen();
 
 #region Services DI
 builder.Services.AddTransient<IAuthService, AuthService>();
-
 builder.Services.AddTransient<IUserService,UserService>();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 #endregion
+
+
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -34,3 +36,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
