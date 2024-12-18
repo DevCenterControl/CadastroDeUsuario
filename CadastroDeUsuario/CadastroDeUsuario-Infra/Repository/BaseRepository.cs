@@ -21,10 +21,9 @@ namespace CadastroDeUsuario_Infra.Repository
         #endregion
 
         #region Methods
-
+#nullable disable
         public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
-           await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).FirstOrDefaultAsync();
-
+        await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).FirstOrDefaultAsync();
         public async Task<List<TDomain>> FindList(Expression<Func<TDomain, bool>> whereByExpression) =>
          await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).ToListAsync();
 
