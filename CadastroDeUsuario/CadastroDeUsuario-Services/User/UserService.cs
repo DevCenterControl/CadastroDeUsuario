@@ -92,9 +92,9 @@ namespace CadastroDeUsuario_Services.User
                 .Where(u => u.Nome.Contains(name))
                 .Select(u => new UserDTO
                 {
-
+                    Id = u.Id,
                     Name = u.Nome,
-                    
+                    Email = u.Email
                 })
                 .ToListAsync();
 
