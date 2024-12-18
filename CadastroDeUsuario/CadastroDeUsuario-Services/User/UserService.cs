@@ -4,9 +4,12 @@ using CadastroDeUsuario_DTO.Request.Auth;
 using CadastroDeUsuario_DTO.Request.User;
 using CadastroDeUsuario_DTO.Response.Auth;
 using CadastroDeUsuario_DTO.Response.User;
+using CadastroDeUsuario_DTO.UserDTO;
+using CadastroDeUsuario_Infra.DBContext;
 using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +25,19 @@ namespace CadastroDeUsuario_Services.User
         #region Fields
         private readonly IBaseRepository<UserDomain> _baseRepository;
         private readonly JwtService _jwtService;
+        private readonly ApplicationDbContext _dbContext;
+
         #endregion
 
         #region Constructor
         public UserService(
                 IBaseRepository<UserDomain> baseRepository,
-                JwtService jwtService)
+                JwtService jwtService,
+                ApplicationDbContext dbContext)
         {
             _baseRepository = baseRepository;
             _jwtService = jwtService;
+            _dbContext = dbContext;
         }
         #endregion
 
@@ -77,6 +84,21 @@ namespace CadastroDeUsuario_Services.User
                 CreatedAt = DateTime.UtcNow,
                 IsCreated = true
             };
+        }
+
+        public async Task<List<UserDTO>> GetUsersByName(string name)
+        {
+            var users = await _dbContext.Users
+                .Where(u => u.Nome.Contains(name))
+                .Select(u => new UserDTO
+                {
+
+                    Name = u.Nome,
+                    
+                })
+                .ToListAsync();
+
+            return users;
         }
 
         #region private methods

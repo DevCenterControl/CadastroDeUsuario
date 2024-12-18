@@ -38,6 +38,20 @@ namespace CadastroDeUsuario
             }
         }
 
+        [HttpGet("GetUsersByName")]
+        public async Task<IActionResult> GetUsersByName([FromQuery] string name)
+        {
+            try
+            {
+                var users = await _userService.GetUsersByName(name);
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         #endregion
     }
 }
