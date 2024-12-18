@@ -52,6 +52,25 @@ namespace CadastroDeUsuario
             }
         }
 
+        [HttpDelete("DeleteUser/{Cpf}")]
+        public async Task<IActionResult> DeleteUser(string Cpf)
+        {
+            try
+            {
+                var deletedUser = await _userService.DeleteUser(Cpf);
+                if (deletedUser == null)
+                    return NotFound("Usuário não encontrado.");
+
+                return Ok($"Usuário com o CPF {deletedUser.Cpf} foi deletado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+
         #endregion
     }
 }

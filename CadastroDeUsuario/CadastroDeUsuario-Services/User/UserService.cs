@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 namespace CadastroDeUsuario_Services.User
 {
     public class UserService : IUserService
-    {        
+    {
         #region Fields
         private readonly IBaseRepository<UserDomain> _baseRepository;
         private readonly JwtService _jwtService;
@@ -48,13 +48,13 @@ namespace CadastroDeUsuario_Services.User
             {
                 ValidateEmailRequestDTO(request.Email);
             }
-            else if (!string.IsNullOrEmpty(request.Cpf))
+            if (!string.IsNullOrEmpty(request.Cpf))
             {
                 ValidateCPFRequestDTO(request.Cpf);
             }
             else
             {
-                throw new Exception("Campo e-mail ou CPF deve ser preenchido.");
+                throw new Exception("Campo e-mail e CPF deve ser preenchido.");
             }
 
             ValidatePasswordRequestDTO(request.Password);
@@ -65,7 +65,7 @@ namespace CadastroDeUsuario_Services.User
             {
                 throw new Exception("Usuário com este e-mail ou CPF já existe.");
             }
-            else          
+            else
             {
                 var user = new UserDomain
                 {
@@ -76,7 +76,7 @@ namespace CadastroDeUsuario_Services.User
                     Cpf = request.Cpf
                 };
 
-               await _baseRepository.Insert(user);
+                await _baseRepository.Insert(user);
             }
 
             return new CreatUserResponseDto
@@ -94,12 +94,40 @@ namespace CadastroDeUsuario_Services.User
                 {
                     Id = u.Id,
                     Name = u.Nome,
-                    Email = u.Email
+                    Email = u.Email,
+                    Cpf = u.Cpf,
                 })
                 .ToListAsync();
 
             return users;
         }
+
+        public async Task<UserDTO> DeleteUser(string cpf)
+        {
+
+            if (string.IsNullOrEmpty(cpf))
+                throw new ArgumentException("O CPF não pode ser nulo ou vazio.");
+
+
+            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Cpf == cpf);
+
+
+            if (user == null)
+                throw new KeyNotFoundException("Usuário não encontrado com o CPF especificado.");
+
+
+            _dbContext.Users.Remove(user);
+            await _dbContext.SaveChangesAsync();
+
+
+            return new UserDTO
+            {
+                Name = user.Nome,
+                Email = user.Email,
+                Cpf = user.Cpf
+            };
+        }
+
 
         #region private methods
         private void ValidateEmailRequestDTO(string email)
