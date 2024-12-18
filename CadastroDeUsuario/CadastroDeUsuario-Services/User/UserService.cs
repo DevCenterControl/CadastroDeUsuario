@@ -10,8 +10,10 @@ using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -128,6 +130,27 @@ namespace CadastroDeUsuario_Services.User
             };
         }
 
+        public async Task<UpdateUserRequestDTO> UpdateUser(string cpf, UpdateUserRequestDTO request)
+        {
+            
+            var user = await _baseRepository.Find(u => u.Cpf == cpf);
+
+            if (user == null)
+            {
+                throw new Exception("Usuario nao encontrado."); 
+            }
+
+           
+            user.Nome = request.Nome ?? user.Nome;
+            user.Email = request.Email ?? user.Email;
+            user.Endereco = request.Endereco ?? user.Endereco;
+
+            
+            await _baseRepository.Update(user);
+
+            throw new Exception("Usuario atualizado com sucesso."); 
+        }
+
 
         #region private methods
         private void ValidateEmailRequestDTO(string email)
@@ -196,6 +219,7 @@ namespace CadastroDeUsuario_Services.User
             }
 
         }
+
         #endregion
 
         #endregion

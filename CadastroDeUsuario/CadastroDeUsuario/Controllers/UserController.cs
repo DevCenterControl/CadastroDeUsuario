@@ -1,5 +1,8 @@
-﻿using CadastroDeUsuario_DTO.Request.Auth;
+﻿using CadastroDeUsuario_Domain.Entities.User;
+using CadastroDeUsuario_DTO.Request.Auth;
 using CadastroDeUsuario_DTO.Request.User;
+using CadastroDeUsuario_Infra.Repository;
+using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -12,7 +15,6 @@ namespace CadastroDeUsuario
     public class UserController : Controller
     {
         #region Fields
-
         private readonly IUserService _userService;
         #endregion
 
@@ -69,8 +71,23 @@ namespace CadastroDeUsuario
             }
         }
 
+        [HttpPut("UpdateUser/{Cpf}")]
+        public async Task<IActionResult> UpdateUser(string Cpf, [FromBody] UpdateUserRequestDTO request)
+        {
+            try
+            {
+                var result = await _userService.UpdateUser(Cpf, request);
 
+                if (result == null)
+                    return NotFound("Usuário não encontrado.");
 
+                return Ok($"Usuário com o CPF {Cpf} foi atualizado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         #endregion
     }
 }

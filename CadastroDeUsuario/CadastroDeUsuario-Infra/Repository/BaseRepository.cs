@@ -1,4 +1,5 @@
 ﻿using CadastroDeUsuario_Domain.Entities.Base;
+using CadastroDeUsuario_Domain.Entities.User;
 using CadastroDeUsuario_Infra.DBContext;
 using CadastroDeUsuario_Infra.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,12 @@ namespace CadastroDeUsuario_Infra.Repository
          await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).ToListAsync();
 
         public async Task Insert(TDomain entity)
+        {
+            await _dbContext.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task Update(TDomain entity)
         {
             await _dbContext.AddAsync(entity);
             await _dbContext.SaveChangesAsync();
