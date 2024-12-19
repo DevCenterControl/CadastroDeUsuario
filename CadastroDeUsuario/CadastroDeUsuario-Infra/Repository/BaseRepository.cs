@@ -45,6 +45,11 @@ namespace CadastroDeUsuario_Infra.Repository
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task Delete(TDomain entity)
+        {
+            _dbContext.Remove(entity);
+            await _dbContext.SaveChangesAsync();
+        }
         #endregion
     }
 }

@@ -110,27 +110,23 @@ namespace CadastroDeUsuario_Services.User
             return users;
         }
 
-        public async Task<UserDTO> DeleteUser(string cpf)
+        public async Task<UserDTO> DeleteUser(DeleteUserRequestDTO request)
         {
-            if (string.IsNullOrEmpty(cpf))
-                throw new ArgumentException("O CPF não pode ser nulo ou vazio.");
+            if (string.IsNullOrEmpty(request.Cpf))
+                throw new Exception("O CPF não pode ser nulo ou vazio.");
             else
             {
-                ValidateCPFFormat(cpf);
+                ValidateCPFFormat(request.Cpf);
             }
 
             //erradp utilizar o metodo find que ja existe na base reposityory e faz a mesma coisa! cacete!
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Cpf == cpf);
+            var deletedUser = await _baseRepository.Find(x => x.Cpf == request.Cpf);
 
             //por enquanto utilizar somente o excepetion
-            if (user == null)
+            if (deletedUser == null)
                 throw new Exception("Usuário não encontrado com o CPF especificado.");
 
-            //errado, criar metodo na base repository para deletar.
-            _dbContext.Users.Remove(user);
-            await _dbContext.SaveChangesAsync();
-
-            throw new Exception($"Usuario {cpf} deletado com sucesso.");
+            throw new Exception($"Usuario {request} deletado com sucesso.");
         }
 
         public async Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request)

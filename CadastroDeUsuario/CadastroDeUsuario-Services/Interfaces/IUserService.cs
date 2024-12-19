@@ -1,4 +1,5 @@
-﻿using CadastroDeUsuario_DTO.Request.User;
+﻿using Azure.Core;
+using CadastroDeUsuario_DTO.Request.User;
 using CadastroDeUsuario_DTO.Response.User;
 using CadastroDeUsuario_DTO.UserDTO;
 
@@ -8,7 +9,7 @@ namespace CadastroDeUsuario_Services.Interfaces
     {
         Task <CreatUserResponseDto>CreateUser(CreateUserRequestDTO request);
         Task<List<UserDTO>> GetUsersByName(string name);
-        Task<UserDTO> DeleteUser(string cpf);
+        Task<UserDTO> DeleteUser(DeleteUserRequestDTO request);
         Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request);
 
     }
