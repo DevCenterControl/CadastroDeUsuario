@@ -46,6 +46,7 @@ namespace CadastroDeUsuario
             try
             {
                 var users = await _userService.GetUsersByName(name);
+                //se o retorno for null nao vou avisar?!!
                 return Ok(users);
             }
             catch (Exception ex)

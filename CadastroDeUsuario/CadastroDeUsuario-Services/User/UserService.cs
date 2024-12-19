@@ -87,6 +87,15 @@ namespace CadastroDeUsuario_Services.User
 
         public async Task<List<UserDTO>> GetUsersByName(string name)
         {
+            //errado
+            //faltou validaçao.
+            //faltou usar o metodo da base repository.
+
+            //ex:   var existingUser = await _baseRepository.Find(x=> x.Name == name);
+
+            //se usuario for nulo nao vou avisar? como o usuario vai adivinhar? bola magica?
+            
+            
             var users = await _dbContext.Users
                 .Where(u => u.Nome.Contains(name))
                 .Select(u => new UserDTO
@@ -103,7 +112,6 @@ namespace CadastroDeUsuario_Services.User
 
         public async Task<UserDTO> DeleteUser(string cpf)
         {
-
             if (string.IsNullOrEmpty(cpf))
                 throw new ArgumentException("O CPF não pode ser nulo ou vazio.");
             else
@@ -111,16 +119,16 @@ namespace CadastroDeUsuario_Services.User
                 ValidateCPFFormat(cpf);
             }
 
+            //erradp utilizar o metodo find que ja existe na base reposityory e faz a mesma coisa! cacete!
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Cpf == cpf);
 
-
+            //por enquanto utilizar somente o excepetion
             if (user == null)
-                throw new KeyNotFoundException("Usuário não encontrado com o CPF especificado.");
+                throw new Exception("Usuário não encontrado com o CPF especificado.");
 
-
+            //errado, criar metodo na base repository para deletar.
             _dbContext.Users.Remove(user);
             await _dbContext.SaveChangesAsync();
-
 
             throw new Exception($"Usuario {cpf} deletado com sucesso.");
         }
@@ -151,7 +159,6 @@ namespace CadastroDeUsuario_Services.User
         #region private methods
         private void ValidateEmailRequestDTO(string email)
         {
-
             string[] provedoresPermitidos = { "@gmail.com", "@outlook.com", "@hotmail.com", "@yahoo.com" };
 
             var isPermitted = provedoresPermitidos.Any(provedor => email.EndsWith(provedor, StringComparison.OrdinalIgnoreCase));
@@ -198,12 +205,10 @@ namespace CadastroDeUsuario_Services.User
             {
                 throw new Exception("A senha deve conter um caracter especial.");
             }
-
         }
 
         private void ValidateCPFFormat(string CPF)
         {
-
             if (Regex.IsMatch(CPF, @"[\W_]"))
             {
                 throw new Exception("CPF nao deve conter pontos ou espaços.");
@@ -213,7 +218,6 @@ namespace CadastroDeUsuario_Services.User
             {
                 throw new Exception("CPF so pode conter a letra X e 11 digitos.");
             }
-
         }
 
         #endregion
