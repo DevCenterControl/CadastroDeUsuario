@@ -129,25 +129,29 @@ namespace CadastroDeUsuario_Services.User
             throw new Exception($"Usuario {cpf} deletado com sucesso.");
         }
 
-        public async Task<bool> UpdateUser(string cpf, UpdateUserRequestDTO request)
+        public async Task<UpdateUserResponseDTO> UpdateUser(string cpf, UpdateUserRequestDTO request)
         {
-            
+          
             var user = await _baseRepository.Find(u => u.Cpf == cpf);
 
             if (user == null)
-            {
-                return false; 
-            }
+                throw new Exception("Usuário não localizado.");
 
-           
+            
             user.Nome = request.Nome ?? user.Nome;
             user.Email = request.Email ?? user.Email;
             user.Endereco = request.Endereco ?? user.Endereco;
+            user.UpdatedDate = DateTime.UtcNow;
 
-            
             await _baseRepository.Update(user);
 
-            return true;
+            return new UpdateUserResponseDTO
+            {
+                Nome = user.Nome,
+                Email = user.Email,
+                Endereco = user.Endereco,
+                UpdatedAt = user.UpdatedDate
+            };
         }
 
 

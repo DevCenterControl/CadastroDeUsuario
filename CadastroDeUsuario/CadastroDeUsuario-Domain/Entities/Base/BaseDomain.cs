@@ -16,9 +16,9 @@ namespace CadastroDeUsuario_Domain.Entities.Base
 
         public DateTime CreatedDate { get; set; }
 
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
-        public DateTime? DeletedAt { get; set; }
+        public DateTime DeletedAt { get; set; }
 
         #endregion
     }

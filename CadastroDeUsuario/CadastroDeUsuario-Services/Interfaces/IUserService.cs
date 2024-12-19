@@ -9,7 +9,7 @@ namespace CadastroDeUsuario_Services.Interfaces
         Task <CreatUserResponseDto>CreateUser(CreateUserRequestDTO request);
         Task<List<UserDTO>> GetUsersByName(string name);
         Task<UserDTO> DeleteUser(string cpf);
-        Task<bool> UpdateUser(string cpf, UpdateUserRequestDTO request);
+        Task<UpdateUserResponseDTO> UpdateUser(string cpf, UpdateUserRequestDTO request);
 
     }
 
