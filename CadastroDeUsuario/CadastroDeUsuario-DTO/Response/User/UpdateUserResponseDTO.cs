@@ -12,6 +12,6 @@ namespace CadastroDeUsuario_DTO.Response.User
         public string Email { get; set; }
         public string Nome { get; set; }
         public string Endereco { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

@@ -23,11 +23,11 @@ namespace CadastroDeUsuario_Infra.Repository
         #region Methods
 
 
-        public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
-            await _dbContext.Set<TDomain>().FirstAsync();
+        public async Task<List<TDomain>> GetAll() =>
+            await _dbContext.Set<TDomain>().ToListAsync();
 
-        //public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
-        //    await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).FirstAsync();
+        public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
+            await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).FirstOrDefaultAsync();
 
         public async Task<List<TDomain>> FindList(Expression<Func<TDomain, bool>> whereByExpression) =>
             await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).ToListAsync();

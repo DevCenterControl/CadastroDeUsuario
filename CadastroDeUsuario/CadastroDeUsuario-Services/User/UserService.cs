@@ -131,15 +131,11 @@ namespace CadastroDeUsuario_Services.User
 
         public async Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request)
         {
-          
             var user = await _baseRepository.Find(x => x.Cpf == request.Cpf);
-
-            //var user = await _baseRepository.Find(x => x.Cpf == request.Cpf);
 
             if (user == null)
                 throw new Exception("Usuário não localizado.");
 
-            
             user.Nome = request.Nome ?? user.Nome;
             user.Email = request.Email ?? user.Email;
             user.Endereco = request.Endereco ?? user.Endereco;
