@@ -21,11 +21,16 @@ namespace CadastroDeUsuario_Infra.Repository
         #endregion
 
         #region Methods
-#nullable disable
+
+
         public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
-        await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).FirstOrDefaultAsync();
+            await _dbContext.Set<TDomain>().FirstAsync();
+
+        //public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
+        //    await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).FirstAsync();
+
         public async Task<List<TDomain>> FindList(Expression<Func<TDomain, bool>> whereByExpression) =>
-         await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).ToListAsync();
+            await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).ToListAsync();
 
         public async Task Insert(TDomain entity)
         {
@@ -34,7 +39,8 @@ namespace CadastroDeUsuario_Infra.Repository
         }
 
         public async Task Update(TDomain entity)
-        { 
+        {
+            _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.Update(entity);
             await _dbContext.SaveChangesAsync();
         }

@@ -71,17 +71,17 @@ namespace CadastroDeUsuario
             }
         }
 
-        [HttpPut("UpdateUser/{Cpf}")]
-        public async Task<IActionResult> UpdateUser(string Cpf, [FromBody] UpdateUserRequestDTO request)
+        [HttpPut("UpdateUser")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequestDTO request)
         {
             try
             {
-                var result = await _userService.UpdateUser(Cpf, request);
+                var result = await _userService.UpdateUser(request);
 
                 if (result == null)
                     return NotFound("Usuário não encontrado.");
 
-                return Ok($"Usuário com o CPF {Cpf} foi atualizado com sucesso.");
+                return Ok($"Usuário com o CPF {request.Cpf} foi atualizado com sucesso.");
             }
             catch (Exception ex)
             {

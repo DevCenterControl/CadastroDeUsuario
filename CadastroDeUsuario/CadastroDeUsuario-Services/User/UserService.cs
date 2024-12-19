@@ -45,7 +45,7 @@ namespace CadastroDeUsuario_Services.User
 
         #region Methods
         public async Task<CreatUserResponseDto> CreateUser(CreateUserRequestDTO request)
-        {
+        { // Adicionar veirifcaação de so adicionar usuario se email e cpf nao eestiver cadastrado, possibilitar enviar um codigo de verificação para o email informado evitando duplicidade.
             if (!string.IsNullOrEmpty(request.Email))
             {
                 ValidateEmailRequestDTO(request.Email);
@@ -129,10 +129,12 @@ namespace CadastroDeUsuario_Services.User
             throw new Exception($"Usuario {cpf} deletado com sucesso.");
         }
 
-        public async Task<UpdateUserResponseDTO> UpdateUser(string cpf, UpdateUserRequestDTO request)
+        public async Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request)
         {
           
-            var user = await _baseRepository.Find(u => u.Cpf == cpf);
+            var user = await _baseRepository.Find(x => x.Cpf == request.Cpf);
+
+            //var user = await _baseRepository.Find(x => x.Cpf == request.Cpf);
 
             if (user == null)
                 throw new Exception("Usuário não localizado.");
@@ -141,7 +143,7 @@ namespace CadastroDeUsuario_Services.User
             user.Nome = request.Nome ?? user.Nome;
             user.Email = request.Email ?? user.Email;
             user.Endereco = request.Endereco ?? user.Endereco;
-            user.UpdatedDate = DateTime.UtcNow;
+            user.UpdatedDate = DateTime.Now;
 
             await _baseRepository.Update(user);
 
