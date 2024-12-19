@@ -27,19 +27,16 @@ namespace CadastroDeUsuario_Services.User
         #region Fields
         private readonly IBaseRepository<UserDomain> _baseRepository;
         private readonly JwtService _jwtService;
-        private readonly ApplicationDbContext _dbContext;
 
         #endregion
 
         #region Constructor
         public UserService(
                 IBaseRepository<UserDomain> baseRepository,
-                JwtService jwtService,
-                ApplicationDbContext dbContext)
+                JwtService jwtService)
         {
             _baseRepository = baseRepository;
             _jwtService = jwtService;
-            _dbContext = dbContext;
         }
         #endregion
 
@@ -52,7 +49,7 @@ namespace CadastroDeUsuario_Services.User
             }
             if (!string.IsNullOrEmpty(request.Cpf))
             {
-                ValidateCPFRequestDTO(request.Cpf);
+                ValidateCPFFormat(request.Cpf);
             }
             else
             {
@@ -111,9 +108,8 @@ namespace CadastroDeUsuario_Services.User
                 throw new ArgumentException("O CPF não pode ser nulo ou vazio.");
             else
             {
-                ValidateCPFRequestDTO(cpf);
+                ValidateCPFFormat(cpf);
             }
-
 
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Cpf == cpf);
 
@@ -151,7 +147,6 @@ namespace CadastroDeUsuario_Services.User
                 UpdatedAt = user.UpdatedDate
             };
         }
-
 
         #region private methods
         private void ValidateEmailRequestDTO(string email)
@@ -206,7 +201,7 @@ namespace CadastroDeUsuario_Services.User
 
         }
 
-        private void ValidateCPFRequestDTO(string CPF)
+        private void ValidateCPFFormat(string CPF)
         {
 
             if (Regex.IsMatch(CPF, @"[\W_]"))
