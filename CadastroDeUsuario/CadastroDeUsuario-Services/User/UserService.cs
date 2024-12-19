@@ -109,6 +109,10 @@ namespace CadastroDeUsuario_Services.User
 
             if (string.IsNullOrEmpty(cpf))
                 throw new ArgumentException("O CPF não pode ser nulo ou vazio.");
+            else
+            {
+                ValidateCPFRequestDTO(cpf);
+            }
 
 
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Cpf == cpf);
@@ -122,22 +126,17 @@ namespace CadastroDeUsuario_Services.User
             await _dbContext.SaveChangesAsync();
 
 
-            return new UserDTO
-            {
-                Name = user.Nome,
-                Email = user.Email,
-                Cpf = user.Cpf
-            };
+            throw new Exception($"Usuario {cpf} deletado com sucesso.");
         }
 
-        public async Task<UpdateUserRequestDTO> UpdateUser(string cpf, UpdateUserRequestDTO request)
+        public async Task<bool> UpdateUser(string cpf, UpdateUserRequestDTO request)
         {
             
             var user = await _baseRepository.Find(u => u.Cpf == cpf);
 
             if (user == null)
             {
-                throw new Exception("Usuario nao encontrado."); 
+                return false; 
             }
 
            
@@ -148,7 +147,7 @@ namespace CadastroDeUsuario_Services.User
             
             await _baseRepository.Update(user);
 
-            throw new Exception("Usuario atualizado com sucesso."); 
+            return true;
         }
 
 

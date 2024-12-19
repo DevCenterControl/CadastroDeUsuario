@@ -35,7 +35,7 @@ namespace CadastroDeUsuario_Infra.Repository
 
         public async Task Update(TDomain entity)
         {
-            await _dbContext.AddAsync(entity);
+            _dbContext.Update(entity);
             await _dbContext.SaveChangesAsync();
         }
 
