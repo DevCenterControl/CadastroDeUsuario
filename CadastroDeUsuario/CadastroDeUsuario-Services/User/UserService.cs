@@ -162,8 +162,6 @@ namespace CadastroDeUsuario_Services.User
             }
         }
 
-
-
         public async Task<List<GetUserResponseDTO>> GetAllUsersByName(GetUserRequestDTO request)
         {
             if (string.IsNullOrEmpty(request.Name))

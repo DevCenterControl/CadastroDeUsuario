@@ -47,7 +47,7 @@ namespace CadastroDeUsuario
             try
             {
                 var users = await _userService.GetUsersByName(request);
-   
+
                 return Ok(users);
             }
             catch (Exception ex)
@@ -62,7 +62,7 @@ namespace CadastroDeUsuario
             try
             {
                 var deletedUser = await _userService.DeleteUser(Cpf);
-                
+
                 return Ok(deletedUser);
             }
             catch (Exception ex)
@@ -96,7 +96,24 @@ namespace CadastroDeUsuario
             return Ok(users);
         }
 
+        [HttpGet("GetAllUsersByName")]
+        public async Task<IActionResult> GetAllUsersByName([FromQuery] GetUserRequestDTO request)
+        {
+            try
+            {
+                var userList = await _userService.GetAllUsersByName(request);
 
+                if (userList == null || !userList.Any())
+                    return NotFound("Nenhum usuário encontrado com o nome especificado.");
+
+                return Ok(userList);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new { Error = ex.Message });
+            }
+        }
         #endregion
     }
 }
