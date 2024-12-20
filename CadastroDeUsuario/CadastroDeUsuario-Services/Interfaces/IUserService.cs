@@ -11,6 +11,8 @@ namespace CadastroDeUsuario_Services.Interfaces
         Task<DeleteUserResponseDTO> DeleteUser(DeleteUserRequestDTO request);
         Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request);
 
+        
+
     }
 
 }

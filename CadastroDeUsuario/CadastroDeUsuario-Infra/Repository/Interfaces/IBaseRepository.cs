@@ -10,5 +10,6 @@ namespace CadastroDeUsuario_Infra.Repository.Interfaces
         Task Insert(TDomain entity);
         Task Update(TDomain entity);
         Task<List<TDomain>> GetAll();
+        Task Delete(TDomain entity);
     }
 }

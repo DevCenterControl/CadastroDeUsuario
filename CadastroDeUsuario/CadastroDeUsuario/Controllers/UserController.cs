@@ -41,11 +41,11 @@ namespace CadastroDeUsuario
         }
 
         [HttpGet("GetUsersByName")]
-        public async Task<IActionResult> GetUsersByName([FromQuery] GetUserRequestDTO name)
+        public async Task<IActionResult> GetUsersByName([FromQuery] GetUserRequestDTO request)
         {
             try
             {
-                var users = await _userService.GetUsersByName(name);
+                var users = await _userService.GetUsersByName(request);
    
                 return Ok(users);
             }
@@ -55,16 +55,16 @@ namespace CadastroDeUsuario
             }
         }
 
-        [HttpDelete("DeleteUser/{Cpf}")]
+        [HttpDelete("DeleteUser")]
         public async Task<IActionResult> DeleteUser(DeleteUserRequestDTO Cpf)
         {
             try
             {
                 var deletedUser = await _userService.DeleteUser(Cpf);
-                if (deletedUser == null)
-                    return NotFound("Usuário não encontrado.");
+                //if (deletedUser == null)
+                //    return NotFound("Usuário não encontrado.");
 
-                return Ok($"Usuário com o CPF {deletedUser.Cpf} foi deletado com sucesso.");
+                return Ok(deletedUser);
             }
             catch (Exception ex)
             {
@@ -89,6 +89,21 @@ namespace CadastroDeUsuario
                 return BadRequest(ex.Message);
             }
         }
+        //[HttpGet("GetAllUser")]
+        //public async Task<IActionResult> GetAllUser()
+        //{
+        //    try
+        //    {
+        //        var users = await _userService.GetAllUser();
+        //        return Ok(users);
+        //    }
+        //    catch (Exception ex)
+
+        //    { return BadRequest(ex.Message); }
+
+
+
+        //}
         #endregion
     }
 }

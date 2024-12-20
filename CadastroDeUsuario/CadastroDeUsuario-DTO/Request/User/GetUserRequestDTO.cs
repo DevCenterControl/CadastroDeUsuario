@@ -9,9 +9,6 @@ namespace CadastroDeUsuario_DTO.Request.User
     public class GetUserRequestDTO
     {
         public string Name { get; set; }
-        public string Email { get; set; }
-        public int Id { get; set; }
-        public string Cpf { get; set; }
 
     }
 }

@@ -97,8 +97,8 @@ namespace CadastroDeUsuario_Services.User
             return new GetUserResponseDTO
             {
                 Name = request.Name,
-                Cpf = request.Cpf,
-                Email = request.Email,
+                Cpf = getUser.Cpf,
+                Email = getUser.Email,
 
             };
         }
@@ -117,7 +117,9 @@ namespace CadastroDeUsuario_Services.User
             if (deletedUser == null)
                 throw new Exception("Usuário não encontrado com o CPF especificado.");
 
-            throw new Exception($"Usuario {request} deletado com sucesso.");
+            await _baseRepository.Delete(deletedUser);
+
+            throw new Exception($"Usuario {request.Cpf} deletado com sucesso.");
         }
 
         public async Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request)
