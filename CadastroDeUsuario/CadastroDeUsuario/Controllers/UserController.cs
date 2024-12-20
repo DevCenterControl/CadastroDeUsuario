@@ -114,6 +114,21 @@ namespace CadastroDeUsuario
                 return BadRequest(new { Error = ex.Message });
             }
         }
+
+        [HttpDelete("DeleteUserById")]
+        public async Task<IActionResult> DeleteUserById(DeleteUserByIdRequestDTO request)
+        {
+            try
+            {
+                var deletedUser = await _userService.DeleteUserById(request);
+
+                return Ok(deletedUser);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         #endregion
     }
 }

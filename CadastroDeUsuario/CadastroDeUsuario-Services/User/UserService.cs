@@ -181,7 +181,21 @@ namespace CadastroDeUsuario_Services.User
 
             return listUserResponseDTO;
         }
-        
+        public async Task<DeleteUserByIdResponseDTO> DeleteUserById(DeleteUserByIdRequestDTO request)
+        {
+            if (request.Id <= 0)
+                throw new Exception("O campo não pode ser nulo ou vazio.");
+
+            var deletedUser = await _baseRepository.Find(x => x.Id == request.Id);
+
+            if (deletedUser == null)
+                throw new Exception("Usuário não encontrado com o CPF especificado.");
+
+            await _baseRepository.Delete(deletedUser);
+
+            throw new Exception($"Usuario {request.Id} deletado com sucesso.");
+        }
+
         #region private methods
         private void ValidateEmailRequestDTO(string email)
         {
