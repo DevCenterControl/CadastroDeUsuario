@@ -7,8 +7,7 @@ namespace CadastroDeUsuario_DTO.Request.User
         [Required(ErrorMessage = "É NECESSARIO INFORMAR A IDADE DO USUARIO NO MOMENTO DO CADASTRO.")]
         public int Idade { get; set; } /*ISSO É UMA PROPRIEDADE*/
 
-        [Required]
-        [MaxLength(10)]
+        [Required] 
         public string Nome { get; set; } /*ISSO É UMA PROPRIEDADE*/
 
         [Required]
