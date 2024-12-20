@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CadastroDeUsuario_DTO.Request.User
 {
-    public class GetUserRequestDTO
+    public class GetUserByCpfRequestDTO
     {
-        public string Name { get; set; } 
-
+        public string  Cpf { get; set; }
     }
 }

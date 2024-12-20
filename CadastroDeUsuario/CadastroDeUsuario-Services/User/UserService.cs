@@ -84,7 +84,7 @@ namespace CadastroDeUsuario_Services.User
             };
         }
 
-        public async Task<GetUserResponseDTO> GetUserByCpf(GetUserRequestDTO request)
+        public async Task<GetUserByCpfResponseDTO> GetUserByCpf(GetUserByCpfRequestDTO request)
         {
             if (string.IsNullOrEmpty(request.Cpf))
                 throw new Exception("O nome não pode ser vazio.");
@@ -94,10 +94,10 @@ namespace CadastroDeUsuario_Services.User
             if (getUser == null)
                 throw new Exception("Usuário não localizado.");
 
-            return new GetUserResponseDTO
+            return new GetUserByCpfResponseDTO
             {
-                Name = request.Name,
-                Cpf = getUser.Cpf,
+                Name = getUser.Nome,
+                Cpf = request.Cpf,
                 Email = getUser.Email,
 
             };
@@ -167,7 +167,7 @@ namespace CadastroDeUsuario_Services.User
             if (string.IsNullOrEmpty(request.Name))
                 throw new Exception("O nome não pode ser vazio.");
 
-            var userList = await _baseRepository.FindAll(x => x.Nome == request.Name);
+            var userList = await _baseRepository.FindAll(x => x.Nome.ToLower().Contains(request.Name.ToLower()));
 
             if (userList == null || !userList.Any())
                 throw new Exception("Usuário não localizado.");

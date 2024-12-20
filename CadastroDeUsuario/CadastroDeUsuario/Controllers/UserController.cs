@@ -42,7 +42,7 @@ namespace CadastroDeUsuario
         }
 
         [HttpGet("GetUserByCpf")]
-        public async Task<IActionResult> GetUserByCpf([FromQuery] GetUserRequestDTO request)
+        public async Task<IActionResult> GetUserByCpf([FromQuery] GetUserByCpfRequestDTO request)
         {
             try
             {
