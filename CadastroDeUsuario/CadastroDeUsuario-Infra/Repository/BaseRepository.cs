@@ -29,7 +29,7 @@ namespace CadastroDeUsuario_Infra.Repository
         public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
             await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).FirstOrDefaultAsync();
 
-        public async Task<List<TDomain>> FindList(Expression<Func<TDomain, bool>> whereByExpression) =>
+        public async Task<List<TDomain>> FindAll(Expression<Func<TDomain, bool>> whereByExpression) =>
             await _dbContext.Set<TDomain>().Where(whereByExpression).Where(x => x.DeletedAt == null).ToListAsync();
 
         public async Task Insert(TDomain entity)
@@ -50,6 +50,8 @@ namespace CadastroDeUsuario_Infra.Repository
             _dbContext.Remove(entity);
             await _dbContext.SaveChangesAsync();
         }
+        //public async Task<List<TDomain>> FindAll();
         #endregion
     }
+
 }

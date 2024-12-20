@@ -10,8 +10,9 @@ namespace CadastroDeUsuario_Services.Interfaces
         Task<GetUserResponseDTO> GetUsersByName( GetUserRequestDTO request);
         Task<DeleteUserResponseDTO> DeleteUser(DeleteUserRequestDTO request);
         Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request);
+        Task<List<GetUserResponseDTO>> GetAllUsersByName(GetUserRequestDTO request);
 
-        
+
 
     }
 

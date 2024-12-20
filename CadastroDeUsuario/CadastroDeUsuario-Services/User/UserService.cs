@@ -145,6 +145,26 @@ namespace CadastroDeUsuario_Services.User
             };
         }
 
+        public async Task<List<GetUserResponseDTO>> GetAllUsersByName(GetUserRequestDTO request)
+        {
+            if (string.IsNullOrEmpty(request.Name))
+                throw new Exception("O nome não pode ser vazio.");
+
+            var userList = await _baseRepository.FindAll(x => x.Nome == request.Name);
+
+            if (userList == null || !userList.Any())
+                throw new Exception("Usuário não localizado.");
+
+            var listUserResponseDTO = userList.Select(user => new GetUserResponseDTO
+            {
+                Name = user.Nome,
+                Email = user.Email,
+                Cpf = user.Cpf
+            }).ToList();
+
+            return listUserResponseDTO;
+        }
+        
         #region private methods
         private void ValidateEmailRequestDTO(string email)
         {
