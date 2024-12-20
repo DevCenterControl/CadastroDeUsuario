@@ -50,7 +50,7 @@ namespace CadastroDeUsuario_Infra.Repository
             _dbContext.Remove(entity);
             await _dbContext.SaveChangesAsync();
         }
-        //public async Task<List<TDomain>> FindAll();
+        
         #endregion
     }
 
