@@ -50,8 +50,16 @@ namespace CadastroDeUsuario_Infra.Repository
             _dbContext.Remove(entity);
             await _dbContext.SaveChangesAsync();
         }
-        
-        #endregion
+
+        public async Task DeleteAllUsers()
+        {
+            var users = await _dbContext.Set<TDomain>().ToListAsync();
+            _dbContext.RemoveRange(users);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 
+    #endregion
 }
+
+

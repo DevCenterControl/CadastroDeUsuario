@@ -92,8 +92,15 @@ namespace CadastroDeUsuario
         [HttpGet("GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _userService.GetAllUsers();
-            return Ok(users);
+            try
+            {
+                var users = await _userService.GetAllUsers();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("GetAllUsersByName")]
@@ -128,6 +135,21 @@ namespace CadastroDeUsuario
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpDelete("DeleteAllUsers")]
+        public async Task<IActionResult> DeleteAllUsers()
+        {
+            try
+            {
+                await _userService.DeleteAllUsers();
+                return Ok("Todos os usuarios foram deletados.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
         #endregion
     }

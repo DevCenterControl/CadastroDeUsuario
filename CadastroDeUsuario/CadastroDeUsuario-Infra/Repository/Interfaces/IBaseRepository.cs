@@ -11,6 +11,6 @@ namespace CadastroDeUsuario_Infra.Repository.Interfaces
         Task Update(TDomain entity);
         Task<List<TDomain>> GetAllUsers();
         Task Delete(TDomain entity);
-    
+        Task DeleteAllUsers();    
     }
 }

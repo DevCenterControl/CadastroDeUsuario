@@ -41,7 +41,7 @@ namespace CadastroDeUsuario_Services.User
 
         #region Methods
         public async Task<CreatUserResponseDto> CreateUser(CreateUserRequestDTO request)
-        { 
+        {
             if (!string.IsNullOrEmpty(request.Email))
             {
                 ValidateEmailRequestDTO(request.Email);
@@ -155,7 +155,7 @@ namespace CadastroDeUsuario_Services.User
                     Cpf = user.Cpf,
                     Name = user.Nome,
                     Email = user.Email,
-                
+
                 }).ToList();
 
                 return userDtos;
@@ -258,6 +258,11 @@ namespace CadastroDeUsuario_Services.User
             {
                 throw new Exception("CPF so pode conter a letra X e 11 digitos.");
             }
+        }
+
+        public async Task DeleteAllUsers()
+        {
+             await _baseRepository.DeleteAllUsers();
         }
 
         #endregion
