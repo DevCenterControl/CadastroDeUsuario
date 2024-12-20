@@ -89,21 +89,7 @@ namespace CadastroDeUsuario
                 return BadRequest(ex.Message);
             }
         }
-        //[HttpGet("GetAllUser")]
-        //public async Task<IActionResult> GetAllUser()
-        //{
-        //    try
-        //    {
-        //        var users = await _userService.GetAllUser();
-        //        return Ok(users);
-        //    }
-        //    catch (Exception ex)
-
-        //    { return BadRequest(ex.Message); }
-
-
-
-        //}
+        
         #endregion
     }
 }
