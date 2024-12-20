@@ -145,6 +145,25 @@ namespace CadastroDeUsuario_Services.User
             };
         }
 
+        public async Task<List<GetUserResponseDTO>> GetAllUsers()
+        {
+            {
+                var users = await _baseRepository.GetAllUsers();
+
+                var userDtos = users.Select(user => new GetUserResponseDTO
+                {
+                    Cpf = user.Cpf,
+                    Name = user.Nome,
+                    Email = user.Email,
+                
+                }).ToList();
+
+                return userDtos;
+            }
+        }
+
+
+
         public async Task<List<GetUserResponseDTO>> GetAllUsersByName(GetUserRequestDTO request)
         {
             if (string.IsNullOrEmpty(request.Name))

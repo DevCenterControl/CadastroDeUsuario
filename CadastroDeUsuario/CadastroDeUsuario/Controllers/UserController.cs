@@ -7,6 +7,7 @@ using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 namespace CadastroDeUsuario
 {
     //[Authorize]
@@ -61,9 +62,7 @@ namespace CadastroDeUsuario
             try
             {
                 var deletedUser = await _userService.DeleteUser(Cpf);
-                //if (deletedUser == null)
-                //    return NotFound("Usuário não encontrado.");
-
+                
                 return Ok(deletedUser);
             }
             catch (Exception ex)
@@ -89,7 +88,15 @@ namespace CadastroDeUsuario
                 return BadRequest(ex.Message);
             }
         }
-        
+
+        [HttpGet("GetAllUsers")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsers();
+            return Ok(users);
+        }
+
+
         #endregion
     }
 }
