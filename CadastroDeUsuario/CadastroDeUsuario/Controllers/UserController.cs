@@ -41,12 +41,12 @@ namespace CadastroDeUsuario
         }
 
         [HttpGet("GetUsersByName")]
-        public async Task<IActionResult> GetUsersByName([FromQuery] string name)
+        public async Task<IActionResult> GetUsersByName([FromQuery] GetUserRequestDTO name)
         {
             try
             {
                 var users = await _userService.GetUsersByName(name);
-                //se o retorno for null nao vou avisar?!!
+   
                 return Ok(users);
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace CadastroDeUsuario
         }
 
         [HttpDelete("DeleteUser/{Cpf}")]
-        public async Task<IActionResult> DeleteUser(string Cpf)
+        public async Task<IActionResult> DeleteUser(DeleteUserRequestDTO Cpf)
         {
             try
             {

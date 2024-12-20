@@ -4,7 +4,6 @@ using CadastroDeUsuario_DTO.Request.Auth;
 using CadastroDeUsuario_DTO.Request.User;
 using CadastroDeUsuario_DTO.Response.Auth;
 using CadastroDeUsuario_DTO.Response.User;
-using CadastroDeUsuario_DTO.UserDTO;
 using CadastroDeUsuario_Infra.DBContext;
 using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Auth;
@@ -42,7 +41,7 @@ namespace CadastroDeUsuario_Services.User
 
         #region Methods
         public async Task<CreatUserResponseDto> CreateUser(CreateUserRequestDTO request)
-        { // Adicionar veirifcaação de so adicionar usuario se email e cpf nao eestiver cadastrado, possibilitar enviar um codigo de verificação para o email informado evitando duplicidade.
+        { 
             if (!string.IsNullOrEmpty(request.Email))
             {
                 ValidateEmailRequestDTO(request.Email);
@@ -85,32 +84,26 @@ namespace CadastroDeUsuario_Services.User
             };
         }
 
-        public async Task<List<UserDTO>> GetUsersByName(string name)
+        public async Task<GetUserResponseDTO> GetUsersByName(GetUserRequestDTO request)
         {
-            //errado
-            //faltou validaçao.
-            //faltou usar o metodo da base repository.
+            if (string.IsNullOrEmpty(request.Name))
+                throw new Exception("O nome não pode ser vazio.");
 
-            //ex:   var existingUser = await _baseRepository.Find(x=> x.Name == name);
+            var getUser = await _baseRepository.Find(x => x.Nome == request.Name);
 
-            //se usuario for nulo nao vou avisar? como o usuario vai adivinhar? bola magica?
-            
-            
-            var users = await _dbContext.Users
-                .Where(u => u.Nome.Contains(name))
-                .Select(u => new UserDTO
-                {
-                    Id = u.Id,
-                    Name = u.Nome,
-                    Email = u.Email,
-                    Cpf = u.Cpf,
-                })
-                .ToListAsync();
+            if (getUser == null)
+                throw new Exception("Usuário não localizado.");
 
-            return users;
+            return new GetUserResponseDTO
+            {
+                Name = request.Name,
+                Cpf = request.Cpf,
+                Email = request.Email,
+
+            };
         }
 
-        public async Task<UserDTO> DeleteUser(DeleteUserRequestDTO request)
+        public async Task<DeleteUserResponseDTO> DeleteUser(DeleteUserRequestDTO request)
         {
             if (string.IsNullOrEmpty(request.Cpf))
                 throw new Exception("O CPF não pode ser nulo ou vazio.");
@@ -119,10 +112,8 @@ namespace CadastroDeUsuario_Services.User
                 ValidateCPFFormat(request.Cpf);
             }
 
-            //erradp utilizar o metodo find que ja existe na base reposityory e faz a mesma coisa! cacete!
             var deletedUser = await _baseRepository.Find(x => x.Cpf == request.Cpf);
 
-            //por enquanto utilizar somente o excepetion
             if (deletedUser == null)
                 throw new Exception("Usuário não encontrado com o CPF especificado.");
 

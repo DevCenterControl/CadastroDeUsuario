@@ -8,6 +8,6 @@ namespace CadastroDeUsuario_DTO.Response.User
 {
     public class DeleteUserResponseDTO
     {
-        public string cpf { get; set; }
+        public string Cpf { get; set; }
     }
 }
