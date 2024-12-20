@@ -89,7 +89,7 @@ namespace CadastroDeUsuario_Services.User
             if (string.IsNullOrEmpty(request.Cpf))
                 throw new Exception("O nome não pode ser vazio.");
 
-            var getUser = await _baseRepository.Find(x => x.Nome == request.Cpf);
+            var getUser = await _baseRepository.Find(x => x.Cpf == request.Cpf);
 
             if (getUser == null)
                 throw new Exception("Usuário não localizado.");
