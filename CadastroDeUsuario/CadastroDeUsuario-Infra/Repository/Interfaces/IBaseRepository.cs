@@ -9,7 +9,7 @@ namespace CadastroDeUsuario_Infra.Repository.Interfaces
         Task<List<TDomain>> FindList(Expression<Func<TDomain, bool>> whereByExpression);
         Task Insert(TDomain entity);
         Task Update(TDomain entity);
-        Task<List<TDomain>> GetAll();
+        Task<List<TDomain>> GetAllUsers();
         Task Delete(TDomain entity);
     }
 }

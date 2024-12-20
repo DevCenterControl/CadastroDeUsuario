@@ -23,7 +23,7 @@ namespace CadastroDeUsuario_Infra.Repository
         #region Methods
 
 
-        public async Task<List<TDomain>> GetAll() =>
+        public async Task<List<TDomain>> GetAllUsers() =>
             await _dbContext.Set<TDomain>().ToListAsync();
 
         public async Task<TDomain> Find(Expression<Func<TDomain, bool>> whereByExpression) =>
