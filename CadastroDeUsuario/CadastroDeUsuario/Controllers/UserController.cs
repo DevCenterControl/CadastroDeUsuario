@@ -41,12 +41,12 @@ namespace CadastroDeUsuario
             }
         }
 
-        [HttpGet("GetUsersByName")]
-        public async Task<IActionResult> GetUsersByName([FromQuery] GetUserRequestDTO request)
+        [HttpGet("GetUserByCpf")]
+        public async Task<IActionResult> GetUserByCpf([FromQuery] GetUserRequestDTO request)
         {
             try
             {
-                var users = await _userService.GetUsersByName(request);
+                var users = await _userService.GetUserByCpf(request);
 
                 return Ok(users);
             }

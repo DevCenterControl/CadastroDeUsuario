@@ -7,7 +7,7 @@ namespace CadastroDeUsuario_Services.Interfaces
     public interface IUserService
     {
         Task <CreatUserResponseDto>CreateUser(CreateUserRequestDTO request);
-        Task<GetUserResponseDTO> GetUsersByName( GetUserRequestDTO request);
+        Task<GetUserResponseDTO> GetUserByCpf( GetUserRequestDTO request);
         Task<DeleteUserResponseDTO> DeleteUser(DeleteUserRequestDTO request);
         Task<UpdateUserResponseDTO> UpdateUser(UpdateUserRequestDTO request);
         Task<List<GetUserResponseDTO>> GetAllUsers();

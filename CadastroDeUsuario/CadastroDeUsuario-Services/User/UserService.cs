@@ -84,12 +84,12 @@ namespace CadastroDeUsuario_Services.User
             };
         }
 
-        public async Task<GetUserResponseDTO> GetUsersByName(GetUserRequestDTO request)
+        public async Task<GetUserResponseDTO> GetUserByCpf(GetUserRequestDTO request)
         {
-            if (string.IsNullOrEmpty(request.Name))
+            if (string.IsNullOrEmpty(request.Cpf))
                 throw new Exception("O nome não pode ser vazio.");
 
-            var getUser = await _baseRepository.Find(x => x.Nome == request.Name);
+            var getUser = await _baseRepository.Find(x => x.Nome == request.Cpf);
 
             if (getUser == null)
                 throw new Exception("Usuário não localizado.");
