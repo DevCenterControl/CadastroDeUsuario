@@ -11,6 +11,7 @@ namespace CadastroDeUsuario_DTO.Response.User
         public string Name { get; set; }
         public string Email { get; set; } 
         public string Cpf { get; set; }
+        public int Idade { get; set; }
 
     }
 

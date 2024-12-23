@@ -157,6 +157,7 @@ namespace CadastroDeUsuario_Services.User
                 {
                     Cpf = user.Cpf,
                     Name = user.Nome,
+                    Idade = user.Idade,
                     Email = user.Email,
 
                 }).ToList();
@@ -178,6 +179,7 @@ namespace CadastroDeUsuario_Services.User
             var listUserResponseDTO = userList.Select(user => new GetUserResponseDTO
             {
                 Name = user.Nome,
+                Idade = user.Idade,
                 Email = user.Email,
                 Cpf = user.Cpf
             }).ToList();
