@@ -48,8 +48,6 @@ namespace CadastroDeUsuario_Infra.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Idade")
-                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
