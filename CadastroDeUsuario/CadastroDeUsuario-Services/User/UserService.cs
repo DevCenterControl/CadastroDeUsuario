@@ -99,6 +99,7 @@ namespace CadastroDeUsuario_Services.User
             return new GetUserByCpfResponseDTO
             {
                 Name = getUser.Nome,
+                Idade = getUser.Idade,
                 Cpf = request.Cpf,
                 Email = getUser.Email,
 
