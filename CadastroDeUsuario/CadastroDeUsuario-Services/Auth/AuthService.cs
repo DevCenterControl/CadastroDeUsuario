@@ -1,4 +1,5 @@
-﻿using CadastroDeUsuario_Domain.Entities.User;
+﻿using Azure.Core;
+using CadastroDeUsuario_Domain.Entities.User;
 using CadastroDeUsuario_DTO.Request.Auth;
 using CadastroDeUsuario_DTO.Response.Auth;
 using CadastroDeUsuario_Infra.Repository.Interfaces;
@@ -58,6 +59,11 @@ namespace CadastroDeUsuario_Services.Auth
 
             if (user != null)
             {
+                if (user.Idade < 18)
+                {
+                    throw new Exception("Usuário não permitido. Apenas maiores de 18 anos podem acessar.");
+                }
+
                 return new AuthLoginResponseDTO
                 {
                     UserId = user.Id,
@@ -142,6 +148,7 @@ namespace CadastroDeUsuario_Services.Auth
             }
 
         }
+
 
         #endregion
 
