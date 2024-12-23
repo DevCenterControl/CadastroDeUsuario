@@ -69,6 +69,7 @@ namespace CadastroDeUsuario_Services.User
                 var user = new UserDomain
                 {
                     Nome = request.Nome,
+                    Idade = request.Idade,
                     Email = request.Email,
                     Password = request.Password,
                     Endereco = request.Endereco,
