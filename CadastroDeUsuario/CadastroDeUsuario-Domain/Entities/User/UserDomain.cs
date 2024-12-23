@@ -8,6 +8,9 @@ namespace CadastroDeUsuario_Domain.Entities.User
         public string Nome { get; set; }
 
         [Required]
+        public int Idade { get; set; }
+
+        [Required]
         public string Cpf { get; set; }
 
         public string Endereco { get; set; }
@@ -16,8 +19,7 @@ namespace CadastroDeUsuario_Domain.Entities.User
 
         public string Password { get; set; }
 
-        [Required]
-        public int Idade { get; set; }
+      
 
     }
 }
