@@ -16,5 +16,8 @@ namespace CadastroDeUsuario_Domain.Entities.User
 
         public string Password { get; set; }
 
+        [Required]
+        public int Idade { get; set; }
+
     }
 }

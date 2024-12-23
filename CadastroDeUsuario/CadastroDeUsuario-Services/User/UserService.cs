@@ -55,6 +55,7 @@ namespace CadastroDeUsuario_Services.User
                 throw new Exception("Campo e-mail e CPF deve ser preenchido.");
             }
 
+            ValidateAge(request.Idade);
             ValidatePasswordRequestDTO(request.Password);
 
             var existingUser = await _baseRepository.Find(x => x.Email == request.Email || x.Cpf == request.Cpf);
@@ -262,6 +263,14 @@ namespace CadastroDeUsuario_Services.User
             if (!Regex.IsMatch(CPF, @"^[0-9X]{11}$"))
             {
                 throw new Exception("CPF so pode conter a letra X e 11 digitos.");
+            }
+        }
+
+        private void ValidateAge(int Idade)
+        {
+            if (Idade < 18)
+            {
+                throw new Exception("Cadastro não permitido. Permitido somente para maiores de 18 anos.");
             }
         }
 
