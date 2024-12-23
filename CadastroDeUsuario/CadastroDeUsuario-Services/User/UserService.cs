@@ -196,6 +196,11 @@ namespace CadastroDeUsuario_Services.User
             throw new Exception($"Usuario {request.Id} deletado com sucesso.");
         }
 
+        public async Task DeleteAllUsers()
+        {
+            await _baseRepository.DeleteAllUsers();
+        }
+
         #region private methods
         private void ValidateEmailRequestDTO(string email)
         {
@@ -260,10 +265,7 @@ namespace CadastroDeUsuario_Services.User
             }
         }
 
-        public async Task DeleteAllUsers()
-        {
-             await _baseRepository.DeleteAllUsers();
-        }
+       
 
         #endregion
 
