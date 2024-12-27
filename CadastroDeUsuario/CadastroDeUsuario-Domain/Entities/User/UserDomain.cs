@@ -1,4 +1,5 @@
 ﻿using CadastroDeUsuario_Domain.Entities.Base;
+using CadastroDeUsuario_Domain.Entities.Nota;
 using System.ComponentModel.DataAnnotations;
 
 namespace CadastroDeUsuario_Domain.Entities.User
@@ -19,6 +20,7 @@ namespace CadastroDeUsuario_Domain.Entities.User
 
         public string Password { get; set; }
 
+        public ICollection<NotaDomain> Notas { get; set; } = new List<NotaDomain>();
       
 
     }
