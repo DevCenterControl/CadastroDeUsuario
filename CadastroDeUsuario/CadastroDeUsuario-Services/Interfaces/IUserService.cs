@@ -14,5 +14,6 @@ namespace CadastroDeUsuario_Services.Interfaces
         Task<List<GetUserResponseDTO>> GetAllUsersByName(GetUserRequestDTO request);
         Task<DeleteUserByIdResponseDTO> DeleteUserById(DeleteUserByIdRequestDTO request);
         Task DeleteAllUsers();
+        Task<bool> ChangePassword(ChangePasswordRequestDTO request);
     }
 }

@@ -151,6 +151,24 @@ namespace CadastroDeUsuario
             }
 
         }
+
+        [HttpPost("ChangePassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequestDTO request)
+        {
+            try
+            {
+                var result = await _userService.ChangePassword(request);
+
+                if (result)
+                    return Ok(new { message = "Senha alterada com sucesso." });
+                else
+                    return BadRequest(new { message = "Não foi possível alterar a senha." });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
         #endregion
     }
 }

@@ -206,6 +206,28 @@ namespace CadastroDeUsuario_Services.User
             await _baseRepository.DeleteAllUsers();
         }
 
+        public async Task<bool> ChangePassword(ChangePasswordRequestDTO request)
+        {
+            var user = await _baseRepository.Find(x => x.Email == request.Email);
+            if (user == null)
+            {
+                throw new Exception("Usuário não encontrado.");
+            }
+
+            if (user.Password != request.CurrentPassword)
+            {
+                throw new Exception("Senha atual incorreta.");
+            }
+
+            ValidatePasswordRequestDTO(request.NewPassword);
+
+            user.Password = request.NewPassword;
+            await _baseRepository.Update(user);
+
+            return true;
+        }
+
+
         #region private methods
         private void ValidateEmailRequestDTO(string email)
         {
