@@ -300,8 +300,6 @@ namespace CadastroDeUsuario_Services.User
             }
         }
 
-       
-
         #endregion
 
         #endregion
