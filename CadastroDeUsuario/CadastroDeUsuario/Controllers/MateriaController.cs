@@ -22,14 +22,14 @@ public class MateriaController : BaseController
 
 
     #region EndPoints
-    [HttpPost]
+    [HttpPost("CreateMateria")]
     public async Task<IActionResult> CreateMateria([FromBody] MateriaRequestDTO request)
     {
         var response = await _materiaService.CreateMateria(request);
         return Ok(response);
     }
 
-    [HttpGet]
+    [HttpGet("GetAllMaterias")]
     public async Task<IActionResult> GetAllMaterias()
     {
         var response = await _materiaService.GetAllMaterias();
