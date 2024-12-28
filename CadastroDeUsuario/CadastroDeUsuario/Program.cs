@@ -4,6 +4,7 @@ using CadastroDeUsuario_Infra.Repository;
 using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
+using CadastroDeUsuario_Services.Materia;
 using CadastroDeUsuario_Services.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -19,6 +20,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSingleton<JwtService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IMateriaService, MateriaService>();
+
 
 
 
@@ -29,6 +32,7 @@ builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 #region Services DI
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IUserService,UserService>();
+builder.Services.AddTransient<IMateriaService, MateriaService>();
 #endregion
 
 

@@ -1,13 +1,6 @@
-﻿using CadastroDeUsuario_Domain.Entities.User;
-using CadastroDeUsuario_DTO.Request.Auth;
-using CadastroDeUsuario_DTO.Request.User;
-using CadastroDeUsuario_Infra.Repository;
-using CadastroDeUsuario_Infra.Repository.Interfaces;
-using CadastroDeUsuario_Services.Auth;
+﻿using CadastroDeUsuario_DTO.Request.User;
 using CadastroDeUsuario_Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 namespace CadastroDeUsuario
 {
     //[Authorize]

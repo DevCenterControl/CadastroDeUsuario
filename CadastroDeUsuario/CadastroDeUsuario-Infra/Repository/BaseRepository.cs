@@ -57,6 +57,11 @@ namespace CadastroDeUsuario_Infra.Repository
             _dbContext.RemoveRange(users);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<List<TDomain>> GetAllMaterias() =>
+            await _dbContext.Set<TDomain>().ToListAsync();
+
+
     }
 
     #endregion

@@ -1,4 +1,5 @@
-﻿using CadastroDeUsuario_Domain.Entities.Materia;
+﻿using CadastroDeUsuario_Domain.Entities.Base;
+using CadastroDeUsuario_Domain.Entities.Materia;
 using CadastroDeUsuario_Domain.Entities.User;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CadastroDeUsuario_Domain.Entities.Nota
 {
-    public class NotaDomain
+    public class NotaDomain : BaseDomain
     {
         public int Id { get; set; }
 
