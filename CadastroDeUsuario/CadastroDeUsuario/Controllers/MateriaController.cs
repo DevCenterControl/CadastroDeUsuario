@@ -7,7 +7,7 @@ namespace CadastroDeUsuario;
 
 [ApiController]
 [Route("Controller")]
-public class MateriaController : BaseController
+public class MateriaController : Controller
 {
     #region Fields
     private readonly IMateriaService _materiaService;

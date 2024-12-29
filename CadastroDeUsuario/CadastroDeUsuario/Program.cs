@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSingleton<JwtService>();
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<IMateriaService, MateriaService>();
+builder.Services.AddScoped<MateriaService>();
 
 
 
@@ -33,6 +33,7 @@ builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IUserService,UserService>();
 builder.Services.AddTransient<IMateriaService, MateriaService>();
+
 #endregion
 
 
@@ -75,8 +76,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllers();
 
