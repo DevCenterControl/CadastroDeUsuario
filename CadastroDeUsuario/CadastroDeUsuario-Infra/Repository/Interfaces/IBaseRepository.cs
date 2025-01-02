@@ -13,7 +13,8 @@ namespace CadastroDeUsuario_Infra.Repository.Interfaces
         Task Delete(TDomain entity);
         Task DeleteAllUsers();  
 
-        Task<List<TDomain>> GetAllMaterias();
+        Task<List<TDomain>> GetAllSchoolSubjects();
+        Task DeleteAllSchoolSubjects();
         
 
         

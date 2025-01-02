@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CadastroDeUsuario_DTO.Response.Materia
+namespace CadastroDeUsuario_DTO.Request.Materia
 {
-    public class MateriaResponseDTO
+    public class SchoolSubjectRequestDTO
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
     }
 }

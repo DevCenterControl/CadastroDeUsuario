@@ -58,7 +58,7 @@ namespace CadastroDeUsuario_Infra.Repository
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<TDomain>> GetAllMaterias() =>
+        public async Task<List<TDomain>> GetAllSchoolSubjects() =>
             await _dbContext.Set<TDomain>().ToListAsync();
 
 

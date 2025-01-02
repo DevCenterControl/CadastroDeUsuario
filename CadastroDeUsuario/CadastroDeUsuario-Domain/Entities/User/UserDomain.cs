@@ -20,7 +20,7 @@ namespace CadastroDeUsuario_Domain.Entities.User
 
         public string Password { get; set; }
 
-        public ICollection<NotaDomain> Notas { get; set; } = new List<NotaDomain>();
+        public ICollection<NoteDomain> Notas { get; set; } = new List<NoteDomain>();
       
 
     }

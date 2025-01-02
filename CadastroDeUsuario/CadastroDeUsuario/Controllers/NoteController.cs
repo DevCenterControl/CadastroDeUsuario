@@ -5,14 +5,14 @@ namespace CadastroDeUsuario
 {
     [ApiController]
     [Route("Controller")]
-    public class  NotaController : Controller
+    public class  NoteController : Controller
     {
         #region Fields
-        private readonly INotaService _notaService;
+        private readonly INoteService _notaService;
         #endregion
 
         #region Constructor
-        public NotaController(INotaService notaService)
+        public NoteController(INoteService notaService)
         {
             _notaService = notaService;
         }

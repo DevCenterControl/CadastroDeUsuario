@@ -6,7 +6,8 @@ namespace CadastroDeUsuario_Services.Interfaces
 {
     public interface ISchoolSubjectService 
     {
-        Task<MateriaResponseDTO> CreateSchoolSubject(MateriaRequestDTO request);
-        Task<List<MateriaResponseDTO>> GetAllMaterias();
+        Task<SchoolSubjectResponseDTO> CreateSchoolSubject(SchoolSubjectRequestDTO request);
+        Task<List<SchoolSubjectResponseDTO>> GetAllSchoolSubjects();
+        Task DeleteAllSchoolSubjects();
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CadastroDeUsuario_Domain.Entities.Nota
 {
-    public class NotaDomain : BaseDomain
+    public class NoteDomain : BaseDomain
     {
         public int Id { get; set; }
 
@@ -19,7 +19,7 @@ namespace CadastroDeUsuario_Domain.Entities.Nota
 
       
         public int MateriaId { get; set; }
-        public MateriaDomain Materia { get; set; }
+        public SchoolSubjectDomain Materia { get; set; }
 
         
         public double Valor { get; set; }

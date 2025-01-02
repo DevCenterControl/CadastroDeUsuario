@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace CadastroDeUsuario_Domain.Entities.Materia
 {
-    public class MateriaDomain : BaseDomain
+    public class SchoolSubjectDomain : BaseDomain
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public ICollection<NotaDomain> Notas { get; set; } = new List<NotaDomain>();
+        public ICollection<NoteDomain> Notas { get; set; } = new List<NoteDomain>();
     }
 }

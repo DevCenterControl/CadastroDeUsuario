@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CadastroDeUsuario_Services.Interfaces
 {
-    public interface INotaService
+    public interface INoteService
     {
     }
 }

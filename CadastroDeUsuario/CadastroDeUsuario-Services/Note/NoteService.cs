@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CadastroDeUsuario_Services.Nota
 {
-    public class NotaService : INotaService
+    public class NoteService : INoteService
     {
     }
 }

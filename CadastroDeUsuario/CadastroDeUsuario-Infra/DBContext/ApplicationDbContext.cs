@@ -13,20 +13,20 @@ namespace CadastroDeUsuario_Infra.DBContext
         }
 
         public DbSet<UserDomain> Users { get; set; }
-        public DbSet<MateriaDomain> Materias { get; set; }
+        public DbSet<SchoolSubjectDomain> Materias { get; set; }
 
-        public DbSet<NotaDomain> Notas { get; set; }
+        public DbSet<NoteDomain> Notas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            
-            modelBuilder.Entity<NotaDomain>()
+            modelBuilder.Entity<NoteDomain>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.Notas)
                 .HasForeignKey(x => x.UserId);
 
             
-            modelBuilder.Entity<NotaDomain>()
+            modelBuilder.Entity<NoteDomain>()
                 .HasOne(x => x.Materia)
                 .WithMany(x => x.Notas)
                 .HasForeignKey(x => x.MateriaId);
