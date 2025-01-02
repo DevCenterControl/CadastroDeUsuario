@@ -43,7 +43,7 @@ public class SchoolSubjectController : Controller
         try
         {
             await _schoolSubjectService.DeleteAllSchoolSubjects();
-            return Ok("Todos as materias foram deletados.");
+            return Ok("Todos as materias foram deletadas.");
         }
         catch (Exception ex)
         {
