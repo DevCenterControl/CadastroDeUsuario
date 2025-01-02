@@ -61,6 +61,13 @@ namespace CadastroDeUsuario_Infra.Repository
         public async Task<List<TDomain>> GetAllSchoolSubjects() =>
             await _dbContext.Set<TDomain>().ToListAsync();
 
+        public async Task DeleteAllSchoolSubjects()
+        {
+            var schoolSubjects = await _dbContext.Set<TDomain>().ToListAsync();
+            _dbContext.RemoveRange(schoolSubjects);
+            await _dbContext.SaveChangesAsync();
+        }
+
 
     }
 

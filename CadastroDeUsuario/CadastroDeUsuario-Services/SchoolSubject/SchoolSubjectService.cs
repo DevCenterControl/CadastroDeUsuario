@@ -14,9 +14,9 @@ namespace CadastroDeUsuario_Services.Materia
         #endregion
 
         #region Constructor
-        public SchoolSubjectService(IBaseRepository<SchoolSubjectDomain> materiaRepository)
+        public SchoolSubjectService(IBaseRepository<SchoolSubjectDomain> schoolSubjectRepository)
         {
-            _schoolSubjectRepository = materiaRepository;
+            _schoolSubjectRepository = schoolSubjectRepository;
         }
         #endregion
 
