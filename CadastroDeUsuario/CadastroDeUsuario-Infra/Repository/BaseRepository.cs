@@ -1,4 +1,5 @@
 ﻿using CadastroDeUsuario_Domain.Entities.Base;
+using CadastroDeUsuario_Domain.Entities.Nota;
 using CadastroDeUsuario_Domain.Entities.User;
 using CadastroDeUsuario_Infra.DBContext;
 using CadastroDeUsuario_Infra.Repository.Interfaces;

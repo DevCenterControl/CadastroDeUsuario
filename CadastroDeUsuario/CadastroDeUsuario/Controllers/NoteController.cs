@@ -1,4 +1,5 @@
-﻿using CadastroDeUsuario_Services.Interfaces;
+﻿using CadastroDeUsuario_DTO.Request.Note;
+using CadastroDeUsuario_Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroDeUsuario
@@ -8,19 +9,23 @@ namespace CadastroDeUsuario
     public class  NoteController : Controller
     {
         #region Fields
-        private readonly INoteService _notaService;
+        private readonly INoteService _noteService;
         #endregion
 
         #region Constructor
-        public NoteController(INoteService notaService)
+        public NoteController(INoteService noteService)
         {
-            _notaService = notaService;
+            _noteService = noteService;
         }
         #endregion
 
         #region EndPoints
-        
-
+        [HttpPost]
+        public async Task<IActionResult> CreateNote([FromBody] NoteRequestDTO request)
+        {
+            var result = await _noteService.CreateNote(request);
+            return Ok(result);
+        }
         #endregion
     }
 }

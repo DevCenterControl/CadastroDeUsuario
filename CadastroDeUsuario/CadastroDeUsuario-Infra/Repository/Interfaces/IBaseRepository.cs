@@ -16,6 +16,7 @@ namespace CadastroDeUsuario_Infra.Repository.Interfaces
         Task<List<TDomain>> GetAllSchoolSubjects();
         Task DeleteAllSchoolSubjects();
         
+        
 
         
     }
