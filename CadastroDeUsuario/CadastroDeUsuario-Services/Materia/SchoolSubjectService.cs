@@ -6,21 +6,21 @@ using CadastroDeUsuario_Services.Interfaces;
 
 namespace CadastroDeUsuario_Services.Materia
 {
-    public class MateriaService : IMateriaService
+    public class SchoolSubjectService : ISchoolSubjectService
     {
         #region Fields
         private readonly IBaseRepository<MateriaDomain> _materiaRepository;
         #endregion
 
         #region Constructor
-        public MateriaService(IBaseRepository<MateriaDomain> materiaRepository)
+        public SchoolSubjectService(IBaseRepository<MateriaDomain> materiaRepository)
         {
             _materiaRepository = materiaRepository;
         }
         #endregion
 
         #region Methods
-        public async Task<MateriaResponseDTO> CreateMateria(MateriaRequestDTO request)
+        public async Task<MateriaResponseDTO> CreateSchoolSubject(MateriaRequestDTO request)
         {
             var materia = new MateriaDomain
             {

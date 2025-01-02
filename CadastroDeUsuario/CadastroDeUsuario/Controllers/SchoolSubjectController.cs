@@ -7,14 +7,14 @@ namespace CadastroDeUsuario;
 
 [ApiController]
 [Route("Controller")]
-public class MateriaController : Controller
+public class SchoolSubjectController : Controller
 {
     #region Fields
-    private readonly IMateriaService _materiaService;
+    private readonly ISchoolSubjectService _materiaService;
     #endregion
 
     #region Constructor
-    public MateriaController(IMateriaService materiaService)
+    public SchoolSubjectController(ISchoolSubjectService materiaService)
     {
         _materiaService = materiaService;
     }
@@ -22,10 +22,10 @@ public class MateriaController : Controller
 
 
     #region EndPoints
-    [HttpPost("CreateMateria")]
-    public async Task<IActionResult> CreateMateria([FromBody] MateriaRequestDTO request)
+    [HttpPost("CreateSchoolSubject")]
+    public async Task<IActionResult> CreateSchoolSubject([FromBody] MateriaRequestDTO request)
     {
-        var response = await _materiaService.CreateMateria(request);
+        var response = await _materiaService.CreateSchoolSubject(request);
         return Ok(response);
     }
 

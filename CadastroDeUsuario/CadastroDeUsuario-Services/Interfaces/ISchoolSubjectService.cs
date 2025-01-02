@@ -4,9 +4,9 @@ using CadastroDeUsuario_Infra.Repository.Interfaces;
 
 namespace CadastroDeUsuario_Services.Interfaces
 {
-    public interface IMateriaService 
+    public interface ISchoolSubjectService 
     {
-        Task<MateriaResponseDTO> CreateMateria(MateriaRequestDTO request);
+        Task<MateriaResponseDTO> CreateSchoolSubject(MateriaRequestDTO request);
         Task<List<MateriaResponseDTO>> GetAllMaterias();
     }
 }
