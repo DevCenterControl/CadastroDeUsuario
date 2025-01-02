@@ -20,7 +20,7 @@ namespace CadastroDeUsuario
         #endregion
 
         #region EndPoints
-        [HttpPost]
+        [HttpPost("CreateNote")]
         public async Task<IActionResult> CreateNote([FromBody] NoteRequestDTO request)
         {
             var result = await _noteService.CreateNote(request);
