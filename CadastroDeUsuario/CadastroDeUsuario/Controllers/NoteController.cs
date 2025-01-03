@@ -23,20 +23,37 @@ namespace CadastroDeUsuario
         [HttpPost("CreateNote")]
         public async Task<IActionResult> CreateNote([FromBody] NoteRequestDTO request)
         {
-            var result = await _noteService.CreateNote(request);
-            return Ok(result);
+            try
+            {
+                var result = await _noteService.CreateNote(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("GetNotesByUserId")]
         public async Task<IActionResult> GetNotesByUserId(int Id)
         {
-            var note = await _noteService.GetNoteByUserId(Id);
-            if (note == null)
+            try
             {
-                return NotFound();
+                var note = await _noteService.GetNoteByUserId(Id);
+                if (note == null)
+
+                {
+                    return NotFound("Nenhuma nota encontrada para o usuario informado");
+                }
+                return Ok(note);
             }
-            return Ok(note);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
+
         #endregion
     }
 }
