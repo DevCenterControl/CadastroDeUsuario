@@ -1,4 +1,5 @@
-﻿using CadastroDeUsuario_DTO.Request.Note;
+﻿using CadastroDeUsuario_Domain.Entities.Nota;
+using CadastroDeUsuario_DTO.Request.Note;
 using CadastroDeUsuario_DTO.Response.Note;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,7 @@ namespace CadastroDeUsuario_Services.Interfaces
     public interface INoteService
     {
         Task<NoteResponseDTO> CreateNote(NoteRequestDTO note);
+        Task<List<NoteDomain>> GetNoteByUserId(int userId);
+        
     }
 }

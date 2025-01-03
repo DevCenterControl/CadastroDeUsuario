@@ -26,6 +26,17 @@ namespace CadastroDeUsuario
             var result = await _noteService.CreateNote(request);
             return Ok(result);
         }
+
+        [HttpGet("GetNotesByUserId")]
+        public async Task<IActionResult> GetNotesByUserId(int Id)
+        {
+            var note = await _noteService.GetNoteByUserId(Id);
+            if (note == null)
+            {
+                return NotFound();
+            }
+            return Ok(note);
+        }
         #endregion
     }
 }

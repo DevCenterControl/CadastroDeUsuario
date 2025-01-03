@@ -46,6 +46,11 @@ namespace CadastroDeUsuario_Services.Nota
             };
         }
 
+        public async Task<List<NoteDomain>> GetNoteByUserId(int UserId)
+        {
+            return await _noteRepository.FindAll(x => x.UserId == UserId);
+        }
+
         #endregion
 
     }

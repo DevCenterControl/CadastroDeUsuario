@@ -5,6 +5,7 @@ using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Auth;
 using CadastroDeUsuario_Services.Interfaces;
 using CadastroDeUsuario_Services.Materia;
+using CadastroDeUsuario_Services.Nota;
 using CadastroDeUsuario_Services.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddSingleton<JwtService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<SchoolSubjectService>();
+builder.Services.AddScoped<NoteService>();
 
 
 
@@ -33,7 +35,7 @@ builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IUserService,UserService>();
 builder.Services.AddTransient<ISchoolSubjectService, SchoolSubjectService>();
-
+builder.Services.AddTransient<INoteService, NoteService>();
 #endregion
 
 
