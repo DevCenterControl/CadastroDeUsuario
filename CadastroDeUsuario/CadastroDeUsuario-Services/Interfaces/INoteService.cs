@@ -11,9 +11,10 @@ namespace CadastroDeUsuario_Services.Interfaces
 {
     public interface INoteService
     {
-        Task<NoteResponseDTO> CreateNote(NoteRequestDTO note);
-        Task<List<NoteDomain>> GetNoteByUserId(int UserId);
+        Task<CreateNoteResponseDTO> CreateNote(CreateNoteRequestDTO note);
+        Task<List<GetNoteByUserIdResponseDTO>> GetNoteByUserId(int UserId);
         Task DeleteAllNotes();
+       
         
     }
 }

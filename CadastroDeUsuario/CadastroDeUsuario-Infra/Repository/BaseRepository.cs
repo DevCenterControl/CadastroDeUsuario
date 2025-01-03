@@ -76,6 +76,18 @@ namespace CadastroDeUsuario_Infra.Repository
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task<List<TDomain>> FindAllWithIncludes(Expression<Func<TDomain, bool>> whereByExpression,
+               params Expression<Func<TDomain, object>>[] includes)
+        {
+            IQueryable<TDomain> query = _dbContext.Set<TDomain>();
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.Where(whereByExpression).ToListAsync();
+        }
 
     }
 

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CadastroDeUsuario_DTO.Response.Note
+namespace CadastroDeUsuario_DTO.Request.Note
 {
-    public class NoteResponseDTO
+    public class CreateNoteRequestDTO
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int MateriaId { get; set; }
         public double Valor { get; set; }

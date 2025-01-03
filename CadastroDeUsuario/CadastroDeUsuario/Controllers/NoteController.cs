@@ -22,7 +22,7 @@ namespace CadastroDeUsuario
 
         #region EndPoints
         [HttpPost("CreateNote")]
-        public async Task<IActionResult> CreateNote([FromBody] NoteRequestDTO request)
+        public async Task<IActionResult> CreateNote([FromBody] CreateNoteRequestDTO request)
         {
             try
             {

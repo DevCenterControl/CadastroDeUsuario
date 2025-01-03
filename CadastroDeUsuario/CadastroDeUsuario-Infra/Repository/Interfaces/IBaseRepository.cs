@@ -17,6 +17,8 @@ namespace CadastroDeUsuario_Infra.Repository.Interfaces
         Task DeleteAllSchoolSubjects();
         Task DeleteAllNotes();
 
+        Task<List<TDomain>> FindAllWithIncludes(Expression<Func<TDomain, bool>> whereByExpression, params Expression<Func<TDomain, object>>[] includes);
+
 
 
 

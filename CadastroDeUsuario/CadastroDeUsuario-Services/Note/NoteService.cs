@@ -28,7 +28,7 @@ namespace CadastroDeUsuario_Services.Nota
 
         #region Methods
 
-        public async Task<NoteResponseDTO> CreateNote(NoteRequestDTO request)
+        public async Task<CreateNoteResponseDTO> CreateNote(CreateNoteRequestDTO request)
         {
             if (request.Valor < 0 || request.Valor > 10)
             {
@@ -44,30 +44,42 @@ namespace CadastroDeUsuario_Services.Nota
 
             await _noteRepository.Insert(note);
 
-            return new NoteResponseDTO
+            return new CreateNoteResponseDTO
             {
                 Id = note.UserId,
                 UserId = note.UserId,
                 MateriaId = note.MateriaId,
-                Valor = note.Valor
+                Valor = note.Valor,
             };
         }
 
-        public async Task<List<NoteDomain>> GetNoteByUserId(int UserId)
+        public async Task<List<GetNoteByUserIdResponseDTO>> GetNoteByUserId(int UserId)
         {
             if (UserId <= 0)
             {
                 throw new Exception("Id de usuario invalido");
             }
 
-            var notes = await _noteRepository.FindAll(x => x.UserId == UserId);
+            var notes = await _noteRepository.FindAllWithIncludes(
+                x => x.UserId == UserId,
+                x => x.User,
+                x => x.Materia
+            );
 
             if (notes == null || !notes.Any())
             {
                 throw new Exception("Nenhuma nota encontrada para este usuário");
             }
 
-            return notes;
+            return notes.Select(x => new GetNoteByUserIdResponseDTO
+            {
+                Id = x.Id,
+                UserId = x.UserId,
+                MateriaId = x.MateriaId,
+                Materia = x.Materia.Nome,
+                Usuario = x.User.Nome,
+                Valor = x.Valor
+            }).ToList();
         }
 
         public async Task DeleteAllNotes()
