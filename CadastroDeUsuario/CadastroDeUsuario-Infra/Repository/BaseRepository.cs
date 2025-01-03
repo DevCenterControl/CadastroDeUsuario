@@ -69,6 +69,13 @@ namespace CadastroDeUsuario_Infra.Repository
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task DeleteAllNotes()
+        {
+            var notes = await _dbContext.Set<TDomain>().ToListAsync();
+            _dbContext.RemoveRange(notes);
+            await _dbContext.SaveChangesAsync();
+        }
+
 
     }
 

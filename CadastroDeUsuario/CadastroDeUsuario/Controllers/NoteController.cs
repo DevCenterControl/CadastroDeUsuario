@@ -36,11 +36,11 @@ namespace CadastroDeUsuario
         }
 
         [HttpGet("GetNotesByUserId")]
-        public async Task<IActionResult> GetNotesByUserId(int Id)
-        {
+        public async Task<IActionResult> GetNotesByUserId(int UserId)
+        { 
             try
             {
-                var note = await _noteService.GetNoteByUserId(Id);
+                var note = await _noteService.GetNoteByUserId(UserId);
                 if (note == null)
 
                 {

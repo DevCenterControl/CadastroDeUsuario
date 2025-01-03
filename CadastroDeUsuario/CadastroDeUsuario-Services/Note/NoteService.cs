@@ -4,6 +4,7 @@ using CadastroDeUsuario_DTO.Response.Note;
 using CadastroDeUsuario_Infra.Repository;
 using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace CadastroDeUsuario_Services.Nota
 
             return new NoteResponseDTO
             {
-                Id = note.Id,
+                Id = note.UserId,
                 UserId = note.UserId,
                 MateriaId = note.MateriaId,
                 Valor = note.Valor
@@ -56,15 +57,14 @@ namespace CadastroDeUsuario_Services.Nota
         {
             if (UserId <= 0)
             {
-                throw new Exception("Id de usuario nao localizado");
+                throw new Exception("Id de usuario invalido");
             }
 
             var notes = await _noteRepository.FindAll(x => x.UserId == UserId);
-            
+
             if (notes == null || !notes.Any())
             {
-                throw new Exception("Nenhuma nota encontrada para este usuario");
-
+                throw new Exception("Nenhuma nota encontrada para este usuário");
             }
 
             return notes;
