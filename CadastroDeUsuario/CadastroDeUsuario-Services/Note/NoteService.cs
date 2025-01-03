@@ -26,7 +26,7 @@ namespace CadastroDeUsuario_Services.Nota
 
         #region Methods
 
-        public async Task<NoteResponseDTO> CreateNote (NoteRequestDTO request)
+        public async Task<NoteResponseDTO> CreateNote(NoteRequestDTO request)
         {
             if (request.Valor < 0 || request.Valor > 10)
             {
@@ -51,14 +51,22 @@ namespace CadastroDeUsuario_Services.Nota
             };
         }
 
-        public async Task<List<NoteDomain>> GetNoteByUserId(int? UserId)
+        public async Task<List<NoteDomain>> GetNoteByUserId(int UserId)
         {
-            if (UserId == null)
+            if (UserId <= 0)
             {
                 throw new Exception("Id de usuario nao localizado");
             }
 
-            return await _noteRepository.FindAll(x => x.UserId == UserId);
+            var notes = await _noteRepository.FindAll(x => x.UserId == UserId);
+            
+            if (notes == null || !notes.Any())
+            {
+                throw new Exception("Nenhuma nota encontrada para este usuario");
+
+            }
+
+            return notes;
         }
 
         #endregion
