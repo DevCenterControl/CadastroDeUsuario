@@ -23,6 +23,11 @@ namespace CadastroDeUsuario_Services.Materia
         #region Methods
         public async Task<SchoolSubjectResponseDTO> CreateSchoolSubject(SchoolSubjectRequestDTO request)
         {
+            if (request == null)
+            {
+                throw new Exception("O Nome da materia nao pode estar vazio.");
+            }
+
             var materia = new SchoolSubjectDomain
             {
                 Nome = request.Nome

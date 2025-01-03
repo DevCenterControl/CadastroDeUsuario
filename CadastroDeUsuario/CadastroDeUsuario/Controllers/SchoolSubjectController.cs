@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using CadastroDeUsuario_Services.Materia;
 using CadastroDeUsuario_DTO.Request.Materia;
 using CadastroDeUsuario_Services.User;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace CadastroDeUsuario;
 
@@ -26,15 +27,31 @@ public class SchoolSubjectController : Controller
     [HttpPost("CreateSchoolSubject")]
     public async Task<IActionResult> CreateSchoolSubject([FromBody] SchoolSubjectRequestDTO request)
     {
-        var response = await _schoolSubjectService.CreateSchoolSubject(request);
-        return Ok(response);
+        try
+        {
+            var response = await _schoolSubjectService.CreateSchoolSubject(request);
+            return Ok(response);
+
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+      
     }
 
     [HttpGet("GetAllSchoolSubjects")]
     public async Task<IActionResult> GetAllSchoolSubjects()
     {
-        var response = await _schoolSubjectService.GetAllSchoolSubjects();
-        return Ok(response);
+        try
+        {
+            var response = await _schoolSubjectService.GetAllSchoolSubjects();
+            return Ok(response);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpDelete("DeleteAllSchoolSubjects")]
