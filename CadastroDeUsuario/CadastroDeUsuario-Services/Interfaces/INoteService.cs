@@ -13,6 +13,7 @@ namespace CadastroDeUsuario_Services.Interfaces
     {
         Task<NoteResponseDTO> CreateNote(NoteRequestDTO note);
         Task<List<NoteDomain>> GetNoteByUserId(int UserId);
+        Task DeleteAllNotes();
         
     }
 }

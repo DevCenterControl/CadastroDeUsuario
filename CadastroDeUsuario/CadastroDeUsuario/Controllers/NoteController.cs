@@ -1,12 +1,13 @@
 ﻿using CadastroDeUsuario_DTO.Request.Note;
 using CadastroDeUsuario_Services.Interfaces;
+using CadastroDeUsuario_Services.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroDeUsuario
 {
     [ApiController]
     [Route("Controller")]
-    public class  NoteController : Controller
+    public class NoteController : Controller
     {
         #region Fields
         private readonly INoteService _noteService;
@@ -52,6 +53,21 @@ namespace CadastroDeUsuario
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpDelete("DeleteAllNotes")]
+        public async Task<IActionResult> DeleteAllNotes()
+        {
+            try
+            {
+                await _noteService.DeleteAllNotes();
+                return Ok("Todas as notas foram deletadas.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
 
         #endregion

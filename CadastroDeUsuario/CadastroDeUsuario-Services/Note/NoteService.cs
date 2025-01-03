@@ -1,6 +1,7 @@
 ﻿using CadastroDeUsuario_Domain.Entities.Nota;
 using CadastroDeUsuario_DTO.Request.Note;
 using CadastroDeUsuario_DTO.Response.Note;
+using CadastroDeUsuario_Infra.Repository;
 using CadastroDeUsuario_Infra.Repository.Interfaces;
 using CadastroDeUsuario_Services.Interfaces;
 using System;
@@ -67,6 +68,11 @@ namespace CadastroDeUsuario_Services.Nota
             }
 
             return notes;
+        }
+
+        public async Task DeleteAllNotes()
+        {
+            await _noteRepository.DeleteAllNotes();
         }
 
         #endregion
