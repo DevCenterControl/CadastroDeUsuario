@@ -225,6 +225,7 @@ namespace CadastroDeUsuario_Services.User
             await _baseRepository.Update(user);
 
             return true;
+
         }
 
 
