@@ -60,7 +60,7 @@ namespace CadastroDeUsuario
             try
             {
                 await _noteService.DeleteAllNotes();
-                return Ok("Todas as notas foram deletadas.");
+                return Ok("Todas as notas foram deletadas do sistema.");
             }
             catch (Exception ex)
             {
